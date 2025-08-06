@@ -30,23 +30,6 @@ const Hero = () => {
             Your virtual extended arm for innovative engineering solutions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button 
-              size="lg" 
-              variant="secondary"
-              className="text-lg px-8 py-6 shadow-glow"
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
-              Our Services
-            </Button>
-          </div>
           
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

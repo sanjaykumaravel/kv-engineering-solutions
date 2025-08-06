@@ -34,7 +34,11 @@ const Header = () => {
               {item.label}
             </a>
           ))}
-          <Button variant="default" className="shadow-professional">
+          <Button 
+            variant="default" 
+            className="shadow-professional"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Get Quote
           </Button>
         </nav>
@@ -61,7 +65,14 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="default" className="w-full">
+              <Button 
+                variant="default" 
+                className="w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Get Quote
               </Button>
             </nav>
