@@ -94,7 +94,7 @@ const Contact = () => {
               <CardHeader>
                 <CardTitle className="text-2xl text-foreground">Get A Quote</CardTitle>
                 <p className="text-muted-foreground">
-                  Fill out the form below and our team will get back to you within 24 hours.
+                  Fill out the form below and our team will get back to you within 24 hours. We will contact you via mail for further discussions.
                 </p>
               </CardHeader>
               <CardContent>
