@@ -187,8 +187,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
-                        <p className="text-foreground">{info.details}</p>
-                        <p className="text-sm text-muted-foreground">{info.subtitle}</p>
+                        <p className="text-foreground break-words">{info.details}</p>
+                        <p className="text-sm text-muted-foreground break-words">{info.subtitle}</p>
                       </div>
                     </div>
                   </CardContent>
