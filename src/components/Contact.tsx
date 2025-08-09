@@ -51,20 +51,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "contact@ksvengineering.com",
-      subtitle: "info@ksvengineering.com"
+      details: "ksvengineeringconsultant@gmail.com",
+      subtitle: "We respond within 24 hours"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+91 XXX XXX XXXX",
-      subtitle: "24/7 Support Available"
+      details: "Managing Director: +91 9444781533",
+      subtitle: "Design Engineer: +91 6383991532"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "3600 sq ft Campus",
-      subtitle: "Advanced Technical Facilities"
+      details: "No.164 Mahalakshmi Nagar, Thirumudivakkam, Kundrathur, Chennai - 600 069, TamilNadu, INDIA.",
+      subtitle: ""
     },
     {
       icon: Clock,

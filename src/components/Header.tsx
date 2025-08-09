@@ -17,9 +17,11 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-hero rounded-md flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">KV</span>
-          </div>
+          <img
+            src="/lovable-uploads/658c083b-5ef7-40e2-ba6c-ecb609b7c0cb.png"
+            alt="KSV Engineering logo"
+            className="w-8 h-8 rounded-md object-contain"
+          />
           <span className="font-bold text-xl text-foreground">KSV Engineering</span>
         </div>
 
