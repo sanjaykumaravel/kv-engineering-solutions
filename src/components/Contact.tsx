@@ -53,24 +53,6 @@ const Contact = () => {
       title: "Email Us",
       details: "ksvengineeringconsultant@gmail.com",
       subtitle: "We respond within 24 hours"
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: "Managing Director: +91 9444781533",
-      subtitle: "Design Engineer: +91 6383991532"
-    },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: "No.164 Mahalakshmi Nagar, Thirumudivakkam, Kundrathur, Chennai - 600 069, TamilNadu, INDIA.",
-      subtitle: ""
-    },
-    {
-      icon: Clock,
-      title: "Working Hours",
-      details: "Mon - Fri: 9AM - 6PM",
-      subtitle: "Emergency: 24/7"
     }
   ];
 
