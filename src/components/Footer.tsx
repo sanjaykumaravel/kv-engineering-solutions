@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,15 +40,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-engineering-orange" />
-                <span className="text-sm">contact@ksvengineering.com</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-engineering-teal" />
-                <span className="text-sm">+91 XXX XXX XXXX</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-engineering-orange" />
-                <span className="text-sm">3600 sq ft Advanced Campus</span>
+                <span className="text-sm">ksvengineeringconsultant@gmail</span>
               </div>
             </div>
           </div>
@@ -77,7 +69,7 @@ const Footer = () => {
               {projects.map((project, index) => (
                 <li key={index}>
                   <a 
-                    href="#services" 
+                    href="#about" 
                     className="text-gray-300 hover:text-engineering-teal transition-colors duration-200 text-sm"
                   >
                     {project}
