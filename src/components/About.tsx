@@ -1,8 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Target, Globe, Clock } from "lucide-react";
 import infrastructureImage from "@/assets/infrastructure.jpg";
+import SEO from '../components/SEO';
+import { SEO as MAP } from '../seoConfig';
 
 const About = () => {
+    const meta = MAP["/about"];
+
   const whyChooseUs = [
     {
       title: "Scalable & On-Time Delivery",
@@ -21,6 +25,8 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-card">
       <div className="container">
+          <SEO {...meta} url="/about" />
+
         {/* About Us */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
