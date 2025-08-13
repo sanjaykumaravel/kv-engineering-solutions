@@ -26,7 +26,7 @@ const Footer = () => {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div>
             <div className="flex items-center space-x-2 mb-6">
               <div className="w-8 h-8 bg-gradient-hero rounded-md flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">KV</span>
@@ -105,22 +105,6 @@ const Footer = () => {
                   className="text-gray-300 hover:text-engineering-orange transition-colors duration-200 text-sm"
                 >
                   Technology
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-gray-300 hover:text-engineering-teal transition-colors duration-200 text-sm"
-                >
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-gray-300 hover:text-engineering-orange transition-colors duration-200 text-sm"
-                >
-                  Get Quote
                 </a>
               </li>
               <li>
