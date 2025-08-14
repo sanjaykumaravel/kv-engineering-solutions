@@ -26,28 +26,28 @@ export const SEO: Record<string, PageSEO> = {
       "Engineering services, EPC projects, OEM support, PMC, project management, feasibility studies, CAD drafting, power plant engineering, switchyard design",
   },
   "/about": {
-    title: "ABOUT  KSV Engineering",
+    title: "KSV Engineering",
     description:
       "We support EPC, OEM, and PMC with end-to-end engineering: design, procurement, construction management, commissioning, and O&M.",
     keywords:
       "KSV Engineering, engineering company, EPC partner, OEM solutions, PMC services",
   },
   "/services": {
-    title: "Engineering Services | KSV Engineering",
+    title: "KSV Engineering",
     description:
       "2D CAD drafting, as-built docs, cable sizing, earthing, load flow, relay settings, switchgear & transformer sizing, ETAP studies, layouts and more.",
     keywords:
       "CAD drafting, as-built documentation, HT/LT switchgear, load flow study, relay setting, ETAP, transformer sizing",
   },
   "/projects": {
-    title: "Projects | KSV Engineering",
+    title: "KSV Engineering",
     description:
       "Thermal, gas, biogas, captive, solar, wind, desalination, smart city—global delivery with scalable, on-time performance.",
     keywords:
       "thermal power plant design, solar engineering, wind projects, desalination, smart city",
   },
   "/contact": {
-    title: "Contact | KSV Engineering",
+    title: "KSV Engineering",
     description:
       "24×7 support and scalable engagement models. Tell us about your project—get a fast, precise quote.",
     keywords:
