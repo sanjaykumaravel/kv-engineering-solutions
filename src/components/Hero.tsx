@@ -1,30 +1,30 @@
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building2, Users, Award } from "lucide-react";
+import SEO from './SEO';
+import { SEO as MAP } from '../seoConfig';
+import JsonLd from "./JsonLd";
+
 import heroImage from "@/assets/engineering-hero.jpg";
 
 const Hero = () => {
+      const meta = MAP["/home"];
+        const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "HomePage",
+    "name": "Home - KSV Engineering",
+    "description": "We provide detailed engineering services to EPC, OEM, and PMC as long-term projects. Your virtual extended arm for innovative engineering solutions.",
+    "url": "https://yourdomain.com/about"
+  };
+  
   return (
     <>
-      <Helmet>
-        <title>KSV Engineering </title>
-        <meta
-          name="description"
-          content="We provide detailed engineering services to EPC, OEM, and PMC worldwide. Your virtual extended arm for innovative engineering solutions."
-        />
-        <meta
-          name="keywords"
-          content="Engineering Services, EPC, OEM, PMC, Global Engineering, Detailed Engineering, Virtual Engineering Team"
-        />
-        <meta property="og:title" content="Engineering Excellence Delivered Globally" />
-        <meta
-          property="og:description"
-          content="We provide detailed engineering services to EPC, OEM, and PMC worldwide. Your virtual extended arm for innovative engineering solutions."
-        />
-        <meta property="og:image" content={heroImage} />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
+      
+      <SEO {...meta} url="/home" />
+      <JsonLd data={schemaData} />
+      
+      
+      
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
         <div
@@ -96,3 +96,25 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+
+{/* <Helmet>
+        <title>KSV Engineering </title>
+        <meta
+          name="description"
+          content="We provide detailed engineering services to EPC, OEM, and PMC worldwide. Your virtual extended arm for innovative engineering solutions."
+        />
+        <meta
+          name="keywords"
+          content="Engineering Services, EPC, OEM, PMC, Global Engineering, Detailed Engineering, Virtual Engineering Team"
+        />
+        <meta property="og:title" content="Engineering Excellence Delivered Globally" />
+        <meta
+          property="og:description"
+          content="We provide detailed engineering services to EPC, OEM, and PMC worldwide. Your virtual extended arm for innovative engineering solutions."
+        />
+        <meta property="og:image" content={heroImage} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+ */}

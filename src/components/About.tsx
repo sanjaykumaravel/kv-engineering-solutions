@@ -1,23 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Target, Globe, Clock } from "lucide-react";
 import infrastructureImage from "@/assets/infrastructure.jpg";
-import SEO from '../components/SEO';
-import JsonLd from "../components/JsonLd";
+import SEO from './SEO';
+import JsonLd from "./JsonLd";
 
 import { SEO as MAP } from '../seoConfig';
 
 const About = () => {
     const meta = MAP["/about"];
 
-      const orgSchema = {
+
+
+  const schemaData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "KSV Engineering",
-    "url": "https://www.ksvengineering.com",
-    "logo": "https://www.ksvengineering.com/logo.png",
-    "description": meta.description,
-    "areaServed": ["US", "Europe", "Middle East", "Global"]
+    "@type": "AboutPage",
+    "name": "About Us",
+    "description": "Learn more about our company, mission, and team.",
+    "url": "https://yourdomain.com/about"
   };
+
 
   const whyChooseUs = [
     {
@@ -37,8 +38,9 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-card">
       <div className="container">
-          <SEO {...meta} url="/about" />
-          <JsonLd data={orgSchema} />
+        <JsonLd data={schemaData} />
+          <SEO {...meta} url="/about" /> 
+          {/* <JsonLd data={orgSchema} />
 
 
         {/* About Us */}

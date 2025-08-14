@@ -1,8 +1,24 @@
-// components/SEO.jsx
+// components/SEO.tsx
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../seoConfig';
 
-export default function SEO({ title, description, keywords, url, image, noindex }) {
+interface SEOProps {
+  title: string;
+  description: string;
+  keywords?: string;
+  url?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+export default function SEO({
+  title,
+  description,
+  keywords,
+  url,
+  image,
+  noindex,
+}: SEOProps) {
   const canonical = `${SITE.baseUrl}${url || ""}`;
   const ogImage = image || SITE.defaultImage;
 
