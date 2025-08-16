@@ -6,8 +6,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import SEO from './SEO.js';
+import { SEO as MAP } from '../seoConfig.js';
+import JsonLd from "./JsonLd.js";
+
 
 const Contact = () => {
+const meta = MAP["/contact"];
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -56,8 +61,19 @@ const Contact = () => {
     }
   ];
 
+    const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Us",
+    "description": "Get in touch with KSV Engineering for your project requirements.",
+    "url": "https://yourdomain.com/about"
+  };
+
   return (
     <section id="contact" className="py-20 bg-background">
+      <SEO {...meta} url="/contact" />
+      <JsonLd data={schemaData} />
+      
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">

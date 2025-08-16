@@ -13,8 +13,13 @@ import {
   Network
 } from "lucide-react";
 import cadServicesImage from "@/assets/cad-services.jpg";
+import SEO from "@/components/SEO";
+import JsonLd from "./JsonLd";
+
+
 
 const Services = () => {
+
   const projects = [
     { name: "Thermal Power Plant", icon: Zap },
     { name: "Gas Based Power Plant", icon: Zap },
@@ -59,7 +64,25 @@ const Services = () => {
     "GIS/AIS Lighting Layout", "GIS/AIS Lightning Layout"
   ];
 
+    const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ServicesPage",
+    "name": "Service Us",
+    "description": "From CAD drafting to complex power plant engineering, KVS ENGINEERING delivers comprehensive solutions tailored to EPC, OEM, and PMC needs.",
+    "url": "https://yourdomain.com/about"
+  };
+
   return (
+    <>
+      <SEO
+        title="Engineering Services - KVS ENGINEERING"
+        description="From CAD drafting to complex power plant engineering, KVS ENGINEERING delivers comprehensive solutions tailored to EPC, OEM, and PMC needs."
+        keywords="engineering services, CAD design, power plant design, electrical calculations"
+        url="https://yourwebsite.com/services"
+        image="https://yourwebsite.com/images/services-preview.jpg"
+      />
+      <JsonLd data={schemaData} />
+
     <section id="services" className="py-20 bg-background">
       <div className="container">
         <div className="text-center mb-16">
@@ -227,6 +250,7 @@ const Services = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
