@@ -3,53 +3,79 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import SEO from './SEO.js';
-import { SEO as MAP } from '../seoConfig.js';
+import SEO from "./SEO.js";
+import { SEO as MAP } from "../seoConfig.js";
 import JsonLd from "./JsonLd.js";
 
-
 const Contact = () => {
-const meta = MAP["/contact"];
+  const meta = MAP["/contact"];
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     message: "",
-    agreeToPrivacy: false
+    agreeToPrivacy: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!formData.agreeToPrivacy) {
       toast({
         title: "Privacy Policy Required",
         description: "Please agree to the privacy policy to continue.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
-    
-    toast({
-      title: "Quote Request Sent!",
-      description: "Thank you for your interest. We'll get back to you within 24 hours."
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      message: "",
-      agreeToPrivacy: false
-    });
+
+    try {
+      const response = await fetch("https://formspree.io/f/xldlkavr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Quote Request Sent!",
+          description:
+            "Thank you for your interest. We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+          agreeToPrivacy: false,
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network Error",
+        description: "Unable to send your request. Please check your connection.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string | boolean) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const contactInfo = [
@@ -57,30 +83,31 @@ const meta = MAP["/contact"];
       icon: Mail,
       title: "Email Us",
       details: "ksvengineeringconsultant@gmail.com",
-      subtitle: "We respond within 24 hours"
-    }
+      subtitle: "We respond within 24 hours",
+    },
   ];
 
-    const schemaData = {
+  const schemaData = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact Us",
-    "description": "Get in touch with KSV Engineering for your project requirements.",
-    "url": "https://yourdomain.com/about"
+    name: "Contact Us",
+    description:
+      "Get in touch with KSV Engineering for your project requirements.",
+    url: "https://yourdomain.com/about",
   };
 
   return (
     <section id="contact" className="py-20 bg-background">
       <SEO {...meta} url="/contact" />
       <JsonLd data={schemaData} />
-      
+
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Ready to <span className="text-primary">Work With Us?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tell us more about your project requirements and get a detailed quote 
+            Tell us more about your project requirements and get a detailed quote
             from our engineering experts.
           </p>
         </div>
@@ -90,9 +117,12 @@ const meta = MAP["/contact"];
           <div className="lg:col-span-2">
             <Card className="shadow-professional">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Get A Quote</CardTitle>
+                <CardTitle className="text-2xl text-foreground">
+                  Get A Quote
+                </CardTitle>
                 <p className="text-muted-foreground">
-                  Fill out the form below and our team will get back to you within 24 hours. We will contact you via mail for further discussions.
+                  Fill out the form below and our team will get back to you within
+                  24 hours. We will contact you via mail for further discussions.
                 </p>
               </CardHeader>
               <CardContent>
@@ -104,7 +134,9 @@ const meta = MAP["/contact"];
                       </label>
                       <Input
                         value={formData.name}
-                        onChange={(e) => handleInputChange("name", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("name", e.target.value)
+                        }
                         placeholder="John Doe"
                         required
                       />
@@ -116,52 +148,63 @@ const meta = MAP["/contact"];
                       <Input
                         type="email"
                         value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("email", e.target.value)
+                        }
                         placeholder="john@company.com"
                         required
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="text-sm font-medium text-foreground block mb-2">
                       Company Name
                     </label>
                     <Input
                       value={formData.company}
-                      onChange={(e) => handleInputChange("company", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("company", e.target.value)
+                      }
                       placeholder="Your Company"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="text-sm font-medium text-foreground block mb-2">
                       Project Details *
                     </label>
                     <Textarea
                       value={formData.message}
-                      onChange={(e) => handleInputChange("message", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("message", e.target.value)
+                      }
                       placeholder="Tell us about your project requirements, timeline, and any specific needs..."
                       rows={5}
                       required
                     />
                   </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <Checkbox
                       id="privacy"
                       checked={formData.agreeToPrivacy}
-                      onCheckedChange={(checked) => handleInputChange("agreeToPrivacy", checked === true)}
+                      onCheckedChange={(checked) =>
+                        handleInputChange("agreeToPrivacy", checked === true)
+                      }
                     />
-                    <label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">
-                      Yes, I am OK to receive further communication over my details shared here. 
-                      Refer privacy policy for more info.
+                    <label
+                      htmlFor="privacy"
+                      className="text-sm text-muted-foreground leading-relaxed"
+                    >
+                      Yes, I am OK to receive further communication over my
+                      details shared here. Refer privacy policy for more info.
                     </label>
                   </div>
-                  
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="w-full shadow-professional"
                   >
                     <Send className="mr-2 h-5 w-5" />
@@ -177,16 +220,25 @@ const meta = MAP["/contact"];
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon;
               return (
-                <Card key={index} className="shadow-card hover:shadow-professional transition-shadow duration-300">
+                <Card
+                  key={index}
+                  className="shadow-card hover:shadow-professional transition-shadow duration-300"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
                         <IconComponent className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
-                        <p className="text-sm md:text-base text-foreground break-words">{info.details}</p>
-                        <p className="text-xs text-muted-foreground break-words">{info.subtitle}</p>
+                        <h4 className="font-semibold text-foreground mb-1">
+                          {info.title}
+                        </h4>
+                        <p className="text-sm md:text-base text-foreground break-words">
+                          {info.details}
+                        </p>
+                        <p className="text-xs text-muted-foreground break-words">
+                          {info.subtitle}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -199,7 +251,8 @@ const meta = MAP["/contact"];
               <CardContent className="p-6 text-center">
                 <h4 className="text-xl font-bold mb-2">Global Reach</h4>
                 <p className="text-primary-foreground/90 mb-4">
-                  We serve customers in over 15 countries including USA, Europe & Middle East
+                  We serve customers in over 15 countries including USA, Europe &
+                  Middle East
                 </p>
                 <div className="text-3xl font-bold">15+ Countries</div>
                 <div className="text-sm opacity-90">Worldwide Coverage</div>
@@ -212,4 +265,4 @@ const meta = MAP["/contact"];
   );
 };
 
-export default Contact;
+export default Contact;
