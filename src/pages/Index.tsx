@@ -6,7 +6,7 @@ import Technology from "@/components/Technology";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-
+import LspContainer from "@/components/LspContainer";
 const Index = () => {
   return (
     <>
@@ -23,6 +23,7 @@ const Index = () => {
       <Header />
       <Hero />
       <About />
+      <LspContainer />
       <Services />
       <Technology />
       <Contact />

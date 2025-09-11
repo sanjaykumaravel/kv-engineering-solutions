@@ -6,6 +6,7 @@ const files = [
   { name: "example.lsp", url: "assets/downloads/company-profile.pdf" },
   { name: "Product.pdf", url: "assets/downloads/product-catalog.pdf" },
   { name: "Brochure.pdf", url: "assets/downloads/service-brochure.pdf" },
+  { name: "Brochure.pdf", url: "assets/downloads/service-brochure.pdf" },
 ];
 
 const LspPage: React.FC = () => {
