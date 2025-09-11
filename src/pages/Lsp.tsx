@@ -18,7 +18,7 @@ const LspPage: React.FC = () => {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/mnqkxxxx", {
+      const response = await fetch("https://formspree.io/f/xkgzlnvo", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },
