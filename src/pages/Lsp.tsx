@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const files = [
-  { name: "example.lsp", url: "assets/downloads/company-profile.pdf" },
+  { name: "0line.lsp", url: "kv-engineering-solutions/public/LSP/0line.lsp" },
   { name: "Product.pdf", url: "assets/downloads/product-catalog.pdf" },
   { name: "Brochure.pdf", url: "assets/downloads/service-brochure.pdf" },
 ];

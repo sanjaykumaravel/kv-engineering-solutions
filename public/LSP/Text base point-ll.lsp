@@ -1,0 +1,8 @@
+(defun _justifyIt (justify title / ss)
+  (princ (strcat "\nSelect *Text to " title " justify: "))
+  (if (setq ss (ssget "_:L" '((0 . "ATTDEF,MTEXT,TEXT"))))
+    (command "_.justifytext" ss "" justify)
+  )
+  (princ)
+)
+(defun c:ll (/) (_justifyIt "_ll" "left"))
