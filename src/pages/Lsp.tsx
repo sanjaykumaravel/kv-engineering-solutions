@@ -3,10 +3,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const files = [
-  { name: "0line.lsp", url: "kv-engineering-solutions/public/LSP/0line.lsp" },
-  { name: "Product.pdf", url: "assets/downloads/product-catalog.pdf" },
-  { name: "Brochure.pdf", url: "assets/downloads/service-brochure.pdf" },
-  { name: "Brochure.pdf", url: "assets/downloads/service-brochure.pdf" },
+  { name: "0line.lsp", url: "/public/LSP/0line.lsp" },
+  { name: "Product.pdf", url: "/" },
+  { name: "Brochure.pdf", url: "/service-brochure.pdf" },
+  { name: "Brochure.pdf", url: "/service-brochure.pdf" },
 ];
 
 const LspPage: React.FC = () => {
