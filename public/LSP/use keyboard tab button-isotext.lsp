@@ -1,0 +1,20 @@
+(defun c:isotext ( / e i j k)
+  (vl-load-com)
+ ;(setq i (/ pi 6.) j -1.)
+  (setq i 0 k (/ pi 6.) j -1.)
+  ;; © Lee Mac 2011
+  (if
+    (and
+      (setq e (car (entsel "\nSelect Text: ")))
+      (eq (vla-get-Objectname (setq e (vlax-ename->vla-object e))) "AcDbText")
+      (princ "\nPress [Tab] to Change Projection <Accept>")
+    )      
+    (while (= 9 (cadr (grread nil 14 0)))
+     ;(vla-put-rotation     e i)
+      (vla-put-rotation     e (* k (1- (* 2 (setq i (rem (+ i (max 0 (setq j (- j)))) 3))))))
+     ;(vla-put-obliqueangle e (setq i (* i (setq j (- j)))))
+      (vla-put-obliqueangle e (* j k))
+    )
+  )
+  (princ)
+)
