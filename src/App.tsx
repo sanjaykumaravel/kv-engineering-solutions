@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async"; 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Lsp from "./pages/Lsp";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
+            <Route path="/lsp" element={<Lsp/>} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
