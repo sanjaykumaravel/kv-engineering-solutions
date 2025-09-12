@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async"; 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Lsp from "./pages/Lsp";
+import Lsp from "./pages/Lsp.tsx";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +15,7 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Sonner />
+        <Sonner /> 
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
