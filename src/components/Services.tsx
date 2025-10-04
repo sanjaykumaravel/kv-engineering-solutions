@@ -219,6 +219,7 @@ const Services = () => {
                       setSelectedItem(item);
                       setDialogOpen(true);
                     }}
+                    onKeyDown={(e) => handleBadgeKeyDown(e, item)}
                     role="button"
                     tabIndex={0}
                   >
@@ -231,7 +232,18 @@ const Services = () => {
             <TabsContent value="layouts">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {layouts.map((item, index) => (
-                  <Badge key={index} variant="outline" className="p-3 justify-start">
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="p-3 justify-start cursor-pointer hover:bg-primary/5"
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setDialogOpen(true);
+                    }}
+                    onKeyDown={(e) => handleBadgeKeyDown(e, item)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     {item}
                   </Badge>
                 ))}
@@ -241,7 +253,18 @@ const Services = () => {
             <TabsContent value="control">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {controlSchemes.map((item, index) => (
-                  <Badge key={index} variant="outline" className="p-3 justify-start">
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="p-3 justify-start cursor-pointer hover:bg-primary/5"
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setDialogOpen(true);
+                    }}
+                    onKeyDown={(e) => handleBadgeKeyDown(e, item)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     {item}
                   </Badge>
                 ))}
@@ -251,7 +274,18 @@ const Services = () => {
             <TabsContent value="diagrams">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {diagrams.map((item, index) => (
-                  <Badge key={index} variant="outline" className="p-3 justify-start">
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="p-3 justify-start cursor-pointer hover:bg-primary/5"
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setDialogOpen(true);
+                    }}
+                    onKeyDown={(e) => handleBadgeKeyDown(e, item)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     {item}
                   </Badge>
                 ))}
@@ -261,7 +295,18 @@ const Services = () => {
             <TabsContent value="switchyard">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {switchyard.map((item, index) => (
-                  <Badge key={index} variant="outline" className="p-3 justify-start">
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="p-3 justify-start cursor-pointer hover:bg-primary/5"
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setDialogOpen(true);
+                    }}
+                    onKeyDown={(e) => handleBadgeKeyDown(e, item)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     {item}
                   </Badge>
                 ))}
@@ -275,7 +320,18 @@ const Services = () => {
                   "Battery & Battery Charger", "HT/LT Motor", "CT/PT Design",
                   "Switchyard", "Safety Earthing", "Solar-Roof Top CarPark Structure"
                 ].map((item, index) => (
-                  <Badge key={index} variant="outline" className="p-3 justify-start">
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="p-3 justify-start cursor-pointer hover:bg-primary/5"
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setDialogOpen(true);
+                    }}
+                    onKeyDown={(e) => handleBadgeKeyDown(e, item)}
+                    role="button"
+                    tabIndex={0}
+                  >
                     {item}
                   </Badge>
                 ))}
@@ -296,9 +352,26 @@ const Services = () => {
             requirements and provide a custom solution and quote.
           </DialogDescription>
         </DialogHeader>
+        <div className="px-2">
+          <p className="mb-4 text-sm">Email us at:</p>
+          <a
+            className="text-primary underline break-all"
+            href={`mailto:ksvengineeringconsultant@gmail.com?subject=${encodeURIComponent(
+              `Enquiry about: ${selectedItem ?? "Technical expertise"}`
+            )}`}
+          >
+            ksvengineeringconsultant@gmail.com
+          </a>
+        </div>
         <DialogFooter>
-          <Button asChild>
-            <a href="/#contact">Contact Us</a>
+          <Button variant="default" asChild>
+            <a
+              href={`mailto:ksvengineeringconsultant@gmail.com?subject=${encodeURIComponent(
+                `Enquiry about: ${selectedItem ?? "Technical expertise"}`
+              )}`}
+            >
+              Email Us
+            </a>
           </Button>
           <Button variant="ghost" onClick={() => setDialogOpen(false)}>
             Close
