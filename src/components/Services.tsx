@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,6 +16,16 @@ import {
 import cadServicesImage from "@/assets/cad-services.jpg";
 import SEO from "@/components/SEO";
 import JsonLd from "./JsonLd";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 
 
@@ -70,6 +81,20 @@ const Services = () => {
     "name": "Service Us",
     "description": "From CAD drafting to complex power plant engineering, KVS ENGINEERING delivers comprehensive solutions tailored to EPC, OEM, and PMC needs.",
     "url": "https://yourdomain.com/about"
+  };
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+  const handleBadgeKeyDown = (
+    e: React.KeyboardEvent<HTMLElement>,
+    item: string
+  ) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setSelectedItem(item);
+      setDialogOpen(true);
+    }
   };
 
   return (
@@ -186,7 +211,17 @@ const Services = () => {
             <TabsContent value="calculations">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {calculations.map((item, index) => (
-                  <Badge key={index} variant="outline" className="p-3 justify-start">
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="p-3 justify-start cursor-pointer hover:bg-primary/5"
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setDialogOpen(true);
+                    }}
+                    role="button"
+                    tabIndex={0}
+                  >
                     {item}
                   </Badge>
                 ))}
@@ -250,6 +285,29 @@ const Services = () => {
         </div>
       </div>
     </section>
+
+    {/* Contact dialog for technical expertise items */}
+    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>{selectedItem ?? "Calculation details"}</DialogTitle>
+          <DialogDescription>
+            For calculations like this, please contact us so we can discuss your
+            requirements and provide a custom solution and quote.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button asChild>
+            <a href="/#contact">Contact Us</a>
+          </Button>
+          <Button variant="ghost" onClick={() => setDialogOpen(false)}>
+            Close
+          </Button>
+        </DialogFooter>
+        <DialogClose />
+      </DialogContent>
+    </Dialog>
+
     </>
   );
 };
