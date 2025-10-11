@@ -1,3 +1,5 @@
+import React from 'react';
+
 import "../index.css";
 import Providers from "./providers";
 
@@ -12,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html >
       <body>
         <Providers>{children}</Providers>
       </body>

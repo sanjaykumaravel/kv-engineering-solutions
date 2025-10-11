@@ -74,8 +74,10 @@ export default [
       // Next.js
       "@next/next/no-html-link-for-pages": "error",
 
-      // React
-      "react/prop-types": "off",
+  // React
+  "react/prop-types": "off",
+  // Disable rule that requires React to be in scope for JSX (automatic runtime)
+  "react/react-in-jsx-scope": "off",
     },
 
     settings: {
