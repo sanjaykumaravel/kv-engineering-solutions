@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const BlockedPage = () => {
   return (
-    <div style={{ padding: '50px', textAlign: 'center', fontFamily: 'sans-serif' }}>
+    <div
+      style={{ padding: "50px", textAlign: "center", fontFamily: "sans-serif" }}
+    >
       <h1>Access Denied</h1>
       <p>We're sorry, this service is not available in your region.</p>
     </div>
   );
 };
 
-export default BlockedPage;
+export default BlockedPage;

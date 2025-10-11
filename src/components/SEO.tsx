@@ -1,6 +1,6 @@
 // components/SEO.tsx
-import Head from 'next/head';
-import { SITE } from '../seoConfig';
+import Head from "next/head";
+import { SITE } from "../seoConfig";
 
 interface SEOProps {
   title: string;

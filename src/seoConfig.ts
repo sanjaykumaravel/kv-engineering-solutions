@@ -9,12 +9,12 @@ export const SEO: Record<string, any> = {
   "/home": {
     title: "KSV ENGINEERING - Home",
     description: SITE.description,
-  image: SITE.defaultImage,
+    image: SITE.defaultImage,
   },
   "/": {
     title: "KSV ENGINEERING",
     description: SITE.description,
-  image: SITE.defaultImage,
+    image: SITE.defaultImage,
   },
 };
 

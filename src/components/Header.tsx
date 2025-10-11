@@ -23,7 +23,9 @@ const Header = () => {
             alt="KSV Engineering logo"
             className="w-8 h-8 rounded-md object-contain"
           />
-          <span className="font-bold text-xl text-foreground">KSV Engineering</span>
+          <span className="font-bold text-xl text-foreground">
+            KSV Engineering
+          </span>
         </div>
 
         {/* Desktop Navigation */}
@@ -37,10 +39,14 @@ const Header = () => {
               {item.label}
             </a>
           ))}
-          <Button 
-            variant="default" 
+          <Button
+            variant="default"
             className="shadow-professional"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Get Quote
           </Button>
@@ -68,12 +74,14 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button 
-                variant="default" 
+              <Button
+                variant="default"
                 className="w-full"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Get Quote

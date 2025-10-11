@@ -5,6 +5,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  // eslint: {
+  //   ignoreDuringBuilds: true, // Temporarily skips ESLint on Vercel; lint locally with 'npm run lint'
+  // },
 };
 
 module.exports = nextConfig;

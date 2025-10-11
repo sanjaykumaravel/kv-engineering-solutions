@@ -25,28 +25,34 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-500 to-primary rounded-md flex items-center justify-center">
                 <span className="text-white font-bold text-sm">KV</span>
               </div>
-              <span className="font-bold text-xl sm:text-2xl">KSV Engineering</span>
+              <span className="font-bold text-xl sm:text-2xl">
+                KSV Engineering
+              </span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base">
-              Your virtual extended arm for innovative engineering solutions. 
-              We provide detailed engineering services to EPC, OEM, and PMC as long-term projects.
+              Your virtual extended arm for innovative engineering solutions. We
+              provide detailed engineering services to EPC, OEM, and PMC as
+              long-term projects.
             </p>
             <div className="flex items-center space-x-3">
               <Mail className="h-5 w-5 text-engineering-orange" />
-              <span className="text-gray-300 text-sm">ksvengineeringconsultant@gmail.com</span>
+              <span className="text-gray-300 text-sm">
+                ksvengineeringconsultant@gmail.com
+              </span>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-lg sm:text-xl mb-6">Our Services</h4>
+            <h4 className="font-semibold text-lg sm:text-xl mb-6">
+              Our Services
+            </h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
@@ -63,7 +69,9 @@ const Footer = () => {
 
           {/* Projects */}
           <div>
-            <h4 className="font-semibold text-lg sm:text-xl mb-6">Project Types</h4>
+            <h4 className="font-semibold text-lg sm:text-xl mb-6">
+              Project Types
+            </h4>
             <ul className="space-y-3">
               {projects.map((project, index) => (
                 <li key={index}>
@@ -80,7 +88,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-lg sm:text-xl mb-6">Quick Links</h4>
+            <h4 className="font-semibold text-lg sm:text-xl mb-6">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -107,7 +117,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <span className="text-gray-400 text-sm sm:text-base">Privacy Policy</span>
+                <span className="text-gray-400 text-sm sm:text-base">
+                  Privacy Policy
+                </span>
               </li>
             </ul>
           </div>
@@ -125,7 +137,9 @@ const Footer = () => {
               </span>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-engineering-orange rounded-full animate-pulse"></div>
-                <span className="text-sm sm:text-base text-gray-400">24/7 Support Available</span>
+                <span className="text-sm sm:text-base text-gray-400">
+                  24/7 Support Available
+                </span>
               </div>
             </div>
           </div>

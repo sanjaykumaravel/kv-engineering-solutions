@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Building2, Users, Award } from "lucide-react";
-import SEO from './SEO';
-import { SEO as MAP } from '../seoConfig';
+import SEO from "./SEO";
+import { SEO as MAP } from "../seoConfig";
 import JsonLd from "./JsonLd";
 import heroImage from "@/assets/engineering-hero.jpg";
 
@@ -10,12 +10,18 @@ const Hero = () => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "HomePage",
-    "name": "Home - KSV Engineering",
-    "description": "We provide detailed engineering services to EPC, OEM, and PMC as long-term projects. Your virtual extended arm for innovative engineering solutions.",
-    "url": "https://yourdomain.com/about"
+    name: "Home - KSV Engineering",
+    description:
+      "We provide detailed engineering services to EPC, OEM, and PMC as long-term projects. Your virtual extended arm for innovative engineering solutions.",
+    url: "https://yourdomain.com/about",
   };
 
-  const [timeLeft, setTimeLeft] = useState({days:0,hours:0,minutes:0,seconds:0});
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,15 +30,17 @@ const Hero = () => {
       const nextSaturday = new Date(now);
       const diff = day <= 6 ? 6 - day : 6 - day + 7;
       nextSaturday.setDate(now.getDate() + diff);
-      nextSaturday.setHours(17,0,0,0);
+      nextSaturday.setHours(17, 0, 0, 0);
       const distance = nextSaturday.getTime() - now.getTime();
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      setTimeLeft({days,hours,minutes,seconds});
+      setTimeLeft({ days, hours, minutes, seconds });
     }, 1000);
 
     return () => clearInterval(interval);
@@ -64,8 +72,9 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-              We provide detailed engineering services to EPC, OEM, and PMC as long-term projects.
-              Your virtual extended arm for innovative engineering solutions.
+              We provide detailed engineering services to EPC, OEM, and PMC as
+              long-term projects. Your virtual extended arm for innovative
+              engineering solutions.
             </p>
 
             {/* Stats grid */}
@@ -75,8 +84,12 @@ const Hero = () => {
                   <Building2 className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="text-xl md:text-2xl font-bold text-primary-foreground">15+</div>
-                  <div className="text-primary-foreground/80">Countries Served</div>
+                  <div className="text-xl md:text-2xl font-bold text-primary-foreground">
+                    15+
+                  </div>
+                  <div className="text-primary-foreground/80">
+                    Countries Served
+                  </div>
                 </div>
               </div>
 
@@ -85,8 +98,12 @@ const Hero = () => {
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="text-xl md:text-2xl font-bold text-primary-foreground">95%</div>
-                  <div className="text-primary-foreground/80">Repeat Business</div>
+                  <div className="text-xl md:text-2xl font-bold text-primary-foreground">
+                    95%
+                  </div>
+                  <div className="text-primary-foreground/80">
+                    Repeat Business
+                  </div>
                 </div>
               </div>
 
@@ -95,8 +112,12 @@ const Hero = () => {
                   <Award className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="text-xl md:text-2xl font-bold text-primary-foreground">20+</div>
-                  <div className="text-primary-foreground/80">Years Experience</div>
+                  <div className="text-xl md:text-2xl font-bold text-primary-foreground">
+                    20+
+                  </div>
+                  <div className="text-primary-foreground/80">
+                    Years Experience
+                  </div>
                 </div>
               </div>
             </div>
@@ -111,7 +132,8 @@ const Hero = () => {
               Next session starts in:
             </p>
             <div className="text-xl sm:text-2xl md:text-2xl font-mono text-white text-center md:text-right">
-              {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m : {timeLeft.seconds}s
+              {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m :{" "}
+              {timeLeft.seconds}s
             </div>
             <a
               href="https://docs.google.com/forms/"
