@@ -1,7 +1,7 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!blocked|_next|api|images|static).*)",
       "has": [
         {
           "type": "header",
@@ -9,15 +9,12 @@
           "value": "IN|DE"
         }
       ],
-      "destination": "/blocked",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
+      "destination": "/blocked"
+    },
     { "source": "/_next/:path*", "destination": "/_next/:path*" },
     { "source": "/api/:path*", "destination": "/api/:path*" },
-    { "source": "/blocked", "destination": "/blocked" },
     { "source": "/images/:path*", "destination": "/images/:path*" },
-    { "source": "/static/:path*", "destination": "/static/:path*" }
+    { "source": "/static/:path*", "destination": "/static/:path*" },
+    { "source": "/blocked", "destination": "/blocked" }
   ]
 }
