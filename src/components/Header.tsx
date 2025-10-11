@@ -1,6 +1,8 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,12 +20,17 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-2">
-          <img
-            src="/lovable-uploads/658c083b-5ef7-40e2-ba6c-ecb609b7c0cb.png"
-            alt="KSV Engineering logo"
-            className="w-8 h-8 rounded-md object-contain"
-          />
-          <span className="font-bold text-xl text-foreground">KSV Engineering</span>
+          <div className="w-8 h-8 relative rounded-md overflow-hidden">
+            <Image
+              src="/lovable-uploads/658c083b-5ef7-40e2-ba6c-ecb609b7c0cb.png"
+              alt="KSV Engineering logo"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <span className="font-bold text-xl text-foreground">
+            KSV Engineering
+          </span>
         </div>
 
         {/* Desktop Navigation */}
@@ -37,10 +44,14 @@ const Header = () => {
               {item.label}
             </a>
           ))}
-          <Button 
-            variant="default" 
+          <Button
+            variant="default"
             className="shadow-professional"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Get Quote
           </Button>
@@ -68,12 +79,14 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button 
-                variant="default" 
+              <Button
+                variant="default"
                 className="w-full"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Get Quote

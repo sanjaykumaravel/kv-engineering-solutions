@@ -1,17 +1,18 @@
 // components/JsonLd.tsx
-import { Helmet } from "react-helmet-async";
+import Head from "next/head";
 
 interface JsonLdProps {
   data: Record<string, any>;
 }
 
 export default function JsonLd({ data }: JsonLdProps) {
+  const json = JSON.stringify(data);
   return (
-    <Helmet>
+    <Head>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        dangerouslySetInnerHTML={{ __html: json }}
       />
-    </Helmet>
+    </Head>
   );
 }

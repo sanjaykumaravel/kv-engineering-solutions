@@ -6,9 +6,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import SEO from "./SEO.js";
-import { SEO as MAP } from "../seoConfig.js";
-import JsonLd from "./JsonLd.js";
+import { SEO as MAP } from "../seoConfig";
+import JsonLd from "./JsonLd";
 
 const Contact = () => {
   const meta = MAP["/contact"];
@@ -49,7 +48,7 @@ const Contact = () => {
         toast({
           title: "Quote Request Sent!",
           description:
-            "Thank you for your interest. We'll get back to you within 24 hours.",
+            "Thank you for your interest. We&apos;ll get back to you within 24 hours.",
         });
         setFormData({
           name: "",
@@ -68,7 +67,8 @@ const Contact = () => {
     } catch (error) {
       toast({
         title: "Network Error",
-        description: "Unable to send your request. Please check your connection.",
+        description:
+          "Unable to send your request. Please check your connection.",
         variant: "destructive",
       });
     }
@@ -98,7 +98,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-background">
-      <SEO {...meta} url="/contact" />
       <JsonLd data={schemaData} />
 
       <div className="container">
@@ -107,8 +106,8 @@ const Contact = () => {
             Ready to <span className="text-primary">Work With Us?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tell us more about your project requirements and get a detailed quote
-            from our engineering experts.
+            Tell us more about your project requirements and get a detailed
+            quote from our engineering experts.
           </p>
         </div>
 
@@ -121,8 +120,9 @@ const Contact = () => {
                   Get A Quote
                 </CardTitle>
                 <p className="text-muted-foreground">
-                  Fill out the form below and our team will get back to you within
-                  24 hours. We will contact you via mail for further discussions.
+                  Fill out the form below and our team will get back to you
+                  within 24 hours. We will contact you via mail for further
+                  discussions.
                 </p>
               </CardHeader>
               <CardContent>
@@ -247,12 +247,12 @@ const Contact = () => {
             })}
 
             {/* Global Reach */}
-            <Card className="shadow-card bg-gradient-hero text-primary-foreground">
+            <Card className="shadow-card bg-gradient-to-r from-blue-500 to-teal-500 text-white">
               <CardContent className="p-6 text-center">
                 <h4 className="text-xl font-bold mb-2">Global Reach</h4>
                 <p className="text-primary-foreground/90 mb-4">
-                  We serve customers in over 15 countries including USA, Europe &
-                  Middle East
+                  We serve customers in over 15 countries including USA, Europe
+                  & Middle East
                 </p>
                 <div className="text-3xl font-bold">15+ Countries</div>
                 <div className="text-sm opacity-90">Worldwide Coverage</div>
@@ -265,4 +265,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact;
