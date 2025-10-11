@@ -9,21 +9,23 @@ export function middleware(req: NextRequest) {
     const url = req.nextUrl.clone();
     const pathname = url.pathname;
 
-    // Skip API, Next internals, static assets, or the blocked page itself
+    // ✅ Exclude static files, API routes, blocked page, sitemap.xml, etc.
     if (
       pathname.startsWith("/_next") ||
       pathname.startsWith("/api") ||
       pathname.startsWith("/static") ||
+      pathname.startsWith("/images") ||
       pathname === "/blocked" ||
-      pathname.startsWith("/images")
+      pathname === "/sitemap.xml" ||   // <-- Exclude sitemap
+      pathname === "/robots.txt"       // <-- Optional: exclude robots.txt too
     ) {
-      return;
+      return NextResponse.next();
     }
 
     // Detect country from Vercel header
     let country = (req.headers.get("x-vercel-ip-country") || "").toUpperCase();
 
-    // DEV / local preview fallback for testing
+    // DEV / local preview fallback
     if (!country && process.env.NODE_ENV === "development") {
       country = "IN"; // simulate blocked country locally
     }
@@ -39,11 +41,11 @@ export function middleware(req: NextRequest) {
     }
   } catch (err) {
     console.error("middleware geo check failed:", err);
-    return;
+    return NextResponse.next();
   }
 }
 
-// Run middleware on all paths (skip early returns inside the function)
+// ✅ Apply middleware to all paths except Next internals (matcher stays the same)
 export const config = {
   matcher: "/:path*",
 };
