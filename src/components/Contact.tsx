@@ -47,9 +47,9 @@ const Contact = () => {
 
       if (response.ok) {
         toast({
-          title: "Quote Request Sent!",
-          description:
-            "Thank you for your interest. We'll get back to you within 24 hours.",
+      title: "Quote Request Sent!",
+      description:
+        "Thank you for your interest. We&apos;ll get back to you within 24 hours.",
         });
         setFormData({
           name: "",

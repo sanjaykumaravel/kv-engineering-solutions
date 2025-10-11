@@ -14,6 +14,7 @@ import {
   Network,
 } from "lucide-react";
 import cadServicesImage from "@/assets/cad-services.jpg";
+import Image from 'next/image';
 import SEO from "@/components/SEO";
 import JsonLd from "./JsonLd";
 import {
@@ -167,11 +168,14 @@ const Services = () => {
             </div>
 
             <div className="relative">
-              <img
-                src={cadServicesImage.src}
-                alt="CAD Design Services"
-                className="rounded-2xl shadow-professional w-full h-[400px] object-cover"
-              />
+              <div className="rounded-2xl shadow-professional overflow-hidden w-full h-[400px] relative">
+                <Image
+                  src={cadServicesImage.src}
+                  alt="CAD Design Services"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl" />
             </div>
           </div>

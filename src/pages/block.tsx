@@ -6,7 +6,7 @@ const BlockedPage = () => {
       style={{ padding: "50px", textAlign: "center", fontFamily: "sans-serif" }}
     >
       <h1>Access Denied</h1>
-      <p>We're sorry, this service is not available in your region.</p>
+  <p>We&apos;re sorry, this service is not available in your region.</p>
     </div>
   );
 };

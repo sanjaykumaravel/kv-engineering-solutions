@@ -13,7 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "isolatedModules": true,
-    "jsx": "preserve",
+  "jsx": "react-jsx",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "ignoreDeprecations": "6.0",

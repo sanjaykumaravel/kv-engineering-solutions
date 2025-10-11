@@ -74,10 +74,20 @@ export default [
       // Next.js
       "@next/next/no-html-link-for-pages": "error",
 
-  // React
-  "react/prop-types": "off",
-  // Disable rule that requires React to be in scope for JSX (automatic runtime)
-  "react/react-in-jsx-scope": "off",
+      // React
+      "react/prop-types": "off",
+      // Disable rule that requires React to be in scope for JSX (automatic runtime)
+      "react/react-in-jsx-scope": "off",
+      // Enforce Prettier formatting (double quotes, etc.)
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": false,
+          "jsxSingleQuote": false
+        }
+      ],
+      // Ensure JSX entities are escaped
+      "react/no-unescaped-entities": ["error", {"forbid": [">", "\"", "'", "`"] }],
     },
 
     settings: {
