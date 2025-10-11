@@ -1,4 +1,3 @@
-// middleware.js
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -22,13 +21,19 @@ export function middleware(req: NextRequest) {
     }
 
     // Detect country from Vercel header
-    const country = (req.headers.get("x-vercel-ip-country") || "").toUpperCase();
-    if (!country) return;
+    let country = (req.headers.get("x-vercel-ip-country") || "").toUpperCase();
+
+    // DEV / local preview fallback for testing
+    if (!country && process.env.NODE_ENV === "development") {
+      country = "IN"; // simulate blocked country locally
+    }
 
     if (BLOCKED.includes(country)) {
       const redirectUrl = new URL("/blocked", req.url);
       redirectUrl.searchParams.set("country", country);
       const resp = NextResponse.redirect(redirectUrl);
+
+      // Debug header to verify middleware ran
       resp.headers.set("x-middleware-debug", `blocked:${country}`);
       return resp;
     }
@@ -38,6 +43,7 @@ export function middleware(req: NextRequest) {
   }
 }
 
+// Run middleware on all paths (skip early returns inside the function)
 export const config = {
   matcher: "/:path*",
 };
