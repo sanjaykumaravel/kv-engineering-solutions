@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
 import { Building2, Users, Award } from "lucide-react";
-import { SEO as MAP } from "../seoConfig";
-import JsonLd from "./JsonLd";
 import heroImage from "@/assets/engineering-hero.jpg";
 
 const Hero = () => {
-  const meta = MAP["/home"];
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "HomePage",
-    name: "Home - KSV Engineering",
-    description:
-      "We provide detailed engineering services to EPC, OEM, and PMC as long-term projects. Your virtual extended arm for innovative engineering solutions.",
-    url: "https://yourdomain.com/about",
-  };
+
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -47,7 +37,6 @@ const Hero = () => {
 
   return (
     <>
-      <JsonLd data={schemaData} />
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}

@@ -1,21 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Target, Globe, Clock } from "lucide-react";
 import infrastructureImage from "@/assets/infrastructure.jpg";
-import JsonLd from "./JsonLd";
 import Image from "next/image";
 
-import { SEO as MAP } from "@/seoConfig";
 
 const About = () => {
-  const meta = MAP["/about"];
 
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "About Us",
-    description: "Learn more about our company, mission, and team.",
-    url: "https://yourdomain.com/about",
-  };
 
   const whyChooseUs = [
     {
@@ -38,7 +28,6 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-card">
       <div className="container">
-        <JsonLd data={schemaData} />
         {/* <JsonLd data={orgSchema} />
 
 
