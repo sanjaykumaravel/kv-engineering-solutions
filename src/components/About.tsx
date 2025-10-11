@@ -4,7 +4,7 @@ import infrastructureImage from "@/assets/infrastructure.jpg";
 import SEO from './SEO';
 import JsonLd from "./JsonLd";
 
-import { SEO as MAP } from '../seoConfig';
+import { SEO as MAP } from '@/seoConfig';
 
 const About = () => {
     const meta = MAP["/about"];
@@ -119,9 +119,9 @@ const About = () => {
           </div>
           
           <div className="relative">
-            <img 
-              src={infrastructureImage} 
-              alt="KSV Engineering Infrastructure" 
+            <img
+              src={infrastructureImage.src}
+              alt="KSV Engineering Infrastructure"
               className="rounded-2xl shadow-professional w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl" />

@@ -1,3 +1,26 @@
+# KVS Engineering - Next.js Migration
+
+This repository was migrated from a Vite + React app to Next.js (App Router).
+
+Quick start (PowerShell):
+
+```powershell
+npm install
+npm run dev
+```
+
+Build for production:
+
+```powershell
+npm run build
+npm run start
+```
+
+Notes / Next steps:
+- Verify all `@/` path aliases resolve. `tsconfig.json` sets `@/*` → `src/*`.
+- Review `SEO` usage: we converted `SEO.tsx` to use `next/head`.
+- Move large assets to `/public` if you want to use `next/image` optimizations.
+- Remove unused Vite dependencies when you are ready.
 # Welcome to sanjay Lovable project
 
 ## Project info

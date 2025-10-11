@@ -2,120 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KSV Engineering Design System - Professional Engineering Theme */
+/* ===========================================================================
+   Global theme variables — these map to the values used in tailwind.config.ts
+   Keep them light-weight and override with a [data-theme="dark"] selector
+   when a dark theme is required.
+   =========================================================================== */
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 216 20% 14%;
+:root {
+  /* Core UI colors (H S% L%) — used via tailwind.config as hsl(var(--...)) */
+  --border: 210 16% 96%;
+  --input: 210 16% 98%;
+  --ring: 222 47% 11%;
+  --background: 210 16% 98%;
+  --foreground: 0 0% 0%; /* black */
 
-    --card: 0 0% 100%;
-    --card-foreground: 216 20% 14%;
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 100%;
+  --primary-glow: 220 90% 66%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 20% 14%;
+  --secondary: 200 15% 95%;
+  --secondary-foreground: 220 14% 18%;
 
-    /* Professional engineering blue */
-    --primary: 214 84% 16%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 214 60% 45%;
-    
-    /* Technical gray accents */
-    --secondary: 210 20% 95%;
-    --secondary-foreground: 216 20% 14%;
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 0 0% 100%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 40%;
 
-    --accent: 214 25% 88%;
-    --accent-foreground: 216 20% 14%;
+  --accent: 190 20% 95%;
+  --accent-foreground: 190 18% 20%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 12% 12%;
 
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 214 84% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 12% 12%;
 
-    /* Engineering-specific colors */
-    --engineering-orange: 25 95% 53%;
-    --engineering-teal: 174 72% 56%;
-    --engineering-gray: 210 11% 15%;
-    
-    /* Professional gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
-    --gradient-accent: linear-gradient(90deg, hsl(var(--engineering-teal)), hsl(var(--engineering-orange)));
-    
-    /* Professional shadows */
-    --shadow-professional: 0 10px 30px -5px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.08);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.15);
+  /* Engineering brand accents */
+  --engineering-orange: 22 90% 52%;
+  --engineering-teal: 175 70% 40%;
+  --engineering-gray: 210 10% 92%;
 
-    --radius: 0.75rem;
+  /* Sidebar variables (optional) */
+  --sidebar-background: 220 10% 98%;
+  --sidebar-foreground: 220 10% 12%;
+  --sidebar-primary: 220 90% 56%;
+  --sidebar-primary-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+  /* Radii and shadows (referenced in tailwind.config) */
+  --radius: 12px;
+  --gradient-hero: linear-gradient(180deg, hsl(var(--primary) / 0.06), transparent);
+  --gradient-card: linear-gradient(180deg, hsl(var(--primary) / 0.06), hsl(var(--background) / 0.98));
+  --gradient-accent: linear-gradient(90deg, hsl(var(--engineering-orange) / 0.1), hsl(var(--engineering-teal) / 0.08));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+  --shadow-professional: 0 10px 30px rgba(2,6,23,0.12), 0 2px 6px rgba(2,6,23,0.06);
+  --shadow-card: 0 6px 18px rgba(2,6,23,0.08);
+  --shadow-glow: 0 0 30px rgba(34,197,94,0.08);
+}
 
-    --sidebar-primary: 240 5.9% 10%;
+/* Dark theme overrides (toggle by doing <html data-theme="dark">) */
+:root[data-theme="dark"] {
+  --background: 220 13% 8%;
+  --foreground: 220 14% 96%;
+  --muted: 220 14% 12%;
+  --muted-foreground: 220 10% 60%;
+  --card: 220 13% 12%;
+  --card-foreground: 220 14% 96%;
+  --sidebar-background: 220 12% 6%;
+}
 
-    --sidebar-primary-foreground: 0 0% 98%;
+/* ===========================================================================
+   Base element styles
+   Keep cascade minimal — Tailwind utilities should be used for layout instead
+   =========================================================================== */
 
-    --sidebar-accent: 240 4.8% 95.9%;
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    --sidebar-border: 220 13% 91%;
+/* make images behave well inside components */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* ===========================================================================
+   Small legacy helpers kept for compatibility (from previous project)
+   Prefer updating components to Tailwind utilities, and remove helpers later.
+   =========================================================================== */
 
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Layout helper used previously as #root; keep but prefer Tailwind 'container' */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em rgba(100,108,255,0.67));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em rgba(97,218,255,0.67));
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+

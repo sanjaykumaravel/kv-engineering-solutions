@@ -6,9 +6,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import SEO from "./SEO.js";
-import { SEO as MAP } from "../seoConfig.js";
-import JsonLd from "./JsonLd.js";
+import SEO from "./SEO";
+import { SEO as MAP } from "../seoConfig";
+import JsonLd from "./JsonLd";
 
 const Contact = () => {
   const meta = MAP["/contact"];
@@ -247,7 +247,7 @@ const Contact = () => {
             })}
 
             {/* Global Reach */}
-            <Card className="shadow-card bg-gradient-hero text-primary-foreground">
+            <Card className="shadow-card bg-gradient-to-r from-blue-500 to-teal-500 text-white">
               <CardContent className="p-6 text-center">
                 <h4 className="text-xl font-bold mb-2">Global Reach</h4>
                 <p className="text-primary-foreground/90 mb-4">

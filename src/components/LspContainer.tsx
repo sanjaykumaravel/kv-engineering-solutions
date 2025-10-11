@@ -78,8 +78,8 @@ function LspContainer() {
   };
 
   return (
-    <section className="py-10 px-6 bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-lg">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">
+    <section className="py-10 px-6 bg-white rounded-2xl shadow-lg">
+      <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
         📂 Available LISP Tools
       </h2>
 
@@ -88,10 +88,10 @@ function LspContainer() {
           <button
             key={idx}
             onClick={() => setSelectedFile(file)}
-            className="p-4 w-full text-left bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition cursor-pointer"
+            className="p-4 w-full text-left bg-white rounded-lg shadow hover:shadow-md transition cursor-pointer"
           >
             <p className="font-semibold text-blue-600 hover:underline">{file.name}</p>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-500">
               Command: <code>{file.cmd}</code>
             </span>
           </button>
@@ -101,8 +101,8 @@ function LspContainer() {
       {/* Email modal */}
       {selectedFile && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
-            <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h3 className="text-lg font-semibold mb-4 text-gray-800">
               Enter your email to download: <br />
               <span className="text-blue-600">{selectedFile.name}</span>
             </h3>

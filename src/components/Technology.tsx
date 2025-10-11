@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Monitor, Cpu, Globe, Shield } from "lucide-react";
 import SEO from '@/components/SEO';
-import { SEO as MAP } from '@/seoConfig';
+import { SEO as MAP } from '../seoConfig';
 import JsonLd from "@/components/JsonLd";
 
 const Technology = () => {
@@ -88,7 +88,7 @@ const Technology = () => {
               <Card key={index} className="shadow-card hover:shadow-professional transition-all duration-300 hover:-translate-y-1">
                 <CardHeader className="text-center">
                   <div className="p-4 bg-gradient-hero rounded-full w-fit mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-primary-foreground" />
+                    <IconComponent className="h-8 w-8 text-blue-500" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>

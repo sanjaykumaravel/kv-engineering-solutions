@@ -1,3 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Project global styles (merged from previous App.css)
+   This file is the single global stylesheet for the Next.js app. It contains
+   Tailwind directives and a small set of project-specific rules carried over
+   from the old Vite/React project.
+   --------------------------------------------------------------------------- */
+
+/* Layout helper used previously as #root */
 #root {
   max-width: 1280px;
   margin: 0 auto;

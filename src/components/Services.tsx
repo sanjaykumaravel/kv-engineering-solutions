@@ -142,9 +142,9 @@ const Services = () => {
           </div>
           
           <div className="relative">
-            <img 
-              src={cadServicesImage} 
-              alt="CAD Design Services" 
+            <img
+              src={cadServicesImage.src}
+              alt="CAD Design Services"
               className="rounded-2xl shadow-professional w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl" />
