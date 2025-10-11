@@ -1,6 +1,4 @@
 //tsconfig.json
-
-
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -15,7 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "isolatedModules": true,
-  "jsx": "react-jsx",
+    "jsx": "preserve",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "ignoreDeprecations": "6.0",
