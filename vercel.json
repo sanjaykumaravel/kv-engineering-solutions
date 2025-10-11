@@ -1,32 +1,23 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "IN|DE"
+        }
+      ],
+      "destination": "/blocked",
+      "permanent": false
+    }
+  ],
   "rewrites": [
-    {
-      "source": "/((?!blocked|_next|api|images|static).*)",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "IN"
-        }
-      ],
-      "destination": "/blocked"
-    },
-    {
-      "source": "/((?!blocked|_next|api|images|static).*)",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "DE"
-        }
-      ],
-      "destination": "/blocked"
-    },
-
     { "source": "/_next/:path*", "destination": "/_next/:path*" },
     { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/blocked", "destination": "/blocked" },
     { "source": "/images/:path*", "destination": "/images/:path*" },
-    { "source": "/static/:path*", "destination": "/static/:path*" },
-    { "source": "/blocked", "destination": "/blocked" }
+    { "source": "/static/:path*", "destination": "/static/:path*" }
   ]
 }
