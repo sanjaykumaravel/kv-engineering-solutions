@@ -6,7 +6,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import SEO from "./SEO";
 import { SEO as MAP } from "../seoConfig";
 import JsonLd from "./JsonLd";
 
@@ -99,7 +98,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-background">
-      <SEO {...meta} url="/contact" />
       <JsonLd data={schemaData} />
 
       <div className="container">

@@ -181,7 +181,7 @@ function LspContainer() {
 
       {/* Email modal */}
       {selectedFile && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h3 className="text-lg font-semibold mb-4 text-gray-800">
               Enter your email to download: <br />
@@ -194,7 +194,7 @@ function LspContainer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="border border-gray-300 p-2 rounded-md"
+                className="bg-white border border-gray-300 p-2 rounded-md"
               />
               <div className="flex justify-end gap-3">
                 <button

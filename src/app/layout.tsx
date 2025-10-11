@@ -1,5 +1,7 @@
 import "../index.css";
 import Providers from "./providers";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "KVS ENGINEERING",
@@ -14,7 +16,12 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <Providers>{children}</Providers>
+        {/* Providers is a client component and holds client-only instances like QueryClient */}
+        <Providers>
+          <Header />
+          <main className="min-h-[60vh]">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

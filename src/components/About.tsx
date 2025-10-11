@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Target, Globe, Clock } from "lucide-react";
 import infrastructureImage from "@/assets/infrastructure.jpg";
-import SEO from "./SEO";
 import JsonLd from "./JsonLd";
 import Image from "next/image";
 
@@ -40,7 +39,6 @@ const About = () => {
     <section id="about" className="py-20 bg-gradient-card">
       <div className="container">
         <JsonLd data={schemaData} />
-        <SEO {...meta} url="/about" />
         {/* <JsonLd data={orgSchema} />
 
 

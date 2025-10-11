@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Monitor, Cpu, Globe, Shield } from "lucide-react";
-import SEO from "@/components/SEO";
 import { SEO as MAP } from "../seoConfig";
 import JsonLd from "@/components/JsonLd";
 
@@ -81,7 +80,6 @@ const Technology = () => {
 
   return (
     <>
-      <SEO {...meta} url="/technology" />
       <JsonLd data={schemaData} />
       <section id="technology" className="py-20 bg-gradient-card">
         <div className="container">

@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import cadServicesImage from "@/assets/cad-services.jpg";
 import Image from "next/image";
-import SEO from "@/components/SEO";
 import JsonLd from "./JsonLd";
 import {
   Dialog,
@@ -124,13 +123,7 @@ const Services = () => {
 
   return (
     <>
-      <SEO
-        title="Engineering Services - KVS ENGINEERING"
-        description="From CAD drafting to complex power plant engineering, KVS ENGINEERING delivers comprehensive solutions tailored to EPC, OEM, and PMC needs."
-        keywords="engineering services, CAD design, power plant design, electrical calculations"
-        url="https://yourwebsite.com/services"
-        image="https://yourwebsite.com/images/services-preview.jpg"
-      />
+
       <JsonLd data={schemaData} />
 
       <section id="services" className="py-20 bg-background">
