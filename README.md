@@ -1,6 +1,4 @@
-# KVS Engineering - Next.js Migration
-
-This repository was migrated from a Vite + React app to Next.js (App Router).
+# KVS Engineering - Next.js
 
 Quick start (PowerShell):
 

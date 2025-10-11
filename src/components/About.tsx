@@ -3,7 +3,7 @@ import { CheckCircle, Target, Globe, Clock } from "lucide-react";
 import infrastructureImage from "@/assets/infrastructure.jpg";
 import SEO from "./SEO";
 import JsonLd from "./JsonLd";
-import Image from 'next/image';
+import Image from "next/image";
 
 import { SEO as MAP } from "@/seoConfig";
 

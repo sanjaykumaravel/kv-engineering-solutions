@@ -14,7 +14,7 @@ import {
   Network,
 } from "lucide-react";
 import cadServicesImage from "@/assets/cad-services.jpg";
-import Image from 'next/image';
+import Image from "next/image";
 import SEO from "@/components/SEO";
 import JsonLd from "./JsonLd";
 import {

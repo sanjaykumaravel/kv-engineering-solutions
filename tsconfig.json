@@ -13,10 +13,9 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "isolatedModules": true,
-  "jsx": "react-jsx",
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "ignoreDeprecations": "6.0",
+    "jsx": "preserve",
+  "strict": true,
+  "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
