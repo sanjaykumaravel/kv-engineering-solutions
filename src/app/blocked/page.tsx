@@ -1,11 +1,7 @@
 // src/app/blocked/page.tsx
 import Link from "next/link";
 
-type BlockedPageProps = {
-  searchParams?: { country?: string };
-};
-
-export default async function Blocked({ searchParams }: BlockedPageProps) {
+export default function Blocked({ searchParams }: { searchParams?: { country?: string } }) {
   const country = searchParams?.country || "your country";
 
   return (
