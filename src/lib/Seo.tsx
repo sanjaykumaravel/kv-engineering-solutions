@@ -1,10 +1,7 @@
-"use client";
-
-import React from "react";
 import { NextSeo } from "next-seo";
 import seoConfig, { SITE_META } from "../../next-seo.config";
 
-const { SITE_URL, COMPANY_NAME, TAGLINE } = SITE_META;
+const { SITE_URL, COMPANY_NAME } = SITE_META;
 
 export const organizationSchema = {
   "@context": "https://schema.org",
@@ -58,11 +55,9 @@ export default function Seo({ title, description, canonical, additionalMetaTags 
   const finalTitle = title || (seoConfig.defaultTitle as string);
   const finalDescription = description || (seoConfig.description as string);
 
-  // Merge global additional meta tags with any page-level ones (page-level overrides duplicates)
   const globalMeta = Array.isArray(seoConfig.additionalMetaTags) ? seoConfig.additionalMetaTags : [];
   const pageMeta = Array.isArray(additionalMetaTags) ? additionalMetaTags : [];
 
-  // simple merge; pages can override by using same name (last wins)
   const mergedMeta: Array<{ name: string; content: string }> = [];
   const map = new Map<string, string>();
   globalMeta.forEach((m: any) => map.set(m.name, m.content));
@@ -71,7 +66,6 @@ export default function Seo({ title, description, canonical, additionalMetaTags 
 
   return (
     <>
-      {/* NextSeo handles title, meta, OG and Twitter */}
       <NextSeo
         title={finalTitle}
         description={finalDescription}
@@ -81,7 +75,6 @@ export default function Seo({ title, description, canonical, additionalMetaTags 
         twitter={seoConfig.twitter}
       />
 
-      {/* JSON-LD structured data */}
       <script
         key="ld-org"
         type="application/ld+json"
