@@ -1,8 +1,13 @@
 // src/app/blocked/page.tsx
 import Link from "next/link";
 
-export default function Blocked({ searchParams }: { searchParams?: { country?: string } }) {
-  const country = searchParams?.country || "your country";
+// Allow searchParams to be either an object or (for some Next versions) a Promise-ish type
+type MaybeSearchParams = { country?: string } | Promise<any> | undefined;
+
+export default function Blocked({ searchParams }: { searchParams?: MaybeSearchParams }) {
+  // If searchParams is a promise-like (some Next versions), try to resolve synchronously if possible
+  const raw = (searchParams && typeof (searchParams as any).then === "function") ? undefined : (searchParams as { country?: string } | undefined);
+  const country = raw?.country || "your country";
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground px-4">

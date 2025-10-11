@@ -27,10 +27,10 @@ export function middleware(req: NextRequest) {
 
     const upper = country.toString().toUpperCase();
     if (BLOCKED.includes(upper)) {
-      // send them to a friendly blocked page and include the country code as query param
-      url.pathname = "/blocked";
-      url.searchParams.set("country", upper);
-      return NextResponse.rewrite(url);
+      // redirect visitors from blocked countries to /blocked so the URL shows the blocked page
+      const redirectUrl = new URL("/blocked", req.url);
+      redirectUrl.searchParams.set("country", upper);
+      return NextResponse.redirect(redirectUrl);
     }
   } catch (err) {
     // If anything goes wrong, don't block; allow normal routing
