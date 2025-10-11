@@ -1,8 +1,9 @@
+// src/app/blocked/page.tsx
 import Link from "next/link";
 
-interface BlockedPageProps {
-  searchParams?: { country?: string };
-}
+type BlockedPageProps = {
+  searchParams?: Record<string, string>;
+};
 
 export default function Blocked({ searchParams }: BlockedPageProps) {
   const country = searchParams?.country || "your country";
@@ -14,7 +15,6 @@ export default function Blocked({ searchParams }: BlockedPageProps) {
         <p className="text-lg text-muted-foreground mb-6">
           We're sorry — this site is not available in {country}. If you think this is a mistake, please contact us.
         </p>
-
         <div className="flex items-center justify-center gap-4">
           <Link
             href="/"
