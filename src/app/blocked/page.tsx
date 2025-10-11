@@ -1,7 +1,11 @@
 import Link from "next/link";
 
-export default function Blocked({ searchParams }: { searchParams?: { country?: string } }) {
-  const country = (searchParams && searchParams.country) || "your country";
+interface BlockedPageProps {
+  searchParams?: { country?: string };
+}
+
+export default function Blocked({ searchParams }: BlockedPageProps) {
+  const country = searchParams?.country || "your country";
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background text-foreground px-4">
