@@ -30,7 +30,10 @@ export function middleware(req: NextRequest) {
       // redirect visitors from blocked countries to /blocked so the URL shows the blocked page
       const redirectUrl = new URL("/blocked", req.url);
       redirectUrl.searchParams.set("country", upper);
-      return NextResponse.redirect(redirectUrl);
+      const resp = NextResponse.redirect(redirectUrl);
+      // debug header to confirm middleware ran and which country triggered it
+      resp.headers.set("x-middleware-debug", `blocked:${upper}`);
+      return resp;
     }
   } catch (err) {
     // If anything goes wrong, don't block; allow normal routing
