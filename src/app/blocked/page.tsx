@@ -2,10 +2,10 @@
 import Link from "next/link";
 
 type BlockedPageProps = {
-  searchParams?: Record<string, string>;
+  searchParams?: { country?: string };
 };
 
-export default function Blocked({ searchParams }: BlockedPageProps) {
+export default async function Blocked({ searchParams }: BlockedPageProps) {
   const country = searchParams?.country || "your country";
 
   return (
