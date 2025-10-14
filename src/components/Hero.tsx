@@ -1,35 +1,63 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Building2, Users, Award } from "lucide-react";
 import heroImage from "@/assets/engineering-hero.jpg";
+import Image from "next/image";
 
 const Hero = () => {
 
 
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [timeLeft, setTimeLeft] = useState<{
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  } | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    function getNextSaturday10AM(from: Date) {
+      // Saturday = 6 (Sun=0..Sat=6)
+      const day = from.getDay();
+      // days until Saturday
+      const daysUntil = (6 - day + 7) % 7;
+      const candidate = new Date(from);
+      candidate.setDate(from.getDate() + daysUntil);
+      candidate.setHours(10, 0, 0, 0);
+
+      // if candidate is in the past or exactly now, move to next week's Saturday
+      if (candidate.getTime() <= from.getTime()) {
+        candidate.setDate(candidate.getDate() + 7);
+      }
+
+      return candidate;
+    }
+
+    // compute initial value immediately to avoid a blank on first tick
+    const compute = () => {
       const now = new Date();
-      const day = now.getDay();
-      const nextSaturday = new Date(now);
-      const diff = day <= 6 ? 6 - day : 6 - day + 7;
-      nextSaturday.setDate(now.getDate() + diff);
-      nextSaturday.setHours(17, 0, 0, 0);
-      const distance = nextSaturday.getTime() - now.getTime();
+      const target = getNextSaturday10AM(now);
+      const distance = target.getTime() - now.getTime();
+
+      if (distance <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-      );
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       setTimeLeft({ days, hours, minutes, seconds });
+    };
+
+    compute();
+
+    const interval = setInterval(() => {
+      compute();
+      const now = new Date();
+      // note: compute() already updated state
     }, 1000);
 
     return () => clearInterval(interval);
@@ -38,12 +66,11 @@ const Hero = () => {
   return (
     <>
 
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage.src})` }}
-        />
+  <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image (optimized) */}
+        <div className="absolute inset-0 -z-0">
+          <Image src={heroImage} alt="Engineering background" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+        </div>
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
 
@@ -119,8 +146,9 @@ const Hero = () => {
               Next session starts in:
             </p>
             <div className="text-xl sm:text-2xl md:text-2xl font-mono text-white text-center md:text-right">
-              {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m :{" "}
-              {timeLeft.seconds}s
+              {timeLeft
+                ? `${timeLeft.days}d : ${timeLeft.hours}h : ${timeLeft.minutes}m : ${timeLeft.seconds}s`
+                : `--d : --h : --m : --s`}
             </div>
             <a
               href="https://docs.google.com/forms/"

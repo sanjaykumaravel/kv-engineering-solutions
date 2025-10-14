@@ -19,7 +19,7 @@
     "plugins": [{ "name": "next" }]
   },
   "include": [
-    "middleware.ts",
+    "src/middleware.ts",
     "src/app",
     "next-env.d.ts",
     "src",

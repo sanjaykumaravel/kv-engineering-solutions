@@ -4,19 +4,10 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Technology from "@/components/Technology";
 import Contact from "@/components/Contact";
-// import SEO from "@/components/SEO";
 import LspContainer from "@/components/LspContainer";
 
 export default function Page() {
   return (
-    <>
-      {/* <SEO
-        title="KVS ENGINEERING"
-        description="We provide detailed engineering services to EPC, OEM, and PMC — delivering excellence globally."
-        keywords="engineering, EPC, OEM, PMC, global engineering services"
-        url="https://yourwebsite.com/"
-        image="/images/services-preview.jpg"
-      /> */}
 
       <div className="min-h-screen bg-background">
         <Hero />
@@ -26,6 +17,5 @@ export default function Page() {
         <Technology />
         <Contact />
       </div>
-    </>
   );
 }

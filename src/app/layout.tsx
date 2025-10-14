@@ -32,9 +32,7 @@ export const metadata: Metadata = {
   authors: [{ name: "KSV Engineering", url: "https://www.ksvengineering.com" }],
   creator: "KSV Engineering",
   publisher: "KSV Engineering",
-  alternates: {
-    canonical: "https://www.ksvengineering.com",
-  },
+  alternates: { canonical: "https://www.ksvengineering.com" },
   openGraph: {
     type: "website",
     url: "https://www.ksvengineering.com",
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "KSV Engineering",
     images: [
       {
-        url: "https://www.ksvengineering.com/og-image.jpg", // replace with actual image path
+        url: "https://www.ksvengineering.com/images/services-preview.jpg",
         width: 1200,
         height: 630,
         alt: "KSV Engineering — Global Engineering Solutions",
@@ -56,13 +54,10 @@ export const metadata: Metadata = {
     title: "KSV Engineering | Global Detailed Engineering Services",
     description:
       "Innovative and reliable engineering solutions for EPC, OEM, and PMC clients. Global expertise with local precision.",
-    images: ["https://www.ksvengineering.com/og-image.jpg"],
+    images: ["https://www.ksvengineering.com/images/services-preview.jpg"],
     creator: "@ksvengineering",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
   metadataBase: new URL("https://www.ksvengineering.com"),
   robots: {
     index: true,
@@ -75,21 +70,12 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE", // Replace after Search Console setup 
-    //google-site-verification=bC9yoms8R5OWtp4uzx4l_lOMbKvvV-VDAtXncenqeu0
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Structured Data (Schema.org JSON-LD) for Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,7 +104,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Header />
-          <main className="min-h-[60vh]">{children}</main>
+          {children}
           <Footer />
         </Providers>
       </body>

@@ -1,8 +1,13 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const services = [
     "Project Management",
