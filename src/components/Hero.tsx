@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Building2, Users, Award } from "lucide-react";
 import heroImage from "@/assets/engineering-hero.jpg";
 import Image from "next/image";
+import  Link from "next/link";
 
 const Hero = () => {
 
@@ -150,14 +151,9 @@ const Hero = () => {
                 ? `${timeLeft.days}d : ${timeLeft.hours}h : ${timeLeft.minutes}m : ${timeLeft.seconds}s`
                 : `--d : --h : --m : --s`}
             </div>
-            <a
-              href="https://docs.google.com/forms/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow hover:bg-blue-700 transition text-center w-full md:w-auto"
-            >
-              Register Now
-            </a>
+            <Link href="/register" className="mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow hover:bg-blue-700 transition text-center w-full md:w-auto">
+                  Register Now
+            </Link>
           </div>
         </div>
 
