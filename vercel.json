@@ -4,7 +4,6 @@
     { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/blocked", "destination": "/blocked" },
     { "source": "/images/:path*", "destination": "/images/:path*" },
-    { "source": "/static/:path*", "destination": "/static/:path*" },
-    { "source": "/:path*", "destination": "/" }
+    { "source": "/static/:path*", "destination": "/static/:path*" }
   ]
 }

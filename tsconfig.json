@@ -1,12 +1,7 @@
-//tsconfig.json
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM","DOM.Iterable","ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -14,30 +9,21 @@
     "moduleResolution": "Node",
     "isolatedModules": true,
     "jsx": "preserve",
-  "strict": true,
-  "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
+    "paths": { "@/*": ["src/*"] },
     "noEmit": true,
     "incremental": true,
     "resolveJsonModule": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }]
   },
   "include": [
+    "src/middleware.ts",
     "src/app",
     "next-env.d.ts",
     "src",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

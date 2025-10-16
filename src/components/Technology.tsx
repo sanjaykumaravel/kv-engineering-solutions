@@ -1,19 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Monitor, Cpu, Globe, Shield } from "lucide-react";
-import { SEO as MAP } from "../seoConfig";
-import JsonLd from "@/components/JsonLd";
 
 const Technology = () => {
-  const meta = MAP["/technology"];
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "TechnologyPage",
-    name: "Technology & Innovation - KSV Engineering",
-    description:
-      "We deliver high-end design engineering and drafting services using industry-leading software tools and cutting-edge technology.",
-    url: "https://yourdomain.com/about",
-  };
+
   const softwareTools = [
     "Autocad 2023",
     "E3D",
@@ -80,7 +70,6 @@ const Technology = () => {
 
   return (
     <>
-      <JsonLd data={schemaData} />
       <section id="technology" className="py-20 bg-gradient-card">
         <div className="container">
           <div className="text-center mb-16">

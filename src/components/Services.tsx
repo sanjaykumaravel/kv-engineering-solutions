@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +16,6 @@ import {
 } from "lucide-react";
 import cadServicesImage from "@/assets/cad-services.jpg";
 import Image from "next/image";
-import JsonLd from "./JsonLd";
 import {
   Dialog,
   DialogContent,
@@ -123,8 +123,6 @@ const Services = () => {
 
   return (
     <>
-
-      <JsonLd data={schemaData} />
 
       <section id="services" className="py-20 bg-background">
         <div className="container">
