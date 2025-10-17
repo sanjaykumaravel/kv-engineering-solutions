@@ -30,6 +30,16 @@ function priorityForPath(loc: string) {
   return 0.5;
 }
 
+// Escape XML special characters
+function escapeXml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
   const results: RouteItem[] = [];
   if (!fs.existsSync(dir)) return results;
@@ -38,74 +48,114 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      // if directory contains page.tsx or page.jsx or route.tsx create an entry
       const pageTsx = path.join(full, "page.tsx");
-      const pageTs = path.join(full, "page.jsx");
-      if (fs.existsSync(pageTsx) || fs.existsSync(pageTs)) {
-        const relPath = path.relative(process.cwd(), fs.existsSync(pageTsx) ? pageTsx : pageTs);
+      const pageJsx = path.join(full, "page.jsx");
+      if (fs.existsSync(pageTsx) || fs.existsSync(pageJsx)) {
+        const relPath = path.relative(
+          process.cwd(),
+          fs.existsSync(pageTsx) ? pageTsx : pageJsx
+        );
         const loc = path.join(baseUrl, entry.name).replace(/\\/g, "/");
         const priority = priorityForPath(entry.name);
         const changefreq = changefreqForPriority(priority);
-        results.push({ loc, priority: priority.toFixed(1), changefreq, filePath: relPath });
+        results.push({
+          loc,
+          priority: priority.toFixed(1),
+          changefreq,
+          filePath: relPath,
+        });
       }
-
-      // Recurse into nested directories to find nested pages
       results.push(...collectPagesFromDir(full, path.join(baseUrl, entry.name)));
-    } else {
-      // top-level page file (e.g., src/app/page.tsx)
-      if (/^page\.(tsx|jsx)$/.test(entry.name)) {
-        const relPath = path.relative(process.cwd(), full);
-        const loc = baseUrl.replace(/\\/g, "/");
-        const priority = priorityForPath(loc);
-        const changefreq = changefreqForPriority(priority);
-        results.push({ loc, priority: priority.toFixed(1), changefreq, filePath: relPath });
-      }
+    } else if (/^page\.(tsx|jsx)$/.test(entry.name)) {
+      const relPath = path.relative(process.cwd(), full);
+      const loc = baseUrl.replace(/\\/g, "/");
+      const priority = priorityForPath(loc);
+      const changefreq = changefreqForPriority(priority);
+      results.push({
+        loc,
+        priority: priority.toFixed(1),
+        changefreq,
+        filePath: relPath,
+      });
     }
   }
-
   return results;
 }
 
+function collectImagesFromPublic(dirPath: string, webPath = "/"): string[] {
+  if (!fs.existsSync(dirPath)) return [];
+  const images: string[] = [];
+
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+  for (const entry of entries) {
+    const full = path.join(dirPath, entry.name);
+    const urlPath = path.join(webPath, entry.name).replace(/\\/g, "/");
+    if (entry.isDirectory()) {
+      images.push(...collectImagesFromPublic(full, urlPath));
+    } else if (/\.(jpg|jpeg|png|gif|webp|avif)$/i.test(entry.name)) {
+      images.push(urlPath);
+    }
+  }
+  return images;
+}
+
 export async function GET() {
-  // collect from src/app and src/pages
   const pages: RouteItem[] = [];
   pages.push(...collectPagesFromDir(path.join(process.cwd(), "src", "app"), ""));
   pages.push(...collectPagesFromDir(path.join(process.cwd(), "src", "pages"), ""));
 
-  // dedupe by loc
   const map = new Map<string, RouteItem>();
-  for (const p of pages) {
-    if (!map.has(p.loc)) map.set(p.loc, p);
-  }
+  for (const p of pages) if (!map.has(p.loc)) map.set(p.loc, p);
+
+  const trenchesDir = path.join(process.cwd(), "public", "trenches");
+  const trenchImages = collectImagesFromPublic(trenchesDir, "/trenches");
 
   const urlset = Array.from(map.values())
     .map((r) => {
-      let lastmod = undefined;
+      let lastmod: string | undefined;
       if (r.filePath) {
         try {
           const full = path.join(process.cwd(), r.filePath);
           const stat = fs.statSync(full);
           lastmod = formatDate(stat.mtime);
-        } catch (e) {
-          // ignore
-        }
+        } catch {}
       }
 
+      const encodedLoc = encodeURI(`${SITE_URL}/${r.loc}`);
       return `  <url>
-    <loc>${SITE_URL}/${r.loc}</loc>
-    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
+    <loc>${escapeXml(encodedLoc)}</loc>
+    ${lastmod ? `<lastmod>${escapeXml(lastmod)}</lastmod>` : ""}
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
   </url>`;
     })
     .join("\n");
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlset}\n</urlset>`;
+  const imageEntries = trenchImages
+    .map((imgPath) => {
+      const encodedUrl = encodeURI(SITE_URL + imgPath);
+      const safeUrl = escapeXml(encodedUrl);
+      const title = escapeXml(
+        path.basename(imgPath, path.extname(imgPath))
+      );
+      return `  <url>
+    <loc>${safeUrl}</loc>
+    <image:image>
+      <image:loc>${safeUrl}</image:loc>
+      <image:title>${title}</image:title>
+    </image:image>
+  </url>`;
+    })
+    .join("\n");
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urlset}\n${imageEntries}\n</urlset>`;
 
   return new NextResponse(xml, {
     status: 200,
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/xml; charset=utf-8",
       "Cache-Control": "s-maxage=3600, stale-while-revalidate=86400",
     },
   });

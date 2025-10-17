@@ -54,46 +54,68 @@ export async function POST(req: Request) {
   text: `
 Hi ${name},
 
-Thank you for registering for the KSV Engineering seminar. 
+Thank you for registering for the KSV Engineering Seminar.
 We are excited to have you join us!
 
-You can access your scheduled meeting here: [Insert Meeting Link]
+🗓️ Schedule: Every Saturday from 5:00 PM to 6:00 PM
+📍 Location: Online (Microsoft Teams)
 
-Details about the seminar and updates will be sent to you shortly.
+Join your scheduled seminar here: 
+https://teams.live.com/meet/9347018645262?p=NNzCOcMQZv1uDQOKqH
+
+We’ll send you seminar materials and updates soon.
 
 Best regards,
 KSV Engineering Team
   `,
   html: `
-  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #f9f9f9;">
-    <h2 style="color: #1a1a1a;">✅ Registration Confirmed!</h2>
-    <p style="font-size: 16px; color: #333;">
-      Hi ${name},
-    </p>
-    <p style="font-size: 16px; color: #333;">
-      Thank you for registering for the KSV Engineering seminar. We are thrilled to have you join us!
-    </p>
-    <p style="font-size: 16px; color: #333;">
-      You can access your scheduled meeting using the link below:
-    </p>
-    <div style="text-align: center; margin: 20px 0;">
-      <a href="[Insert Meeting Link]" target="_blank" style="background-color: #4f46e5; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
-        Join Seminar
-      </a>
+  <div style="font-family: Arial, sans-serif; max-width: 650px; margin: auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0;">
+    <div style="background-color: #f5f6fa; padding: 25px; text-align: center;">
+      <img src="https://www.ksvengineering.com/_next/image?url=%2Flovable-uploads%2F658c083b-5ef7-40e2-ba6c-ecb609b7c0cb.png&w=3840&q=75"
+           alt="KSV Engineering Logo"
+           style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+      <h2 style="color: #1a1a1a; margin-top: 10px;">✅ Registration Confirmed!</h2>
     </div>
-    <p style="font-size: 16px; color: #333;">
-      Seminar details, updates, and resources will be shared with you via email. Please keep an eye on your inbox.
-    </p>
-    <p style="font-size: 14px; color: #888; text-align: center; margin-top: 40px;">
-      Best regards,<br>
-      KSV Engineering Team
-    </p>
-    <p style="font-size: 12px; color: #aaa; text-align: center;">
-      © ${new Date().getFullYear()} KSV Engineering. All rights reserved.
-    </p>
+
+    <div style="padding: 25px;">
+      <p style="font-size: 16px; color: #333;">Hi ${name},</p>
+      <p style="font-size: 16px; color: #333;">
+        Thank you for registering for the <strong>KSV Engineering Seminar</strong>. We are thrilled to have you join us!
+      </p>
+
+      <div style="background-color: #eef2ff; border-left: 4px solid #4f46e5; padding: 15px; margin: 20px 0; border-radius: 8px;">
+        <p style="margin: 0; font-size: 15px; color: #1e1e1e;">
+          🗓️ <strong>When:</strong> Every <b>Saturday</b>, from <b>5:00 PM to 6:00 PM</b><br>
+          💻 <strong>Where:</strong> Online via <b>Microsoft Teams</b>
+        </p>
+      </div>
+
+      <div style="text-align: center; margin: 25px 0;">
+        <a href="https://teams.live.com/meet/9347018645262?p=NNzCOcMQZv1uDQOKqH" target="_blank"
+           style="background-color: #4f46e5; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; display: inline-block;">
+          🔗 Join Seminar
+        </a>
+      </div>
+
+      <p style="font-size: 16px; color: #333;">
+        Seminar materials, resources, and updates will be shared with you via email. Please keep an eye on your inbox.
+      </p>
+
+      <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;">
+
+      <p style="font-size: 14px; color: #888; text-align: center;">
+        Best regards,<br>
+        <strong>KSV Engineering Team</strong>
+      </p>
+      <p style="font-size: 12px; color: #aaa; text-align: center;">
+        © ${new Date().getFullYear()} KSV Engineering. All rights reserved.
+      </p>
+    </div>
   </div>
   `,
 });
+
+
 
 
     return NextResponse.json(

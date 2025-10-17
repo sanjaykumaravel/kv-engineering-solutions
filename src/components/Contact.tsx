@@ -80,7 +80,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "ksvengineeringconsultant@gmail.com",
+      details: "Admin@ksvengineering.com",
       subtitle: "We respond within 24 hours",
     },
   ];

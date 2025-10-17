@@ -17,52 +17,47 @@ const Hero = () => {
   } | null>(null);
 
   useEffect(() => {
-    function getNextSaturday10AM(from: Date) {
-      // Saturday = 6 (Sun=0..Sat=6)
-      const day = from.getDay();
-      // days until Saturday
-      const daysUntil = (6 - day + 7) % 7;
-      const candidate = new Date(from);
-      candidate.setDate(from.getDate() + daysUntil);
-      candidate.setHours(10, 0, 0, 0);
+  function getNextSaturday5PM(from: Date) {
+    // Saturday = 6 (Sun=0..Sat=6)
+    const day = from.getDay();
+    const daysUntil = (6 - day + 7) % 7;
+    const candidate = new Date(from);
+    candidate.setDate(from.getDate() + daysUntil);
+    candidate.setHours(17, 0, 0, 0); // 🕔 17:00 = 5 PM
 
-      // if candidate is in the past or exactly now, move to next week's Saturday
-      if (candidate.getTime() <= from.getTime()) {
-        candidate.setDate(candidate.getDate() + 7);
-      }
-
-      return candidate;
+    // If the current time is already past 5 PM this Saturday, go to next week
+    if (candidate.getTime() <= from.getTime()) {
+      candidate.setDate(candidate.getDate() + 7);
     }
 
-    // compute initial value immediately to avoid a blank on first tick
-    const compute = () => {
-      const now = new Date();
-      const target = getNextSaturday10AM(now);
-      const distance = target.getTime() - now.getTime();
+    return candidate;
+  }
 
-      if (distance <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
+  const compute = () => {
+    const now = new Date();
+    const target = getNextSaturday5PM(now);
+    const distance = target.getTime() - now.getTime();
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance <= 0) {
+      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      return;
+    }
 
-      setTimeLeft({ days, hours, minutes, seconds });
-    };
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    compute();
+    setTimeLeft({ days, hours, minutes, seconds });
+  };
 
-    const interval = setInterval(() => {
-      compute();
-      const now = new Date();
-      // note: compute() already updated state
-    }, 1000);
+  compute();
+  const interval = setInterval(compute, 1000);
+  return () => clearInterval(interval);
+}, []);
 
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
