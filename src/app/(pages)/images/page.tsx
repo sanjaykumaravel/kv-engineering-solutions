@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 
-// ✅ Define all image filenames manually (from your directory listing)
 const images = [
   "2014-01-23 12.29.16.jpg",
   "20150919_113342.jpg",

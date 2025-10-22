@@ -1,19 +1,16 @@
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-# Default rule for all other bots
+# robots.txt for KSV Engineering
+# Allow major crawlers but block internal and sensitive paths
 User-agent: *
-Allow: /
+Disallow: /api
+Disallow: /_next
+Disallow: /static
+Disallow: /images/*/private
 
-# Sitemap location
+# Crawl-delay (seconds) - optional, some bots ignore this
+# Crawl-delay: 10
+
+# Sitemap location (absolute URL)
 Sitemap: https://www.ksvengineering.com/sitemap.xml
+
+# Host (optional)
+# Host: https://www.ksvengineering.com

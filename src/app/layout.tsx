@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.ksvengineering.com",
-    title: "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC",
+    title: "KSV Engineering",
     description:
       "Your trusted global partner for detailed engineering services — from concept to commissioning. Delivering excellence to EPC, OEM, and PMC clients worldwide.",
     siteName: "KSV Engineering",

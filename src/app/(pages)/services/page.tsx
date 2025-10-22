@@ -1,7 +1,7 @@
 import Services from "@/components/Services";
 
 export const metadata = {
-  title: "Services — Detailed Engineering, CAD Automation & LISP Customization",
+  title: "Services",
   description:
     "KSV Engineering offers detailed engineering services, CAD automation, AutoCAD LISP development, and plant design solutions for EPC, OEM and PMC clients worldwide.",
   openGraph: {
@@ -41,7 +41,23 @@ export default function ServicesPage() {
 
       <main>
         <Services />
+        <script
+          key="ld-breadcrumb"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ksvengineering.com/" },
+                { "@type": "ListItem", position: 2, name: "Services", item: "https://www.ksvengineering.com/services" },
+              ],
+            }),
+          }}
+        />
       </main>
     </>
   );
 }
+
+// BreadcrumbList is injected inline in the page to avoid export type conflicts

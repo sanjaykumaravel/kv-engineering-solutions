@@ -53,4 +53,13 @@ export const SITE_META = {
   TAGLINE,
 };
 
+// Export a small curated list of primary routes for sitemap/robots usage.
+export const PRIMARY_ROUTES = [
+  "",
+  "about",
+  "services",
+  "technology",
+  "contact",
+];
+
 export default seo;

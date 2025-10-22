@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { PRIMARY_ROUTES } from "../../../next-seo.config";
 
 const SITE_URL = "https://www.ksvengineering.com";
 
@@ -104,7 +105,22 @@ export async function GET() {
   pages.push(...collectPagesFromDir(path.join(process.cwd(), "src", "app"), ""));
   pages.push(...collectPagesFromDir(path.join(process.cwd(), "src", "pages"), ""));
 
+  // Ensure homepage is present with empty loc
+  if (!pages.find((p) => p.loc === "")) {
+    pages.push({ loc: "", priority: "1.0", changefreq: "daily" });
+  }
+
   const map = new Map<string, RouteItem>();
+  // Add PRIMARY_ROUTES with higher priority if provided
+  if (Array.isArray(PRIMARY_ROUTES)) {
+    for (const r of PRIMARY_ROUTES) {
+      const loc = r.replace(/^\//, "");
+      if (!map.has(loc)) {
+        const priority = priorityForPath(loc);
+        map.set(loc, { loc, priority: priority.toFixed(1), changefreq: changefreqForPriority(priority) });
+      }
+    }
+  }
   for (const p of pages) if (!map.has(p.loc)) map.set(p.loc, p);
 
   const trenchesDir = path.join(process.cwd(), "public", "trenches");
@@ -121,7 +137,9 @@ export async function GET() {
         } catch {}
       }
 
-      const encodedLoc = encodeURI(`${SITE_URL}/${r.loc}`);
+      // Build canonical URL (avoid double slashes)
+      const pathPart = r.loc === "" ? "" : `/${r.loc}`;
+      const encodedLoc = encodeURI(`${SITE_URL}${pathPart}`.replace(/\/\\/g, "/"));
       return `  <url>
     <loc>${escapeXml(encodedLoc)}</loc>
     ${lastmod ? `<lastmod>${escapeXml(lastmod)}</lastmod>` : ""}
