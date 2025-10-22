@@ -6,6 +6,9 @@ Disallow: /_next
 Disallow: /static
 Disallow: /images/*/private
 
+# Don't allow crawlers to index the geo-blocked landing page
+Disallow: /blocked
+
 # Crawl-delay (seconds) - optional, some bots ignore this
 # Crawl-delay: 10
 

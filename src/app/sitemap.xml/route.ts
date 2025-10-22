@@ -127,6 +127,7 @@ export async function GET() {
   const trenchImages = collectImagesFromPublic(trenchesDir, "/trenches");
 
   const urlset = Array.from(map.values())
+    .filter((r) => r.loc !== "blocked" && r.loc !== "/blocked")
     .map((r) => {
       let lastmod: string | undefined;
       if (r.filePath) {
