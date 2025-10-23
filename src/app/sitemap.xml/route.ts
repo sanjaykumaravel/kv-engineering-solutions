@@ -23,6 +23,19 @@ function changefreqForPriority(p: number) {
   return "yearly";
 }
 
+function normalizeLoc(rawLoc: string) {
+  if (!rawLoc) return "";
+  // convert backslashes -> slashes
+  let loc = rawLoc.replace(/\\/g, "/");
+  // remove any route-group markers like (pages) or (something)
+  loc = loc.replace(/\/?\([^/]+\)\/?/g, "/");
+  // collapse multiple slashes
+  loc = loc.replace(/\/+/g, "/");
+  // trim leading/trailing slashes
+  loc = loc.replace(/^\//, "").replace(/\/$/, "");
+  return loc;
+}
+
 function priorityForPath(loc: string) {
   if (loc === "") return 1.0;
   if (loc === "services") return 0.9;
@@ -56,7 +69,8 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
           process.cwd(),
           fs.existsSync(pageTsx) ? pageTsx : pageJsx
         );
-        const loc = path.join(baseUrl, entry.name).replace(/\\/g, "/");
+  const rawLoc = path.join(baseUrl, entry.name).replace(/\\/g, "/");
+  const loc = normalizeLoc(rawLoc);
         const priority = priorityForPath(entry.name);
         const changefreq = changefreqForPriority(priority);
         results.push({
@@ -68,8 +82,9 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
       }
       results.push(...collectPagesFromDir(full, path.join(baseUrl, entry.name)));
     } else if (/^page\.(tsx|jsx)$/.test(entry.name)) {
-      const relPath = path.relative(process.cwd(), full);
-      const loc = baseUrl.replace(/\\/g, "/");
+  const relPath = path.relative(process.cwd(), full);
+  const rawLoc = baseUrl.replace(/\\/g, "/");
+  const loc = normalizeLoc(rawLoc);
       const priority = priorityForPath(loc);
       const changefreq = changefreqForPriority(priority);
       results.push({
@@ -114,7 +129,8 @@ export async function GET() {
   // Add PRIMARY_ROUTES with higher priority if provided
   if (Array.isArray(PRIMARY_ROUTES)) {
     for (const r of PRIMARY_ROUTES) {
-      const loc = r.replace(/^\//, "");
+      const raw = typeof r === "string" ? r : String(r);
+      const loc = normalizeLoc(raw.replace(/^\//, ""));
       if (!map.has(loc)) {
         const priority = priorityForPath(loc);
         map.set(loc, { loc, priority: priority.toFixed(1), changefreq: changefreqForPriority(priority) });

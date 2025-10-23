@@ -3,11 +3,11 @@ import Services from "@/components/Services";
 export const metadata = {
   title: "Services",
   description:
-    "KSV Engineering offers detailed engineering services, CAD automation, AutoCAD LISP development, and plant design solutions for EPC, OEM and PMC clients worldwide.",
+    "KSV Engineering offers detailed engineering services, CAD automation, AutoCAD LISP development, plant design, EPC and PMC support, and 3D visualization for clients worldwide.",
   openGraph: {
     title: "Services — Detailed Engineering, CAD Automation & LISP Customization",
     description:
-      "KSV Engineering offers detailed engineering services, CAD automation and AutoCAD LISP development for EPC, OEM and PMC clients.",
+      "KSV Engineering offers detailed engineering services, CAD automation and AutoCAD LISP development for EPC, OEM and PMC clients. Services include building cable tray & lighting layouts, paper-to-CAD conversion, as-built drawings, estimation and costing, and 3D visualization.",
     url: "https://www.ksvengineering.com/services",
   },
 };
@@ -24,12 +24,27 @@ const servicesLd = {
   serviceType: [
     "CAD automation services",
     "AutoCAD LISP programming",
+    "LISP customization for AutoCAD",
+    "CAD customization services",
     "Mechanical engineering services",
     "Electrical engineering services",
-    "Industrial plant design",
+    "Industrial plant engineering solutions",
+    "Plant design engineering",
+    "EPC engineering services",
+    "PMC project management consultancy",
+    "Building Cable Tray Layout",
+    "Building Lighting Layout",
+    "Paper to CAD Conversion",
+    "Building Lighting Protection",
+    "Architecture Drawing Building",
+    "Plan and Section",
+    "Building Solar Drawing",
+    "3D Visualization",
+    "As-Built Drawing",
+    "Estimation and Costing",
   ],
   description:
-    "Detailed engineering services for EPC, OEM, and PMC clients including CAD automation, LISP customization, mechanical and electrical design, and plant engineering.",
+    "Detailed engineering services for EPC, OEM, and PMC clients including CAD automation, LISP customization, mechanical and electrical design, plant engineering, building layout drawings, paper-to-CAD conversion, and 3D visualization.",
   areaServed: "GLOBAL",
   audience: { "@type": "BusinessAudience", industry: "EPC, OEM, PMC" },
 };
