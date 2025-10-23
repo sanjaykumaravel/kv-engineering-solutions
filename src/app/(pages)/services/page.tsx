@@ -1,11 +1,11 @@
 import Services from "@/components/Services";
 
 export const metadata = {
-  title: "Services",
+  title: "Services — KSV Engineering",
   description:
     "KSV Engineering offers detailed engineering services, CAD automation, AutoCAD LISP development, plant design, EPC and PMC support, and 3D visualization for clients worldwide.",
   openGraph: {
-    title: "Services — Detailed Engineering, CAD Automation & LISP Customization",
+    title: "Services — KSV Engineering — Detailed Engineering, CAD Automation & LISP Customization",
     description:
       "KSV Engineering offers detailed engineering services, CAD automation and AutoCAD LISP development for EPC, OEM and PMC clients. Services include building cable tray & lighting layouts, paper-to-CAD conversion, as-built drawings, estimation and costing, and 3D visualization.",
     url: "https://www.ksvengineering.com/services",
@@ -64,8 +64,8 @@ export default function ServicesPage() {
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ksvengineering.com/" },
-                { "@type": "ListItem", position: 2, name: "Services", item: "https://www.ksvengineering.com/services" },
+                { "@type": "ListItem", position: 1, name: "Home", item: { "@id": "https://www.ksvengineering.com/", "@type": "WebPage" } },
+                { "@type": "ListItem", position: 2, name: "Services", item: { "@id": "https://www.ksvengineering.com/services", "@type": "WebPage" } },
               ],
             }),
           }}

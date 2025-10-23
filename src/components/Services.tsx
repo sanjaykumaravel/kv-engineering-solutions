@@ -98,13 +98,14 @@ const Services = () => {
     "GIS/AIS Lightning Layout",
   ];
 
+  // Simple page schema - corrected to a valid WebPage and proper site URL
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "ServicesPage",
-    name: "Service Us",
+    "@type": "WebPage",
+    name: "Services — KSV Engineering",
     description:
-      "From CAD drafting to complex power plant engineering, KVS ENGINEERING delivers comprehensive solutions tailored to EPC, OEM, and PMC needs.",
-    url: "https://yourdomain.com/about",
+      "From CAD drafting to complex power plant engineering, KSV Engineering delivers comprehensive solutions tailored to EPC, OEM, and PMC needs.",
+    url: "https://www.ksvengineering.com/services",
   };
 
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -127,9 +128,10 @@ const Services = () => {
       <section id="services" className="py-20 bg-background">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            {/* Main page heading: should be an H1 for better SEO */}
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Our <span className="text-primary">Services</span>
-            </h2>
+            </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Comprehensive engineering solutions from concept to commissioning
             </p>

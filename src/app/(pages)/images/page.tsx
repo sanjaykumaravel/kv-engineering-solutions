@@ -140,7 +140,7 @@ export default function Gallery() {
           >
             <Image
               src={`/trenches/${file}`}
-              alt={file}
+              alt={formatName(file)}
               width={400}
               height={300}
               className="object-cover w-full h-48 group-hover:scale-105 transition-transform duration-300"
@@ -160,10 +160,10 @@ export default function Gallery() {
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setSelected(null)}
         >
-          <div className="relative max-w-5xl max-h-[90vh]">
+            <div className="relative max-w-5xl max-h-[90vh]">
             <Image
               src={selected}
-              alt="Selected"
+              alt={formatName(selected ? selected.split('/').pop() || '' : '')}
               width={1200}
               height={900}
               className="object-contain w-auto h-auto max-h-[90vh] rounded-lg shadow-lg"

@@ -37,7 +37,12 @@ export default function Page() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ksvengineering.com/" }
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": { "@id": "https://www.ksvengineering.com/", "@type": "WebPage" }
+              }
             ],
           }),
         }}

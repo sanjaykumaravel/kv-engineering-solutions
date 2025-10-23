@@ -6,6 +6,7 @@ const { SITE_URL, COMPANY_NAME } = SITE_META;
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}#organization`,
   name: COMPANY_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.png`,
@@ -13,12 +14,21 @@ export const organizationSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      email: "info@ksvengineering.com",
+      email: "admin@ksvengineering.com",
       contactType: "customer support",
       areaServed: "GLOBAL",
       availableLanguage: ["en"],
     },
   ],
+  telephone: "+91-09444781533",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "",
+    addressLocality: "",
+    addressRegion: "",
+    postalCode: "",
+    addressCountry: "",
+  },
   sameAs: [
     "https://www.linkedin.com/company/ksv-engineering",
     "https://www.youtube.com/@ksvengineering",
@@ -30,6 +40,7 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}#website`,
   name: COMPANY_NAME,
   url: SITE_URL,
   description:
@@ -75,12 +86,7 @@ export default function Seo({ title, description, canonical, additionalMetaTags 
         twitter={seoConfig.twitter}
       />
 
-      <script
-        key="ld-org"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-
+      {/* Website JSON-LD is injected here. Organization JSON-LD is declared in the global layout to avoid duplication. */}
       <script
         key="ld-website"
         type="application/ld+json"

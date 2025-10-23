@@ -73,9 +73,10 @@ const Technology = () => {
       <section id="technology" className="py-20 bg-gradient-card">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            {/* Main page heading for Technology */}
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Technology & <span className="text-primary">Innovation</span>
-            </h2>
+            </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We deliver high-end design engineering and drafting services using
               industry-leading software tools and cutting-edge technology.

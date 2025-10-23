@@ -33,9 +33,10 @@ const About = () => {
 
         {/* About Us */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          {/* Main page heading for About page */}
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             About <span className="text-primary">KSV Engineering</span>
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             We provide detailed engineering services to EPC, OEM, and PMC as
             long-term projects. Our services include Project Management,

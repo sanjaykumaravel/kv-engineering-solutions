@@ -1,9 +1,10 @@
 # robots.txt for KSV Engineering
 # Allow major crawlers but block internal and sensitive paths
 User-agent: *
+# Allow Next.js static assets and public static files so Open Graph images and other assets are crawlable
+Allow: /_next/
+Allow: /static/
 Disallow: /api
-Disallow: /_next
-Disallow: /static
 Disallow: /images/*/private
 
 # Don't allow crawlers to index the geo-blocked landing page

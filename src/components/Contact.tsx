@@ -91,9 +91,10 @@ const Contact = () => {
 
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          {/* Main page heading for Contact */}
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Ready to <span className="text-primary">Work With Us?</span>
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Tell us more about your project requirements and get a detailed
             quote from our engineering experts.

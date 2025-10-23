@@ -1,7 +1,7 @@
 import Contact from "@/components/Contact";
 
 export const metadata = {
-  title: "Contact",
+  title: "Contact — KSV Engineering",
   description:
     "Contact KSV Engineering to discuss your EPC, OEM or PMC engineering requirements. We provide long-term project support and precise engineering deliverables.",
   openGraph: {
@@ -24,8 +24,8 @@ export default function ContactPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ksvengineering.com/" },
-              { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.ksvengineering.com/contact" },
+              { "@type": "ListItem", position: 1, name: "Home", item: { "@id": "https://www.ksvengineering.com/", "@type": "WebPage" } },
+              { "@type": "ListItem", position: 2, name: "Contact", item: { "@id": "https://www.ksvengineering.com/contact", "@type": "WebPage" } },
             ],
           }),
         }}
