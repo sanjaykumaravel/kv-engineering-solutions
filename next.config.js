@@ -1,11 +1,42 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Note: Next manages SWC minification and the App Router availability in
-  // recent versions. Removing explicit `swcMinify` and `experimental.appDir`
-  // avoids warnings reported by newer Next releases.
-  // If you need special experimental flags, add them here after checking
-  // the Next.js docs for your version.
+  // Add cache headers for images
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Expires',
+            // Set expiry to 1 year from now
+            value: new Date(Date.now() + 31536000000).toUTCString(),
+          },
+        ],
+      },
+      {
+        source: '/_next/image/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Expires',
+            value: new Date(Date.now() + 31536000000).toUTCString(),
+          },
+        ],
+      },
+    ];
+  },
+  images: {
+    minimumCacheTTL: 31536000, // 1 year in seconds
+    formats: ['image/webp'],
+  },
 };
 
 export default nextConfig;

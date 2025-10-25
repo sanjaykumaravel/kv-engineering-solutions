@@ -128,7 +128,7 @@ const Services = () => {
       <section id="services" className="py-20 bg-background">
         <div className="container">
           <div className="text-center mb-16">
-            {/* Main page heading: should be an H1 for better SEO */}
+            {/* Main page heading as H1 since this is a separate page */}
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Our <span className="text-primary">Services</span>
             </h1>

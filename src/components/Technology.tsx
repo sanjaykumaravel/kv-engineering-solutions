@@ -70,7 +70,7 @@ const Technology = () => {
 
   return (
     <>
-      <section id="technology" className="py-20 bg-gradient-card">
+      <section id="technology" className="py-20 ">
         <div className="container">
           <div className="text-center mb-16">
             {/* Main page heading for Technology */}

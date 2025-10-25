@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-card">
+    <section id="about" className="py-20 ">
       <div className="container">
         {/* <JsonLd data={orgSchema} />
 
@@ -35,7 +35,7 @@ const About = () => {
         <div className="text-center mb-16">
           {/* Main page heading for About page */}
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            About <span className="text-primary">KSV Engineering</span>
+            About KSV Engineering
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             We provide detailed engineering services to EPC, OEM, and PMC as
