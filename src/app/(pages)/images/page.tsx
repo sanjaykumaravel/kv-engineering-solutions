@@ -3,130 +3,101 @@
 import Image from "next/image";
 import { useState } from "react";
 
-// ✅ 1️⃣ Combined image-name array
+// 🧾 Full gallery array (name + image URL + index)
 const galleryItems = [
-  { file: "2014-01-23 12.29.16.jpg", name: "Cable tray elbow section" },
-  { file: "20150919_113342.jpg", name: "Vertical Cable Tray Installation" },
-  { file: "20150919_113750.jpg", name: "Cable Trench Area" },
-  { file: "20150919_124335.jpg", name: "Multi layer cable tray" },
-  { file: "20150919_170212.jpg", name: "Cable Tray Support Structure" },
-  { file: "249.JPG", name: "Cable Tray Routing System" },
-  { file: "250.JPG", name: "Overhead Cable Tray Installation" },
-  { file: "400kV Switchyard Isolator & Earth Switch.jpg", name: "400kv switchyard isolator & Earth switch" },
-  { file: "A Row and Tfr yard.jpg", name: "A Row & Trf yard" },
-  { file: "A Row.jpg", name: "A Row" },
-  { file: "Battery rack.JPG", name: "Battery Rack" },
-  { file: "Battery room (2).jpg", name: "Battery Room" },
-  { file: "Battery room.JPG", name: "Battery Bank Room" },
-  { file: "Cabinet-3.jpg", name: "Cabinet" },
-  { file: "Cable connect with transformer.jpg", name: "Transformer Cable Connection Setup" },
-  { file: "CABLE EARTH TRUCK.JPG", name: "Transformer Bushing Connection" },
-  { file: "Cable rack holder.jpg", name: "Cable Rack Holder" },
-  { file: "Cable Rack1.jpg", name: "Cable Rack 1" },
-  { file: "Cable Rack3.jpg", name: "Cable Rack 2" },
-  { file: "cable tray riser.jpg", name: "Cable Tray Raiser" },
-  { file: "Cable tray routing.jpg", name: "Cable Tray Routing" },
-  { file: "Captures.PNG", name: "Lightning Arrester" },
-  { file: "CCCW - pump along with earthing details.jpg", name: "CCCW Pump with Earthing" },
-  { file: "CCCW - structural arrangement for ACHE.jpg", name: "CCCW Structural Arrangement for ACHE" },
-  { file: "Control panel.jpg", name: "Control Panel" },
-  { file: "DSC00073.JPG", name: "LV/MV Power Cable Entry Arrangement" },
-  { file: "DSC01035.JPG", name: "Cable Tray Installation with Power Cables" },
-  { file: "DSC01146.JPG", name: "Cable Tray Support Structure" },
-  { file: "DSC01481.JPG", name: "Earthing Busbar Installation" },
-  { file: "DSC01566.JPG", name: "Structure Earthing Connection" },
-  { file: "DSC01876.JPG", name: "CCCW Pump House Layout" },
-  { file: "DSC02040.JPG", name: "Outdoor Cable Rack Supporting Structure" },
-  { file: "DSC07117.JPG", name: "Raised Floor Installation Work" },
-  { file: "DSCN0469.JPG", name: "Outdoor Filtration and Pumping Unit" },
-  { file: "Earth Pipe-1.jpg", name: "Earth Pipe 1" },
-  { file: "Earth Pipe-2.jpg", name: "Earth Pipe 2" },
-  { file: "earth pit.jpg", name: "Earth Pit" },
-  { file: "earth rod at 220kV (2).jpg", name: "Earth Rod" },
-  { file: "earth rod at 220kV.jpg", name: "Earth Rod 220KV" },
-  { file: "EPS-0155.jpg", name: "Multi Tier Cable Tray Support System" },
-  { file: "Equipment Earthing.jpg", name: "Equipment Earthing" },
-  { file: "FD fan Body earth.jpg", name: "FD Fan Body Earth" },
-  { file: "FO treatment area.jpg", name: "FO Treatment Area" },
-  { file: "Image034.jpg", name: "Underground Cable Duct Bank" },
-  { file: "Image0444.jpg", name: "Well Glass Luminaire Lamp" },
-  { file: "Image056.jpg", name: "Galvanized Iron (GI) pipe clamp" },
-  { file: "Image057.jpg", name: "GI Pipe Support Clamp" },
-  { file: "Image071.jpg", name: "Earth Flat Joint Connection" },
-  { file: "Image074.jpg", name: "Cable Tray Support System" },
-  { file: "Image329.jpg", name: "Transformer Base Earthing Connection" },
-  { file: "Image603.jpg", name: "Lattice Tower Foundation with Cable Duct" },
-  { file: "Image920.jpg", name: "Roof Earth Flat Connection" },
-  { file: "IMAGE_00328.jpg", name: "Cable and Pipe Rack Support Structure" },
-  { file: "IMG20220214143801.jpg", name: "Underground Cable Duct Bank" },
-  { file: "IMG_0036.jpg", name: "Underground Cable Trench Layout" },
-  { file: "IMG_0713.JPG", name: "Cable Riser Arrangement" },
-  { file: "IMG_20220628_100559.jpg", name: "Indoor Cable Tray" },
-  { file: "IMG_5212.JPG", name: "Indoor Transformer" },
-  { file: "IMG_5487.JPG", name: "Lightning Rod" },
-  { file: "IMG_5488.JPG", name: "Outdoor Power Transformer Yard" },
-  { file: "IMG_6272.JPG", name: "Main Plant Area Cable Routing" },
-  { file: "IMG_8092.JPG", name: "Storage area" },
-  { file: "Indoor transformer.jpg", name: "Outdoor transformer" },
-  { file: "Lightning rod.jpg", name: "Pane Earthing in Swyd Control Building" },
-  { file: "LTL SDC13248 (2).JPG", name: "Pane Earthing in SWYD Control Building" },
-  { file: "Main Plant area cable routing -5.jpg", name: "Emergency Telephone Installation in Industrial Area" },
-  { file: "Oil storage area.jpg", name: "Emergency Communication and Fire Safety Setup" },
-  { file: "Outdoor transformer.jpg", name: "Emergency Telephone Point" },
-  { file: "pane earthing in swyd control building.jpg", name: "Cable Tray Raiser Along Boiler Column" },
-  { file: "pane earthing in swyd control building1.jpg", name: "LAPT Transformer Bus Duct" },
-  { file: "photo-29.jpg", name: "NGR Bus Duct Connection" },
-  { file: "photo-32.jpg", name: "Cable Gallery Below Control Room" },
-  { file: "photo-39.jpg", name: "Cable Tray From SWGR Room" },
-  { file: "pic1.jpg", name: "Cable Tray Raiser To SWGR Room" },
-  { file: "pic15.jpg", name: "Cable Tray And Cabling To Panel" },
-  { file: "pic17.jpg", name: "Trays Above the Substation Control Panel Room" },
-  { file: "pic21.jpg", name: "Vertical Cable Trays In Boiler Area" },
-  { file: "pic22.jpg", name: "Cable Tray Raiser From ESP Area" },
-  { file: "pic23.jpg", name: "Cable Tray Raiser To ESP Area" },
-  { file: "pic24.jpg", name: "Field Control Box with Industrial Telephone" },
-  { file: "pic25.jpg", name: "Industrial Tower with CCTV Camera and PA System" },
-  { file: "pic3.jpg", name: "Overhead Cable Tray and Duct System" },
-  { file: "pic6.jpg", name: "Outdoor Pipe Rack" },
-  { file: "pic7.jpg", name: "EOT Crane with Control Panel and Wiring" },
-  { file: "PICT1549.JPG", name: "Substation Battery Backup System" },
-  { file: "PICT1550.JPG", name: "Gas Turbine Power Plant Structure" },
-  { file: "PICT1560.JPG", name: "Power Substation Yard" },
-  { file: "Pipe rack.JPG", name: "Rooftop" },
+  { index: 1, name: "Cable tray elbow section", url: "/trenches/2014-01-23 12.29.16.jpg" },
+  { index: 2, name: "Vertical Cable Tray Installation", url: "/trenches/20150919_113342.jpg" },
+  { index: 3, name: "Cable Trench Area", url: "/trenches/20150919_113750.jpg" },
+  { index: 4, name: "Multi layer cable tray", url: "/trenches/20150919_124335.jpg" },
+  { index: 5, name: "Cable Tray Support Structure", url: "/trenches/20150919_170212.jpg" },
+  { index: 6, name: "Cable Tray Routing System", url: "/trenches/249.JPG" },
+  { index: 7, name: "Overhead Cable Tray Installation", url: "/trenches/250.JPG" },
+  { index: 8, name: "400kv switchyard isolator & Earth switch", url: "/trenches/400kV Switchyard Isolator & Earth Switch.jpg" },
+  { index: 9, name: "A Row & Trf yard", url: "/trenches/A Row and Tfr yard.jpg" },
+  { index: 10, name: "A Row", url: "/trenches/A Row.jpg" },
+  { index: 11, name: "Battery Rack", url: "/trenches/Battery rack.JPG" },
+  { index: 12, name: "Battery Room", url: "/trenches/Battery room (2).jpg" },
+  { index: 13, name: "Battery Bank Room", url: "/trenches/Battery room.JPG" },
+  { index: 14, name: "Cabinet", url: "/trenches/Cabinet-3.jpg" },
+  { index: 15, name: "Transformer Cable Connection Setup", url: "/trenches/Cable connect with transformer.jpg" },
+  { index: 16, name: "Transformer Bushing Connection", url: "/trenches/CABLE EARTH TRUCK.JPG" },
+  { index: 17, name: "Cable Rack Holder", url: "/trenches/Cable rack holder.jpg" },
+  { index: 18, name: "Cable Rack 1", url: "/trenches/Cable Rack1.jpg" },
+  { index: 19, name: "Cable Rack 2", url: "/trenches/Cable Rack3.jpg" },
+  { index: 20, name: "Cable Tray Raiser", url: "/trenches/cable tray riser.jpg" },
+  { index: 21, name: "Cable Tray Routing", url: "/trenches/Cable tray routing.jpg" },
+  { index: 22, name: "Lightning Arrester", url: "/trenches/Captures.PNG" },
+  { index: 23, name: "CCCW Pump with Earthing", url: "/trenches/CCCW - pump along with earthing details.jpg" },
+  { index: 24, name: "CCCW Structural Arrangement for ACHE", url: "/trenches/CCCW - structural arrangement for ACHE.jpg" },
+  { index: 25, name: "Control Panel", url: "/trenches/Control panel.jpg" },
+  { index: 26, name: "LV/MV Power Cable Entry Arrangement", url: "/trenches/DSC00073.JPG" },
+  { index: 27, name: "Cable Tray Installation with Power Cables", url: "/trenches/DSC01035.JPG" },
+  { index: 28, name: "Cable Tray Support Structure", url: "/trenches/DSC01146.JPG" },
+  { index: 29, name: "Earthing Busbar Installation", url: "/trenches/DSC01481.JPG" },
+  { index: 30, name: "Structure Earthing Connection", url: "/trenches/DSC01566.JPG" },
+  { index: 31, name: "CCCW Pump House Layout", url: "/trenches/DSC01876.JPG" },
+  { index: 32, name: "Outdoor Cable Rack Supporting Structure", url: "/trenches/DSC02040.JPG" },
+  { index: 33, name: "Raised Floor Installation Work", url: "/trenches/DSC07117.JPG" },
+  { index: 34, name: "Outdoor Filtration and Pumping Unit", url: "/trenches/DSCN0469.JPG" },
+  { index: 35, name: "Earth Pipe 1", url: "/trenches/Earth Pipe-1.jpg" },
+  { index: 36, name: "Earth Pipe 2", url: "/trenches/Earth Pipe-2.jpg" },
+  { index: 37, name: "Earth Pit", url: "/trenches/earth pit.jpg" },
+  { index: 38, name: "Earth Rod", url: "/trenches/earth rod at 220kV (2).jpg" },
+  { index: 39, name: "Earth Rod 220KV", url: "/trenches/earth rod at 220kV.jpg" },
+  { index: 40, name: "Multi Tier Cable Tray Support System", url: "/trenches/EPS-0155.jpg" },
+  { index: 41, name: "Equipment Earthing", url: "/trenches/Equipment Earthing.jpg" },
+  { index: 42, name: "FD Fan Body Earth", url: "/trenches/FD fan Body earth.jpg" },
+  { index: 43, name: "FO Treatment Area", url: "/trenches/FO treatment area.jpg" },
+  { index: 44, name: "Underground Cable Duct Bank", url: "/trenches/Image034.jpg" },
+  { index: 45, name: "Well Glass Luminaire Lamp", url: "/trenches/Image0444.jpg" },
+  { index: 46, name: "Galvanized Iron (GI) pipe clamp", url: "/trenches/Image056.jpg" },
+  { index: 47, name: "GI Pipe Support Clamp", url: "/trenches/Image057.jpg" },
+  { index: 48, name: "Earth Flat Joint Connection", url: "/trenches/Image071.jpg" },
+  { index: 49, name: "Cable Tray Support System", url: "/trenches/Image074.jpg" },
+  { index: 50, name: "Transformer Base Earthing Connection", url: "/trenches/Image329.jpg" },
+  { index: 51, name: "Lattice Tower Foundation with Cable Duct", url: "/trenches/Image603.jpg" },
+  { index: 52, name: "Roof Earth Flat Connection", url: "/trenches/Image920.jpg" },
+  { index: 53, name: "Cable and Pipe Rack Support Structure", url: "/trenches/IMAGE_00328.jpg" },
+  { index: 54, name: "Underground Cable Duct Bank", url: "/trenches/IMG20220214143801.jpg" },
+  { index: 55, name: "Underground Cable Trench Layout", url: "/trenches/IMG_0036.jpg" },
+  { index: 56, name: "Cable Riser Arrangement", url: "/trenches/IMG_0713.JPG" },
+  { index: 57, name: "Indoor Cable Tray", url: "/trenches/IMG_20220628_100559.jpg" },
+  { index: 58, name: "Indoor Transformer", url: "/trenches/IMG_5212.JPG" },
+  { index: 59, name: "Lightning Rod", url: "/trenches/IMG_5487.JPG" },
+  { index: 60, name: "Outdoor Power Transformer Yard", url: "/trenches/IMG_5488.JPG" },
+  { index: 61, name: "Main Plant Area Cable Routing", url: "/trenches/IMG_6272.JPG" },
+  { index: 62, name: "Storage area", url: "/trenches/IMG_8092.JPG" },
+  { index: 63, name: "Outdoor transformer", url: "/trenches/Indoor transformer.jpg" },
+  { index: 64, name: "Pane Earthing in Swyd Control Building", url: "/trenches/Lightning rod.jpg" },
+  { index: 65, name: "Pane Earthing in SWYD Control Building", url: "/trenches/LTL SDC13248 (2).JPG" },
+  { index: 66, name: "Emergency Telephone Installation in Industrial Area", url: "/trenches/Main Plant area cable routing -5.jpg" },
+  { index: 67, name: "Emergency Communication and Fire Safety Setup", url: "/trenches/Oil storage area.jpg" },
+  { index: 68, name: "Emergency Telephone Point", url: "/trenches/Outdoor transformer.jpg" },
+  { index: 69, name: "Cable Tray Raiser Along Boiler Column", url: "/trenches/pane earthing in swyd control building.jpg" },
+  { index: 70, name: "LAPT Transformer Bus Duct", url: "/trenches/pane earthing in swyd control building1.jpg" },
+  { index: 71, name: "NGR Bus Duct Connection", url: "/trenches/photo-29.jpg" },
+  { index: 72, name: "Cable Gallery Below Control Room", url: "/trenches/photo-32.jpg" },
+  { index: 73, name: "Cable Tray From SWGR Room", url: "/trenches/photo-39.jpg" },
+  { index: 74, name: "Cable Tray Raiser To SWGR Room", url: "/trenches/pic1.jpg" },
+  { index: 75, name: "Cable Tray And Cabling To Panel", url: "/trenches/pic15.jpg" },
+  { index: 76, name: "Trays Above the Substation Control Panel Room", url: "/trenches/pic17.jpg" },
+  { index: 77, name: "Vertical Cable Trays In Boiler Area", url: "/trenches/pic21.jpg" },
+  { index: 78, name: "Cable Tray Raiser From ESP Area", url: "/trenches/pic22.jpg" },
+  { index: 79, name: "Cable Tray Raiser To ESP Area", url: "/trenches/pic23.jpg" },
+  { index: 80, name: "Field Control Box with Industrial Telephone", url: "/trenches/pic24.jpg" },
+  { index: 81, name: "Industrial Tower with CCTV Camera and PA System", url: "/trenches/pic25.jpg" },
+  { index: 82, name: "Overhead Cable Tray and Duct System", url: "/trenches/pic3.jpg" },
+  { index: 83, name: "Outdoor Pipe Rack", url: "/trenches/pic6.jpg" },
+  { index: 84, name: "EOT Crane with Control Panel and Wiring", url: "/trenches/pic7.jpg" },
+  { index: 85, name: "Substation Battery Backup System", url: "/trenches/PICT1549.JPG" },
+  { index: 86, name: "Gas Turbine Power Plant Structure", url: "/trenches/PICT1550.JPG" },
+  { index: 87, name: "Power Substation Yard", url: "/trenches/PICT1560.JPG" },
+  { index: 88, name: "Rooftop", url: "/trenches/Pipe rack.JPG" },
 ];
 
-
-// ✅ 2️⃣ If you still want to show *unnamed* images after named ones
-const extraImages = [
-  "DSC00073.JPG",
-  "DSC01035.JPG",
-  "DSC01146.JPG",
-  "DSC01481.JPG",
-  "DSC01566.JPG",
-  "DSC01876.JPG",
-  "DSC02040.JPG",
-  "DSC07117.JPG",
-  "DSCN0469.JPG",
-  "Earth Pipe-1.jpg",
-  // ...rest of your images
-];
-
-// ✅ 3️⃣ Helper for fallback name formatting
-const formatName = (name: string) =>
-  name
-    .replace(/\.[^/.]+$/, "")
-    .replace(/[_-]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
+// 🧠 Component
 export default function Gallery() {
   const [selected, setSelected] = useState<string | null>(null);
-
-  // Merge named + extra images
-  const allItems = [
-    ...galleryItems,
-    ...extraImages.map((file) => ({ file, name: formatName(file) })),
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 p-8">
@@ -136,14 +107,14 @@ export default function Gallery() {
 
       {/* 🖼️ Image Grid */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        {allItems.map(({ file, name }) => (
+        {galleryItems.map(({ index, name, url }) => (
           <div
-            key={file}
+            key={index}
             className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden cursor-pointer"
-            onClick={() => setSelected(`/trenches/${file}`)}
+            onClick={() => setSelected(url)}
           >
             <Image
-              src={`/trenches/${file}`}
+              src={url}
               alt={name}
               width={400}
               height={300}
@@ -151,14 +122,14 @@ export default function Gallery() {
             />
             <div className="p-3 text-center">
               <p className="text-sm font-medium text-gray-700 truncate">
-                {name}
+                {index}. {name}
               </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* 🔍 Modal Viewer */}
+      {/* 🔍 Modal */}
       {selected && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -167,7 +138,7 @@ export default function Gallery() {
           <div className="relative max-w-5xl max-h-[90vh]">
             <Image
               src={selected}
-              alt={formatName(selected.split("/").pop() || "")}
+              alt="Preview"
               width={1200}
               height={900}
               className="object-contain w-auto h-auto max-h-[90vh] rounded-lg shadow-lg"
