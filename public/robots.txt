@@ -15,6 +15,7 @@ Disallow: /blocked
 
 # Sitemap location (absolute URL)
 Sitemap: https://www.ksvengineering.com/sitemap.xml
+Sitemap: https://www.ksvengineering.com/sitemap-images.xml
 
 # Host (optional)
 # Host: https://www.ksvengineering.com

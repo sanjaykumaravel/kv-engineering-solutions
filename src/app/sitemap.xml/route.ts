@@ -139,8 +139,8 @@ export async function GET() {
   }
   for (const p of pages) if (!map.has(p.loc)) map.set(p.loc, p);
 
-  const trenchesDir = path.join(process.cwd(), "public", "trenches");
-  const trenchImages = collectImagesFromPublic(trenchesDir, "/trenches");
+  const diagramsDir = path.join(process.cwd(), "public", "diagrams");
+  const trenchImages = collectImagesFromPublic(diagramsDir, "/diagrams");
 
   const urlset = Array.from(map.values())
     .filter((r) => r.loc !== "blocked" && r.loc !== "/blocked")

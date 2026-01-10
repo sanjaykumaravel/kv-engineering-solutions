@@ -36,6 +36,12 @@ const nextConfig = {
   images: {
     minimumCacheTTL: 31536000, // 1 year in seconds
     formats: ['image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.ksvengineering.com',
+      },
+    ],
   },
 };
 
