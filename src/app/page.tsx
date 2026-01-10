@@ -9,11 +9,11 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "KSV Engineering | Detailed Engineering Services",
   description:
-    "KSV Engineering provides detailed engineering services for EPC, OEM, and PMC projects worldwide.",
+    "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
   openGraph: {
     title: "KSV Engineering | Detailed Engineering Services",
     description:
-      "KSV Engineering provides detailed engineering services for EPC, OEM, and PMC projects worldwide.",
+      "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
     url: "https://www.ksvengineering.com",
   },
 };

@@ -10,14 +10,14 @@ export const metadata: Metadata = {
     template: "%s | KSV Engineering",
   },
   description:
-    "KSV Engineering provides detailed engineering services to EPC, OEM, and PMC projects worldwide. Your virtual extended arm for innovative, high-quality engineering solutions adhering to global standards.",
+    "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.ksvengineering.com",
     siteName: "KSV Engineering",
     title: "KSV Engineering | Global Detailed Engineering Services",
-    description: "Your trusted global partner for detailed engineering services — from concept to commissioning. Delivering excellence to EPC, OEM, and PMC clients worldwide.",
+    description: "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
     images: [
       {
         url: "https://www.ksvengineering.com/images/services-preview.jpg",
@@ -47,6 +47,14 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
+    "Gulf countries",
+    "Middle East",
+    "UAE",
+    "Saudi Arabia",
+    "Qatar",
+    "Kuwait",
+    "Oman",
+    "Bahrain",
     "Engineering services company",
     "Global engineering solutions",
     "Industrial engineering services",
@@ -101,7 +109,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KSV Engineering | Global Detailed Engineering Services",
     description:
-      "Innovative and reliable engineering solutions for EPC, OEM, and PMC clients. Global expertise with local precision.",
+      "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
     images: ["https://www.ksvengineering.com/images/services-preview.jpg"],
     creator: "@ksvengineering",
   },
@@ -128,7 +136,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: "https://www.ksvengineering.com",
               logo: "https://www.ksvengineering.com/images/logo.png",
               description:
-                "KSV Engineering provides detailed engineering services to EPC, OEM, and PMC clients — your virtual extended arm for innovative engineering solutions.",
+                "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
+              slogan: "Your virtual extended arm for innovative engineering solutions",
+              areaServed: ["United Arab Emirates", "Saudi Arabia", "Qatar", "Kuwait", "Oman", "Bahrain", "India", "Global"],
               sameAs: [
                 "https://www.linkedin.com/company/ksvengineering",
                 "https://www.youtube.com/@ksvengineering",

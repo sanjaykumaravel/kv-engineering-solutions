@@ -1,94 +1,79 @@
 import fs from 'fs';
 import path from 'path';
-import { glob } from 'glob';
 
 const SITE_URL = 'https://www.ksvengineering.com';
-const IMAGES_DIR = 'public/diagrams';
+const DATA_FILE = 'src/data/gallery-images.ts';
 const OUTPUT_FILE = 'public/sitemap-images.xml';
 
-// Helper to format filename into a title
-function formatTitle(filename) {
-  const name = path.parse(filename).name;
-  // Replace hyphens/underscores with spaces, remove file extensions if somehow present
-  let title = name.replace(/[-_]/g, ' ');
-  // Capitalize first letter of each word
-  title = title.replace(/\b\w/g, (l) => l.toUpperCase());
-  return title;
-}
-
 async function generateImageSitemap() {
-  console.log(`Scanning ${IMAGES_DIR} for images...`);
+  console.log(`Reading gallery data from ${DATA_FILE}...`);
 
   try {
-    // Find all images in the directory
-    // We use cwd: process.cwd() to ensure we're looking from the root
-    const images = await glob(`${IMAGES_DIR}/**/*.{jpg,jpeg,png,webp,gif,svg}`, {
-      ignore: '**/private/**', // Example ignore
-      windowsPathsNoEscape: true, // Handle Windows paths correctly
-    });
+    const fileContent = fs.readFileSync(DATA_FILE, 'utf8');
+    
+    // 🛡️ Robust Parsing of TypeScript Data File
+    // We strip the "export const galleryItems =" part and eval the array.
+    // This works because the file is a simple object literal without complex TS syntax.
+    const dataContent = fileContent
+      .replace(/export const galleryItems =/, '') // Remove export
+      .replace(/;$/, '') // Remove trailing semicolon
+      .trim();
 
-    if (images.length === 0) {
-      console.warn('No images found in public/diagrams!');
+    // specific tweak: if there are any TS types (like ': GalleryItem[]'), remove them
+    // But we know the file structure is simple.
+    
+    // Use Function constructor to safely evaluate the array literal
+    const galleryItems = new Function(`return ${dataContent}`)();
+
+    if (!galleryItems || galleryItems.length === 0) {
+      console.warn('No items found in gallery data!');
       return;
     }
 
-    console.log(`Found ${images.length} images.`);
+    console.log(`Found ${galleryItems.length} gallery items.`);
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `;
 
-    // We'll group all images under a single URL for the gallery page, 
-    // OR if these images belong to specific pages, we should map them.
-    // Since the request implies these are "in /public/diagrams" and we want them indexable,
-    // and they likely appear on a gallery page or similar, we can associate them with the home page 
-    // or a specific gallery page. 
-    // For now, I will associate them with the root URL or a /gallery URL if it existed.
-    // However, Google recommends associating images with the page they are on.
-    // Assuming they might be used on the home page or a specific project page.
-    // Let's list them all under the home page for now, or create a separate entry for each if they were individual pages.
-    // But usually, image sitemaps group images by the page they appear on.
-    // Since I don't know exactly which page *uses* which image, I will assume they are all potentially on the main site.
-    // A common pattern for "gallery" folders is to list them under the main URL or a gallery URL.
-    // Let's use the root URL for now as a safe default, or better, if there's a specific page like /projects/diagrams.
-    // The user didn't specify a page, just "discoverable".
-    // I'll put them all under the root URL for maximum discoverability, or split them if there are too many (limit is 1000 images per URL).
-    
-    // Actually, it's better to just list the images.
-    // But the sitemap format requires <url> <loc>page_url</loc> <image:image>...</image:image> </url>
-    
-    // Let's assume they are all on the home page for now, or I can create a generic entry.
-    // To be safe and follow spec, I'll add them to the root URL entry.
-    
-    xml += `  <url>
-    <loc>${SITE_URL}</loc>
-`;
+    galleryItems.forEach((item) => {
+      const pageUrl = `${SITE_URL}/images/${item.slug}`;
+      const imageUrl = `${SITE_URL}${item.url}`;
+      
+      // Escape special characters for XML
+      const escapeXml = (unsafe) => unsafe.replace(/[<>&'"]/g, (c) => {
+        switch (c) {
+          case '<': return '&lt;';
+          case '>': return '&gt;';
+          case '&': return '&amp;';
+          case '\'': return '&apos;';
+          case '"': return '&quot;';
+        }
+      });
 
-    images.forEach((imagePath) => {
-      // Convert local path to public URL
-      // public/diagrams/foo.jpg -> https://www.ksvengineering.com/diagrams/foo.jpg
-      // We need to strip 'public/' from the start
-      const relativePath = imagePath.replace(/^public[\\/]/, '').replace(/\\/g, '/');
-      const imageUrl = `${SITE_URL}/${relativePath}`;
-      const title = formatTitle(path.basename(imagePath));
+      const title = escapeXml(item.name || '');
+      const caption = escapeXml(item.description || item.alt || '');
+      const alt = escapeXml(item.alt || '');
 
-      xml += `    <image:image>
+      xml += `  <url>
+    <loc>${pageUrl}</loc>
+    <image:image>
       <image:loc>${imageUrl}</image:loc>
       <image:title>${title}</image:title>
-      <image:caption>${title}</image:caption>
+      <image:caption>${caption}</image:caption>
     </image:image>
+  </url>
 `;
     });
 
-    xml += `  </url>
-</urlset>`;
+    xml += `</urlset>`;
 
     fs.writeFileSync(OUTPUT_FILE, xml);
-    console.log(`Sitemap generated at ${OUTPUT_FILE}`);
+    console.log(`✅ Sitemap generated successfully at ${OUTPUT_FILE}`);
 
   } catch (error) {
-    console.error('Error generating image sitemap:', error);
+    console.error('❌ Error generating image sitemap:', error);
     process.exit(1);
   }
 }
