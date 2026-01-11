@@ -1,50 +1,132 @@
-"use client";
-
+import { galleryItems } from "@/data/gallery-images";
 import Image from "next/image";
 import Link from "next/link";
-// import { useState } from "react"; // Removed as modal is gone
-import { galleryItems } from "@/data/gallery-images";
+import { Pagination } from "@/components/ui/pagination-custom";
+import { SearchInput } from "@/components/ui/search-input";
+import { Metadata } from "next";
 
-// 🧠 Component
-export default function Gallery() {
-  // const [selected, setSelected] = useState<string | null>(null); // Removed modal state
+export const metadata: Metadata = {
+  title: "Site Images & Engineering Diagrams | KV Engineering Solutions",
+  description: "Browse our extensive gallery of engineering diagrams, site photos, and technical illustrations.",
+};
+
+const ITEMS_PER_PAGE = 12;
+
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+export default async function Gallery({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const params = await searchParams;
+  const page = typeof params.page === "string" ? parseInt(params.page) : 1;
+  const query = typeof params.query === "string" ? params.query.toLowerCase() : "";
+  const currentPage = Math.max(1, page);
+
+  // Filter items based on search query
+  const filteredItems = galleryItems.filter((item) => {
+    if (!query) return true;
+    return (
+      item.name.toLowerCase().includes(query) ||
+      (item.description && item.description.toLowerCase().includes(query)) ||
+      (item.alt && item.alt.toLowerCase().includes(query))
+    );
+  });
+
+  const totalItems = filteredItems.length;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+  const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIdx = startIdx + ITEMS_PER_PAGE;
+  const currentImages = filteredItems.slice(startIdx, endIdx);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 p-8">
-      <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
-        KV Engineering Solutions – Site Images
-      </h1>
+    <div className="min-h-screen bg-white">
+      {/* Premium Header Section */}
+      <div className="relative bg-gray-50 border-b border-gray-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-80" />
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+            Engineering Gallery
+          </h1>
+          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-light mb-8">
+            Explore our comprehensive collection of technical site content and engineering solutions in action.
+          </p>
 
-      {/* 🖼️ Image Grid */}
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        {galleryItems.map(({ index, name, url, alt, slug }) => (
-          <Link
-            href={`/images/${slug}`}
-            key={index}
-            className="group relative bg-white rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden block"
-          >
-            <div className="relative h-48 w-full overflow-hidden">
-               <Image
-                src={url}
-                alt={alt || name}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+          {/* Search Bar */}
+          <div className="flex justify-center max-w-lg mx-auto">
+            <SearchInput placeholder="Search diagrams, trays, transformers..." />
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Empty State */}
+        {currentImages.length === 0 ? (
+          <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+            <p className="text-gray-500 text-lg mb-2">No results found for "{params.query}"</p>
+            <p className="text-sm text-gray-400">Try searching for "cable", "transformer" or "layout".</p>
+            <Link href="/images" className="text-blue-600 hover:underline mt-6 inline-block font-medium">
+              Clear Search
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {currentImages.map((item, idx) => (
+                <Link
+                  href={`/images/${item.slug}`}
+                  key={item.index}
+                  className="group flex flex-col bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100"
+                >
+                  {/* Image Container */}
+                  <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                    <Image
+                      src={item.url}
+                      alt={item.alt || item.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Overlay on Hover */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="mb-auto">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-700 transition-colors">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                        {item.alt || item.description}
+                      </p>
+                    </div>
+                    
+                    <div className="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
+                      <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                       ID: #{item.index}
+                      </span>
+                      <span className="text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform flex items-center">
+                        View <span className="ml-1">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-            
-            <div className="p-4">
-              <p className="text-sm font-bold text-gray-800 truncate mb-1">
-                {name}
-              </p>
-              <p className="text-xs text-gray-500 line-clamp-2">
-                {alt}
-              </p>
-              <div className="mt-3 text-blue-600 text-xs font-semibold group-hover:underline">
-                View Details →
-              </div>
-            </div>
-          </Link>
-        ))}
+
+            {/* Pagination - Only show if necessary */}
+            {totalPages > 1 && (
+                <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                baseUrl="/images"
+                />
+            )}
+          </>
+        )}
       </div>
     </div>
   );
