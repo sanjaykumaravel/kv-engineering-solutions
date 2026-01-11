@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { galleryItems } from "@/data/gallery-images";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Mail, ChevronRight } from "lucide-react";
+import { ArrowLeft, Mail, ChevronRight, CheckCircle2, MapPin, Hammer } from "lucide-react";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -110,7 +110,8 @@ export default async function ImageDetailPage({ params }: Props) {
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Main Image Column */}
-            <div className="lg:col-span-8 bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+            <div className="lg:col-span-8 bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm relative group">
+                 {/* Image */}
                 <div className="relative w-full aspect-[4/3] flex items-center justify-center">
                     <Image
                         src={item.url}
@@ -121,25 +122,79 @@ export default async function ImageDetailPage({ params }: Props) {
                         priority
                     />
                 </div>
+                
+                 {/* Watermark/Label */}
+                 <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-semibold text-gray-500 shadow-sm border border-gray-200">
+                    ksvengineering.com
+                 </div>
             </div>
 
             {/* Sidebar Content Column */}
             <div className="lg:col-span-4 flex flex-col h-full">
-                <div className="sticky top-8">
-                    <div className="mb-4">
-                        <span className="inline-flex items-center justify-center px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold tracking-wide uppercase">
-                            Image ID: {item.index}
-                        </span>
+                <div className="sticky top-8 space-y-8">
+                    {/* Header Info */}
+                    <div>
+                        <div className="mb-4">
+                            <span className="inline-flex items-center justify-center px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold tracking-wide uppercase">
+                                Image ID: {item.index}
+                            </span>
+                        </div>
+
+                        <h1 className="text-3xl font-bold text-gray-900 mb-4 leading-tight tracking-tight">
+                            {item.name}
+                        </h1>
+
+                        <div className="prose prose-gray text-gray-600 leading-relaxed text-sm">
+                            <p>{item.description || "No specific description available for this image."}</p>
+                        </div>
                     </div>
 
-                    <h1 className="text-3xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-                        {item.name}
-                    </h1>
+                     {/* Technical Specs Section (Conditionally Rendered) */}
+                     {(item.specifications || item.material || item.location) && (
+                         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                                 Technical Highlights
+                             </h3>
+                             
+                             <div className="space-y-4">
+                                {item.location && (
+                                    <div className="flex items-start">
+                                        <MapPin className="w-5 h-5 text-gray-400 mt-0.5 mr-3 shrink-0" />
+                                        <div>
+                                            <p className="text-xs font-semibold text-gray-500 uppercase">Project Location</p>
+                                            <p className="text-sm font-medium text-gray-900">{item.location}</p>
+                                        </div>
+                                    </div>
+                                )}
+                                
+                                {item.material && (
+                                    <div className="flex items-start">
+                                        <Hammer className="w-5 h-5 text-gray-400 mt-0.5 mr-3 shrink-0" />
+                                        <div>
+                                            <p className="text-xs font-semibold text-gray-500 uppercase">Material / Finish</p>
+                                            <p className="text-sm font-medium text-gray-900">{item.material}</p>
+                                        </div>
+                                    </div>
+                                )}
 
-                    <div className="prose prose-gray text-gray-600 mb-8 leading-relaxed">
-                        <p>{item.description || "No specific description available for this image."}</p>
-                    </div>
+                                {item.specifications && item.specifications.length > 0 && (
+                                    <div className="pt-2">
+                                        <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Key Features</p>
+                                        <ul className="space-y-2">
+                                            {item.specifications.map((spec, idx) => (
+                                                <li key={idx} className="flex items-start text-sm text-gray-700">
+                                                    <CheckCircle2 className="w-4 h-4 text-green-500 mr-2 mt-0.5 shrink-0" />
+                                                    {spec}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                             </div>
+                         </div>
+                     )}
 
+                    {/* CTA */}
                     <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
                         <h3 className="text-base font-semibold text-gray-900 mb-2">
                             Need this engineering solution?
