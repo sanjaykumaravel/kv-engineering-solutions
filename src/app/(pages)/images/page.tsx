@@ -75,45 +75,57 @@ export default async function Gallery({
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {currentImages.map((item, idx) => (
-                <Link
-                  href={`/images/${item.slug}`}
+                <article
                   key={item.index}
                   className="group flex flex-col bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100"
                 >
-                  {/* Image Container */}
-                  <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                  {/* SEO-friendly anchor wrapping the image */}
+                  <Link
+                    href={`/images/${item.slug}`}
+                    aria-label={`View details for ${item.name}`}
+                    title={item.name}
+                    className="relative aspect-[4/3] bg-gray-100 overflow-hidden block"
+                  >
                     <Image
                       src={item.url}
-                      alt={item.alt || item.name}
+                      alt={`${item.name} - ${item.description?.substring(0, 80) || item.alt?.substring(0, 80) || 'Engineering diagram'}`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading={idx < 4 ? "eager" : "lazy"}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQRBQYSIRMxQWH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAECABEhMf/aAAwDAQACEQMRAD8Az6LUbi4022t5Y0SOMPwZQSQWIPvr7pVQpJHNAT/0Up0B2YAnAf/Z"
                     />
                     {/* Overlay on Hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                  </div>
+                  </Link>
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
                     <div className="mb-auto">
                       <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-700 transition-colors">
-                        {item.name}
+                        <Link href={`/images/${item.slug}`} className="hover:underline">
+                          {item.name}
+                        </Link>
                       </h3>
                       <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">
-                        {item.alt || item.description}
+                        {item.description || item.alt}
                       </p>
                     </div>
                     
                     <div className="mt-4 pt-4 border-t border-gray-50 flex items-center justify-between">
                       <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
-                       ID: #{item.index}
+                        ID: #{item.index}
                       </span>
-                      <span className="text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform flex items-center">
-                        View <span className="ml-1">→</span>
-                      </span>
+                      <Link 
+                        href={`/images/${item.slug}`}
+                        className="text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform flex items-center"
+                      >
+                        View <span className="ml-1" aria-hidden="true">→</span>
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </article>
               ))}
             </div>
 

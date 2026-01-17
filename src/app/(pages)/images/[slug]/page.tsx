@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { galleryItems } from "@/data/gallery-images";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Mail, ChevronRight, CheckCircle2, MapPin, Hammer } from "lucide-react";
+import { ArrowLeft, Mail, ChevronRight, CheckCircle2, MapPin, Hammer, BookOpen } from "lucide-react";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -52,6 +52,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [imageUrl],
     },
   };
+}
+
+// Simple markdown to HTML converter for detailed content
+function renderMarkdown(content: string): string {
+  return content
+    // Headers
+    .replace(/^### (.+)$/gm, '<h3 class="text-lg font-bold text-gray-900 mt-6 mb-3">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="text-xl font-bold text-gray-900 mt-8 mb-4">$1</h2>')
+    // Bold
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+    // Bullet points
+    .replace(/^- (.+)$/gm, '<li class="flex items-start gap-2 text-gray-600 mb-2"><span class="text-blue-600 mt-1.5">•</span><span>$1</span></li>')
+    // Wrap consecutive list items
+    .replace(/(<li.*?<\/li>\n?)+/g, '<ul class="space-y-1 mb-4 list-none">$&</ul>')
+    // Paragraphs
+    .replace(/\n\n(?!<)/g, '</p><p class="text-gray-600 leading-relaxed mb-4">')
+    // Clean up
+    .replace(/^\n/, '')
+    .replace(/\n$/, '');
 }
 
 export default async function ImageDetailPage({ params }: Props) {
@@ -110,23 +129,48 @@ export default async function ImageDetailPage({ params }: Props) {
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Main Image Column */}
-            <div className="lg:col-span-8 bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm relative group">
-                 {/* Image */}
-                <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-                    <Image
-                        src={item.url}
-                        alt={item.alt || item.name}
-                        fill
-                        className="object-contain p-4"
-                        sizes="(max-width: 1024px) 100vw, 800px"
-                        priority
-                    />
+            <div className="lg:col-span-8 space-y-8">
+                <div className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm relative group">
+                     {/* Image */}
+                    <figure className="relative w-full flex flex-col items-center justify-center">
+                        <div className="relative w-full aspect-[4/3] flex items-center justify-center">
+                            <Image
+                                src={item.url}
+                                alt={item.alt || item.name}
+                                fill
+                                className="object-contain p-4"
+                                sizes="(max-width: 1024px) 100vw, 800px"
+                                priority
+                            />
+                        </div>
+                        <figcaption className="pb-4 mt-2 text-sm text-gray-500 text-center italic px-4">
+                            {item.name}
+                        </figcaption>
+                    </figure>
+                    
+                     {/* Watermark/Label */}
+                     <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-semibold text-gray-500 shadow-sm border border-gray-200">
+                        ksvengineering.com
+                     </div>
                 </div>
-                
-                 {/* Watermark/Label */}
-                 <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-semibold text-gray-500 shadow-sm border border-gray-200">
-                    ksvengineering.com
-                 </div>
+
+                {/* Detailed Content Section */}
+                {item.detailedContent && (
+                    <section aria-labelledby="technical-overview-heading" className="bg-white rounded-2xl border border-gray-100 p-8">
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="p-2 bg-blue-50 rounded-lg">
+                                <BookOpen className="w-5 h-5 text-blue-600" />
+                            </div>
+                            <h2 id="technical-overview-heading" className="text-2xl font-bold text-gray-900">Technical Overview</h2>
+                        </div>
+                        <div 
+                            className="prose prose-gray max-w-none"
+                            dangerouslySetInnerHTML={{ 
+                                __html: `<p class="text-gray-600 leading-relaxed mb-4">${renderMarkdown(item.detailedContent)}</p>` 
+                            }}
+                        />
+                    </section>
+                )}
             </div>
 
             {/* Sidebar Content Column */}
@@ -216,3 +260,4 @@ export default async function ImageDetailPage({ params }: Props) {
     </div>
   );
 }
+

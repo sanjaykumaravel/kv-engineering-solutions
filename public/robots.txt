@@ -1,21 +1,43 @@
-# robots.txt for KSV Engineering
-# Allow major crawlers but block internal and sensitive paths
+# robots.txt for KSV Engineering Solutions
+# https://www.ksvengineering.com
+
+# ===========================================
+# Default rules for all crawlers
+# ===========================================
 User-agent: *
-# Allow Next.js static assets and public static files so Open Graph images and other assets are crawlable
-Allow: /_next/
+
+# Allow Next.js optimized images (critical for SEO)
+Allow: /_next/image
+Allow: /_next/static/
+
+# Allow all public static assets
 Allow: /static/
-Disallow: /api
-Disallow: /images/*/private
+Allow: /diagrams/
+Allow: /images/
 
-# Don't allow crawlers to index the geo-blocked landing page
+# Block API routes (internal only)
+Disallow: /api/
+
+# Block private/internal paths
 Disallow: /blocked
+Disallow: /*?*_rsc=*
 
-# Crawl-delay (seconds) - optional, some bots ignore this
-# Crawl-delay: 10
+# ===========================================
+# Google Image Bot - explicit image access
+# ===========================================
+User-agent: Googlebot-Image
+Allow: /
+Allow: /_next/image
+Allow: /diagrams/
+Disallow: /api/
 
-# Sitemap location (absolute URL)
+# ===========================================
+# Sitemaps (absolute URLs)
+# ===========================================
 Sitemap: https://www.ksvengineering.com/sitemap.xml
-Sitemap: https://www.ksvengineering.com/sitemap-images.xml
+Sitemap: https://www.ksvengineering.com/image-sitemap.xml
 
-# Host (optional)
-# Host: https://www.ksvengineering.com
+# ===========================================
+# Canonical host
+# ===========================================
+Host: https://www.ksvengineering.com
