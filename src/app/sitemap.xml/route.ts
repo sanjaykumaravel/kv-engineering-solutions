@@ -98,22 +98,7 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
   return results;
 }
 
-function collectImagesFromPublic(dirPath: string, webPath = "/"): string[] {
-  if (!fs.existsSync(dirPath)) return [];
-  const images: string[] = [];
 
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-  for (const entry of entries) {
-    const full = path.join(dirPath, entry.name);
-    const urlPath = path.join(webPath, entry.name).replace(/\\/g, "/");
-    if (entry.isDirectory()) {
-      images.push(...collectImagesFromPublic(full, urlPath));
-    } else if (/\.(jpg|jpeg|png|gif|webp|avif)$/i.test(entry.name)) {
-      images.push(urlPath);
-    }
-  }
-  return images;
-}
 
 export async function GET() {
   const pages: RouteItem[] = [];
@@ -139,8 +124,7 @@ export async function GET() {
   }
   for (const p of pages) if (!map.has(p.loc)) map.set(p.loc, p);
 
-  const diagramsDir = path.join(process.cwd(), "public", "diagrams");
-  const trenchImages = collectImagesFromPublic(diagramsDir, "/diagrams");
+
 
   const urlset = Array.from(map.values())
     .filter((r) => r.loc !== "blocked" && r.loc !== "/blocked")
@@ -166,26 +150,12 @@ export async function GET() {
     })
     .join("\n");
 
-  const imageEntries = trenchImages
-    .map((imgPath) => {
-      const encodedUrl = encodeURI(SITE_URL + imgPath);
-      const safeUrl = escapeXml(encodedUrl);
-      const title = escapeXml(
-        path.basename(imgPath, path.extname(imgPath))
-      );
-      return `  <url>
-    <loc>${safeUrl}</loc>
-    <image:image>
-      <image:loc>${safeUrl}</image:loc>
-      <image:title>${title}</image:title>
-    </image:image>
-  </url>`;
-    })
-    .join("\n");
+
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset 
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urlset}\n${imageEntries}\n</urlset>`;
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlset}
+</urlset>`;
 
   return new NextResponse(xml, {
     status: 200,
