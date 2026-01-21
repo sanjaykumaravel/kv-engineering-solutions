@@ -41,8 +41,49 @@ export default async function Gallery({
   const endIdx = startIdx + ITEMS_PER_PAGE;
   const currentImages = filteredItems.slice(startIdx, endIdx);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ksvengineering.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Engineering Gallery",
+            "item": "https://www.ksvengineering.com/images"
+          }
+        ]
+      },
+      {
+        "@type": "ImageGallery",
+        "name": "Engineering Gallery",
+        "description": "Comprehensive collection of technical site content and engineering diagrams.",
+        "url": "https://www.ksvengineering.com/images",
+        "image": galleryItems.map((item) => ({
+            "@type": "ImageObject",
+            "url": `https://www.ksvengineering.com${item.url}`,
+            "name": item.name,
+            "caption": item.alt || item.description
+        }))
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
       {/* Premium Header Section */}
       <div className="relative bg-gray-50 border-b border-gray-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-80" />

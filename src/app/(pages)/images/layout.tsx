@@ -23,25 +23,8 @@ export default function ImagesLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ImageGallery',
-        name: 'KV Engineering Solutions Site Images',
-        description: 'A gallery of engineering site photos, cable trenches, and installation diagrams.',
-        image: galleryItems.map((item) => ({
-            '@type': 'ImageObject',
-            url: `https://www.ksvengineering.com${item.url}`,
-            name: item.name,
-            caption: item.name,
-        })),
-    };
-
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             {children}
         </>
     );

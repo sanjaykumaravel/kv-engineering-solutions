@@ -81,20 +81,53 @@ export default async function ImageDetailPage({ params }: Props) {
     notFound();
   }
 
+  // Navigation Logic
+  const currentIndex = galleryItems.findIndex(i => i.slug === slug);
+  const totalItems = galleryItems.length;
+  const prevItem = currentIndex > 0 ? galleryItems[currentIndex - 1] : null;
+  const nextItem = currentIndex < totalItems - 1 ? galleryItems[currentIndex + 1] : null;
+
   // Schema.org Structured Data
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "name": item.name,
-    "description": item.description || item.alt,
-    "contentUrl": `https://www.ksvengineering.com${item.url}`,
-    "thumbnailUrl": `https://www.ksvengineering.com${item.url}`,
-    "author": {
-      "@type": "Organization",
-      "name": "KV Engineering Solutions",
-      "url": "https://www.ksvengineering.com"
-    },
-    "acquireLicensePage": "https://www.ksvengineering.com/contact"
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ksvengineering.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Engineering Gallery",
+            "item": "https://www.ksvengineering.com/images"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": item.name,
+            "item": `https://www.ksvengineering.com/images/${item.slug}`
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "name": item.name,
+        "description": item.description || item.alt,
+        "contentUrl": `https://www.ksvengineering.com${item.url}`,
+        "thumbnailUrl": `https://www.ksvengineering.com${item.url}`,
+        "author": {
+          "@type": "Organization",
+          "name": "KV Engineering Solutions",
+          "url": "https://www.ksvengineering.com"
+        },
+        "acquireLicensePage": "https://www.ksvengineering.com/contact"
+      }
+    ]
   };
 
   return (
@@ -254,10 +287,44 @@ export default async function ImageDetailPage({ params }: Props) {
                         </Link>
                     </div>
                 </div>
+                </div>
+
+                {/* Navigation Links */}
+                <div className="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between">
+                    {prevItem ? (
+                        <Link 
+                            href={`/images/${prevItem.slug}`}
+                            className="group flex flex-col items-start"
+                        >
+                            <span className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wide group-hover:text-blue-500 transition-colors">
+                                ← Previous
+                            </span>
+                            <span className="text-sm font-semibold text-gray-700 group-hover:text-blue-700 transition-colors line-clamp-1 max-w-[150px] sm:max-w-xs">
+                                {prevItem.name}
+                            </span>
+                        </Link>
+                    ) : (
+                        <div /> 
+                    )}
+
+                    {nextItem && (
+                        <Link 
+                            href={`/images/${nextItem.slug}`}
+                            className="group flex flex-col items-end text-right"
+                        >
+                            <span className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wide group-hover:text-blue-500 transition-colors">
+                                Next →
+                            </span>
+                            <span className="text-sm font-semibold text-gray-700 group-hover:text-blue-700 transition-colors line-clamp-1 max-w-[150px] sm:max-w-xs">
+                                {nextItem.name}
+                            </span>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
       </div>
-    </div>
+
   );
 }
 
