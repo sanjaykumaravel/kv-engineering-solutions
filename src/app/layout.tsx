@@ -1,6 +1,7 @@
 import "../index.css";
 import Providers from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import type { Metadata } from "next";
 
@@ -121,6 +122,9 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  verification: {
+    google: "sIX4V5LdRpZuLmQB1PQSQvuhSaHP2krDe5hVIK1Y8Fc",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -164,6 +168,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* <Header /> */}
           {children}
           <SpeedInsights />
+          <Analytics />
           {/* <Footer /> */}
         </Providers>
       </body>
