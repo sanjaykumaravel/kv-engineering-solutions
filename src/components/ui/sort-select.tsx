@@ -14,12 +14,12 @@ export function SortSelect() {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const currentSort = searchParams.get("sort") || "newest";
+  const currentSort = searchParams.get("sort") || "index";
 
   const handleSortChange = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", "1"); // Reset to page 1 on sort change
-    if (value && value !== "newest") {
+    if (value && value !== "index") {
       params.set("sort", value);
     } else {
       params.delete("sort");

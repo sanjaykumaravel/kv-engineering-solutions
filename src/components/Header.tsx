@@ -1,15 +1,25 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleGetQuote = () => {
     if (pathname === "/") {
@@ -30,8 +40,19 @@ const Header = () => {
     { label: "Images", href: "/images" },
   ];
 
+  const isHome = pathname === "/";
+  const showSolidHeader = isScrolled || isMenuOpen;
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+    <header
+      className={`z-50 w-full transition-all duration-300 ${
+        isHome
+          ? showSolidHeader
+            ? "fixed top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border text-foreground"
+            : "fixed top-0 bg-transparent border-b border-transparent text-white"
+          : "sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border text-foreground"
+      }`}
+    >
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 hover:opacity-90 transition-opacity">
           <div className="w-8 h-8 relative rounded-md overflow-hidden">
@@ -42,7 +63,11 @@ const Header = () => {
               className="object-contain"
             />
           </div>
-          <span className="font-bold text-xl text-foreground">
+          <span
+            className={`font-bold text-xl transition-colors duration-300 ${
+              isHome && !showSolidHeader ? "text-white" : "text-foreground"
+            }`}
+          >
             KSV Engineering
           </span>
         </Link>
@@ -53,7 +78,11 @@ const Header = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+              className={`transition-colors duration-300 font-medium ${
+                isHome && !showSolidHeader
+                  ? "text-white/80 hover:text-white"
+                  : "text-foreground hover:text-primary"
+              }`}
             >
               {item.label}
             </a>
@@ -69,7 +98,9 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className={`md:hidden transition-colors duration-300 ${
+            isHome && !showSolidHeader ? "text-white" : "text-foreground"
+          }`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

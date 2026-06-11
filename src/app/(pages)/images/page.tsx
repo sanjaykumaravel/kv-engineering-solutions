@@ -27,7 +27,7 @@ export default async function Gallery({
   const page = typeof params.page === "string" ? parseInt(params.page) : 1;
   const query =
     typeof params.query === "string" ? params.query.toLowerCase() : "";
-  const sort = typeof params.sort === "string" ? params.sort : "newest";
+  const sort = typeof params.sort === "string" ? params.sort : "index";
   const currentPage = Math.max(1, page);
 
   // Fetch items from Supabase
