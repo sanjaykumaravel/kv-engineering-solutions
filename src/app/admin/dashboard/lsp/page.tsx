@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabaseClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Plus, Search, Trash2, Loader2, FileCode, Pencil } from "lucide-react";
+import { Plus, Search, Trash2, Loader2, FileCode, Pencil, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 
@@ -21,6 +21,12 @@ export default function LspPage() {
   const [lspTools, setLspTools] = useState<LspItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
 
   async function loadData() {
     setLoading(true);
@@ -79,6 +85,11 @@ export default function LspPage() {
       l.cmd.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const totalPages = Math.ceil(filteredLspTools.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, filteredLspTools.length);
+  const paginatedLspTools = filteredLspTools.slice(startIndex, endIndex);
+
   return (
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -110,8 +121,8 @@ export default function LspPage() {
               className="bg-white border-slate-200 text-slate-900 pl-9 h-9 rounded-lg focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 placeholder-slate-400"
             />
           </div>
-          <span className="text-xs text-slate-550 font-semibold">
-            Showing {filteredLspTools.length} of {lspTools.length}
+          <span className="text-xs text-slate-500 font-semibold">
+            Total {lspTools.length} scripts
           </span>
         </div>
 
@@ -150,7 +161,7 @@ export default function LspPage() {
                     </td>
                   </tr>
                 ) : (
-                  filteredLspTools.map((item) => (
+                  paginatedLspTools.map((item) => (
                     <tr
                       key={item.id}
                       className="border-b border-slate-200 hover:bg-slate-50/40 transition-colors"
@@ -198,6 +209,73 @@ export default function LspPage() {
               </tbody>
             </table>
           </div>
+
+          {/* Pagination Footer */}
+          {totalPages > 1 && (
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border-t border-slate-200 bg-slate-50">
+              <div className="text-xs text-slate-500 font-medium">
+                Showing <span className="font-semibold text-slate-700">{filteredLspTools.length > 0 ? startIndex + 1 : 0}</span> to{" "}
+                <span className="font-semibold text-slate-700">{endIndex}</span> of{" "}
+                <span className="font-semibold text-slate-700">{filteredLspTools.length}</span> entries
+              </div>
+              
+              <div className="flex items-center space-x-1">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="h-8 rounded-lg border-slate-200 text-slate-600 hover:text-slate-800 disabled:opacity-50"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-1" />
+                  Previous
+                </Button>
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                  const isNear = Math.abs(page - currentPage) <= 1;
+                  const isEdge = page === 1 || page === totalPages;
+                  
+                  if (!isNear && !isEdge) {
+                    if (page === 2 || page === totalPages - 1) {
+                      return (
+                        <span key={`ellipsis-${page}`} className="px-2 text-slate-400 text-xs select-none">
+                          ...
+                        </span>
+                      );
+                    }
+                    return null;
+                  }
+
+                  return (
+                    <Button
+                      key={page}
+                      variant={page === currentPage ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setCurrentPage(page)}
+                      className={`h-8 w-8 rounded-lg ${
+                        page === currentPage
+                          ? "bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                          : "border-slate-200 text-slate-600 hover:text-slate-800"
+                      }`}
+                    >
+                      {page}
+                    </Button>
+                  );
+                })}
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="h-8 rounded-lg border-slate-200 text-slate-600 hover:text-slate-800 disabled:opacity-50"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+          )}
         </Card>
       </div>
     </div>
