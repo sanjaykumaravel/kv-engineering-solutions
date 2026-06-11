@@ -19,12 +19,9 @@ export default function BlockedLayout({ children }: { children: ReactNode }) {
     //     <meta name="robots" content="noindex, nofollow" />
     //     <title>Access Restricted</title>
     //   </head>
-      <body className="blocked-container">
-        <main>
-            {children}
-        </main>
-        
-      </body>
+    <body className="blocked-container">
+      <main>{children}</main>
+    </body>
     // </html>
   );
 }

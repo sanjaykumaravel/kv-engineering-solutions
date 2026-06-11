@@ -1,43 +1,22 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Target, Globe, Clock } from "lucide-react";
+import { Target, Globe, Clock } from "lucide-react";
 import infrastructureImage from "@/assets/infrastructure.jpg";
 import Image from "next/image";
-
+import { whyChooseUs } from "@/data/aboutData";
+import { AboutCard } from "@/components/ui/AboutCard";
 
 const About = () => {
-
-
-  const whyChooseUs = [
-    {
-      title: "Scalable & On-Time Delivery",
-      description:
-        "We ensure projects are delivered on schedule with scalable solutions that grow with your needs.",
-    },
-    {
-      title: "Reducing Time and Costs",
-      description:
-        "Our efficient processes and experienced team help minimize project timelines and costs.",
-    },
-    {
-      title: "International Standards",
-      description:
-        "We adhere to international codes and standards ensuring quality and compliance.",
-    },
-  ];
-
   return (
-    <section id="about" className="py-20 ">
-      <div className="container">
-        {/* <JsonLd data={orgSchema} />
+    <section id="about" className="py-24 bg-dot-pattern relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/10">
+      {/* Accent glows */}
+      <div className="absolute top-1/3 right-0 w-80 h-80 bg-engineering-teal/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
-
+      <div className="container px-6 sm:px-8 lg:px-12">
         {/* About Us */}
-        <div className="text-center mb-16">
-          {/* Main page heading for About page */}
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            About KSV Engineering
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+        <div className="text-center mb-20 max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+            About <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-black">KSV Engineering</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-light">
             We provide detailed engineering services to EPC, OEM, and PMC as
             long-term projects. Our services include Project Management,
             Feasibility Studies, Conceptual & Basic Engineering, Detailed
@@ -47,12 +26,12 @@ const About = () => {
         </div>
 
         {/* Why Choose Us */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
+        <div className="mb-24">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 tracking-tight">
               Why Choose KSV Engineering?
             </h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-muted-foreground font-light leading-relaxed">
               Engineering operates as the virtual extended arm for our customers
               offering innovative solutions. We add value to our customers by
               accelerating their engineering performance.
@@ -61,75 +40,63 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => (
-              <Card
-                key={index}
-                className="shadow-card hover:shadow-professional transition-shadow duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <CheckCircle className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-foreground mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <AboutCard key={index} item={item} />
             ))}
           </div>
         </div>
 
         {/* Infrastructure */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="text-3xl font-bold text-foreground mb-6">
-              Our <span className="text-primary">Infrastructure</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+              Our <span className="text-blue-600 dark:text-blue-400">Infrastructure</span>
             </h3>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Our 3600 square feet campus stands testimony of the energy
-              principles by incorporating learnings from the ancient age
-              architecture. Equipped with advanced technical amenities to
-              seamlessly support customers as their extended services arm.
+            <p className="text-muted-foreground leading-relaxed font-light text-base sm:text-lg">
+              Our 3,600 square feet campus stands testimony to energy
+              principles, incorporating learning from ancient architecture. It is
+              fully equipped with advanced technical amenities to seamlessly support
+              our customers as their virtual extended arm.
             </p>
 
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Target className="h-5 w-5 text-engineering-orange" />
-                <span className="text-foreground">
+            <div className="space-y-4 pt-2">
+              <div className="flex items-center space-x-3.5">
+                <div className="p-1 rounded bg-engineering-orange/10 text-engineering-orange">
+                  <Target className="h-5 w-5" />
+                </div>
+                <span className="text-foreground text-sm sm:text-base font-medium">
                   Advanced technical amenities and security provisions
                 </span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Globe className="h-5 w-5 text-engineering-teal" />
-                <span className="text-foreground">
+              <div className="flex items-center space-x-3.5">
+                <div className="p-1 rounded bg-engineering-teal/10 text-engineering-teal">
+                  <Globe className="h-5 w-5" />
+                </div>
+                <span className="text-foreground text-sm sm:text-base font-medium">
                   Collaborative & innovation-centric ecosystem
                 </span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Clock className="h-5 w-5 text-engineering-orange" />
-                <span className="text-foreground">
+              <div className="flex items-center space-x-3.5">
+                <div className="p-1 rounded bg-engineering-orange/10 text-engineering-orange">
+                  <Clock className="h-5 w-5" />
+                </div>
+                <span className="text-foreground text-sm sm:text-base font-medium">
                   Open office layout fostering cross-team communication
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="rounded-2xl shadow-professional overflow-hidden w-full h-[400px] relative">
+          <div className="relative group">
+            <div className="rounded-2xl shadow-xl overflow-hidden w-full h-[400px] relative border border-border/85 bg-slate-100">
               <Image
                 src={infrastructureImage.src}
                 alt="KSV Engineering Infrastructure"
                 fill
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent rounded-2xl pointer-events-none" />
           </div>
         </div>
       </div>

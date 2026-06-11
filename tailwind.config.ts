@@ -85,7 +85,8 @@ export default {
         glow: "var(--shadow-glow)",
       },
       fontFamily: {
-        engineering: ["Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        engineering: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

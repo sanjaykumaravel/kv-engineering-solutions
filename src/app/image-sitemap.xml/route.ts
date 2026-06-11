@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { galleryItems } from "@/data/gallery-images";
+import { supabase } from "@/lib/supabaseServer";
 
 const SITE_URL = "https://www.ksvengineering.com";
 
@@ -20,12 +20,27 @@ function escapeXml(str: string): string {
  * Reference: https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps
  */
 export async function GET() {
+  const { data: dbItems } = await supabase
+    .from("gallery_items")
+    .select("*")
+    .order("index", { ascending: true });
+
+  const galleryItems = (dbItems || []).map((item) => ({
+    name: item.name,
+    slug: item.slug,
+    url: item.url,
+    alt: item.alt,
+    description: item.description,
+  }));
+
   // Generate URL entries from gallery items
   const urlEntries = galleryItems
     .map((item) => {
       const pageUrl = `${SITE_URL}/images/${item.slug}`;
-      const imageUrl = `${SITE_URL}${item.url}`;
-      
+      const imageUrl = item.url.startsWith("http")
+        ? item.url
+        : `${SITE_URL}${item.url}`;
+
       return `  <url>
     <loc>${escapeXml(encodeURI(pageUrl))}</loc>
     <image:image>

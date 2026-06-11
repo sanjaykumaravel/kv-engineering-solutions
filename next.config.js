@@ -41,6 +41,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.ksvengineering.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'wiqbzjiqnwfwmqjrlopx.supabase.co',
+      },
     ],
   },
 };

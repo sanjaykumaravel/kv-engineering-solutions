@@ -1,14 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Zap,
-  Wind,
-  Sun,
   Building,
-  Cpu,
   Calculator,
   Layout,
   Workflow,
@@ -27,184 +23,100 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
+// Imports from separated data and component files
+import {
+  projects,
+  calculations,
+  layouts,
+  controlSchemes,
+  diagrams,
+  switchyard,
+  seminars,
+} from "@/data/servicesData";
+import { ProjectCard } from "@/components/ui/ProjectCard";
+import { ExpertiseBadge } from "@/components/ui/ExpertiseBadge";
+
 const Services = () => {
-  const projects = [
-    { name: "Thermal Power Plant", icon: Zap },
-    { name: "Gas Based Power Plant", icon: Zap },
-    { name: "Biogas Power Plant", icon: Zap },
-    { name: "Captive Power Plant", icon: Building },
-    { name: "Solar Power Plant", icon: Sun },
-    { name: "Wind Power Plant", icon: Wind },
-    { name: "Smart City Project", icon: Cpu },
-    { name: "Desalination Plant", icon: Building },
-  ];
-
-  const calculations = [
-    "IPBD/SPBD/NSPBD Busduct Sizing",
-    "HT/LT Cable Sizing",
-    "CT&PT Sizing",
-    "DC Battery Sizing",
-    "EDG/BSDG Sizing",
-    "Earthing Calculation",
-    "GCB Sizing",
-    "Lightning Protection",
-    "NGR Sizing",
-    "HT/LT Switchgear Sizing",
-    "HT/LT Transformer Sizing",
-    "UPS Sizing",
-    "Lighting Calculation",
-    "Cable Tray Loading",
-    "ACSR Conductor Sizing",
-    "Sag Tension Calculation",
-    "Busbar Sizing Calculation",
-    "Load Flow",
-    "E-tap Study",
-    "Relay Setting",
-  ];
-
-  const layouts = [
-    "Cable Routing Layout",
-    "Earthing Layout",
-    "Lighting Layout",
-    "Lightning Protection Layout",
-    "Equipment Layout",
-    "Plant Communication Layout",
-    "Cathodic Protection",
-  ];
-
-  const controlSchemes = [
-    "HT Switchgear Control Scheme",
-    "LT Switchgear Control Scheme",
-    "HT Motor Control Scheme",
-    "LT Motor Control Scheme",
-  ];
-
-  const diagrams = [
-    "Key Single Line Diagram",
-    "HT Switchgear Single Line Diagram",
-    "LT Switchgear Single Line Diagram",
-    "DCDB",
-    "ACDB",
-    "UPS",
-    "GIS Single Line Diagram",
-  ];
-
-  const switchyard = [
-    "GIS Switchyard 132/220/400 kV",
-    "AIS Switchyard 132/220/400/765kV",
-    "GIS/AIS Cable Routing Layout",
-    "GIS/AIS Earthing Layout",
-    "GIS/AIS Lighting Layout",
-    "GIS/AIS Lightning Layout",
-  ];
-
-  // Simple page schema - corrected to a valid WebPage and proper site URL
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Services — KSV Engineering",
-    description:
-      "From CAD drafting to complex power plant engineering, KSV Engineering delivers comprehensive solutions tailored to EPC, OEM, and PMC needs.",
-    url: "https://www.ksvengineering.com/services",
-  };
-
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
-  const handleBadgeKeyDown = (
-    e: React.KeyboardEvent<HTMLElement>,
-    item: string,
-  ) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      setSelectedItem(item);
-      setDialogOpen(true);
-    }
+  const openContactDialog = (item: string) => {
+    setSelectedItem(item);
+    setDialogOpen(true);
   };
 
   return (
     <>
+      <section id="services" className="py-24 bg-background relative overflow-hidden">
+        {/* Decorative background glows */}
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-primary/5 rounded-full blur-[130px] pointer-events-none -z-10" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-engineering-teal/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
-      <section id="services" className="py-20 bg-background">
-        <div className="container">
-          <div className="text-center mb-16">
-            {/* Main page heading as H1 since this is a separate page */}
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Our <span className="text-primary">Services</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <div className="container px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+              Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-black">Services</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground font-light leading-relaxed">
               Comprehensive engineering solutions from concept to commissioning
             </p>
           </div>
 
           {/* 2D CAD Design Services */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-            <div>
-              <h3 className="text-3xl font-bold text-foreground mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-28">
+            <div className="space-y-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
                 2D CAD Design Services
               </h3>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed">
                 Engineering converts your ideas and concepts into highly
                 accurate 2D CAD drawings. We offer industry-aligned CAD drafting
                 services with a combination of skilled, qualified, and
                 experienced CAD professionals equipped with the latest tools.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <Badge variant="secondary" className="justify-center p-3">
+              <div className="grid grid-cols-2 gap-4 max-w-md pt-2">
+                <Badge variant="secondary" className="justify-center p-3 text-sm font-semibold border border-border/80 bg-slate-100/50 hover:bg-blue-500/10 hover:text-blue-600 hover:border-blue-500/20 transition-all duration-300 rounded-xl">
                   As-built Documentation
                 </Badge>
-                <Badge variant="secondary" className="justify-center p-3">
+                <Badge variant="secondary" className="justify-center p-3 text-sm font-semibold border border-border/80 bg-slate-100/50 hover:bg-blue-500/10 hover:text-blue-600 hover:border-blue-500/20 transition-all duration-300 rounded-xl">
                   2D Drafting
                 </Badge>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="rounded-2xl shadow-professional overflow-hidden w-full h-[400px] relative">
+            <div className="relative group">
+              <div className="rounded-2xl shadow-xl overflow-hidden w-full h-[400px] relative border border-border/85 bg-slate-100">
                 <Image
                   src={cadServicesImage.src}
                   alt="CAD Design Services"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent rounded-2xl pointer-events-none" />
             </div>
           </div>
 
           {/* Projects */}
-          <div className="mb-20">
-            <h3 className="text-3xl font-bold text-foreground text-center mb-12">
-              Project <span className="text-primary">Portfolio</span>
+          <div className="mb-28">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-16 tracking-tight">
+              Project <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-bold">Portfolio</span>
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {projects.map((project, index) => {
-                const IconComponent = project.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="shadow-card hover:shadow-professional transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <CardContent className="p-6 text-center">
-                      <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4">
-                        <IconComponent className="h-8 w-8 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-foreground">
-                        {project.name}
-                      </h4>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {projects.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+              ))}
             </div>
           </div>
 
           {/* Detailed Services Tabs */}
-          <div className="bg-gradient-card rounded-2xl p-8">
-            <h3 className="text-3xl font-bold text-foreground text-center mb-12">
-              Technical <span className="text-primary">Expertise</span>
+          <div className="bg-gradient-card border border-border/60 rounded-3xl p-8 sm:p-10 shadow-sm relative overflow-hidden">
+            <div className="absolute -top-12 -left-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-10 tracking-tight">
+              Technical <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-bold">Expertise</span>
             </h3>
 
             <Tabs defaultValue="calculations" className="w-full">
@@ -238,20 +150,11 @@ const Services = () => {
               <TabsContent value="calculations">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {calculations.map((item, index) => (
-                    <Badge
+                    <ExpertiseBadge
                       key={index}
-                      variant="outline"
-                      className="p-3 justify-start cursor-pointer hover:bg-primary/5"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setDialogOpen(true);
-                      }}
-                      onKeyDown={(e) => handleBadgeKeyDown(e, item)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      {item}
-                    </Badge>
+                      item={item}
+                      onClick={openContactDialog}
+                    />
                   ))}
                 </div>
               </TabsContent>
@@ -259,20 +162,11 @@ const Services = () => {
               <TabsContent value="layouts">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {layouts.map((item, index) => (
-                    <Badge
+                    <ExpertiseBadge
                       key={index}
-                      variant="outline"
-                      className="p-3 justify-start cursor-pointer hover:bg-primary/5"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setDialogOpen(true);
-                      }}
-                      onKeyDown={(e) => handleBadgeKeyDown(e, item)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      {item}
-                    </Badge>
+                      item={item}
+                      onClick={openContactDialog}
+                    />
                   ))}
                 </div>
               </TabsContent>
@@ -280,20 +174,11 @@ const Services = () => {
               <TabsContent value="control">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {controlSchemes.map((item, index) => (
-                    <Badge
+                    <ExpertiseBadge
                       key={index}
-                      variant="outline"
-                      className="p-3 justify-start cursor-pointer hover:bg-primary/5"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setDialogOpen(true);
-                      }}
-                      onKeyDown={(e) => handleBadgeKeyDown(e, item)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      {item}
-                    </Badge>
+                      item={item}
+                      onClick={openContactDialog}
+                    />
                   ))}
                 </div>
               </TabsContent>
@@ -301,20 +186,11 @@ const Services = () => {
               <TabsContent value="diagrams">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {diagrams.map((item, index) => (
-                    <Badge
+                    <ExpertiseBadge
                       key={index}
-                      variant="outline"
-                      className="p-3 justify-start cursor-pointer hover:bg-primary/5"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setDialogOpen(true);
-                      }}
-                      onKeyDown={(e) => handleBadgeKeyDown(e, item)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      {item}
-                    </Badge>
+                      item={item}
+                      onClick={openContactDialog}
+                    />
                   ))}
                 </div>
               </TabsContent>
@@ -322,52 +198,23 @@ const Services = () => {
               <TabsContent value="switchyard">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {switchyard.map((item, index) => (
-                    <Badge
+                    <ExpertiseBadge
                       key={index}
-                      variant="outline"
-                      className="p-3 justify-start cursor-pointer hover:bg-primary/5"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setDialogOpen(true);
-                      }}
-                      onKeyDown={(e) => handleBadgeKeyDown(e, item)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      {item}
-                    </Badge>
+                      item={item}
+                      onClick={openContactDialog}
+                    />
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="seminars">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    "Generator",
-                    "Power Transformer",
-                    "MV/LV Switchgear",
-                    "Busduct",
-                    "Battery & Battery Charger",
-                    "HT/LT Motor",
-                    "CT/PT Design",
-                    "Switchyard",
-                    "Safety Earthing",
-                    "Solar-Roof Top CarPark Structure",
-                  ].map((item, index) => (
-                    <Badge
+                  {seminars.map((item, index) => (
+                    <ExpertiseBadge
                       key={index}
-                      variant="outline"
-                      className="p-3 justify-start cursor-pointer hover:bg-primary/5"
-                      onClick={() => {
-                        setSelectedItem(item);
-                        setDialogOpen(true);
-                      }}
-                      onKeyDown={(e) => handleBadgeKeyDown(e, item)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      {item}
-                    </Badge>
+                      item={item}
+                      onClick={openContactDialog}
+                    />
                   ))}
                 </div>
               </TabsContent>

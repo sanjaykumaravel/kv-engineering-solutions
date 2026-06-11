@@ -3,7 +3,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Technology from "@/components/Technology";
 import Contact from "@/components/Contact";
-import LspContainer from "@/components/LspContainer";
+import LspShowcase from "@/components/LspShowcase";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 export const metadata = {
@@ -24,7 +24,7 @@ export default function Page() {
       <Header />
       <Hero />
       <About />
-      <LspContainer />
+      <LspShowcase />
       <Services />
       <Technology />
       <Contact />
@@ -39,10 +39,13 @@ export default function Page() {
             itemListElement: [
               {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": { "@id": "https://www.ksvengineering.com/", "@type": "WebPage" }
-              }
+                position: 1,
+                name: "Home",
+                item: {
+                  "@id": "https://www.ksvengineering.com/",
+                  "@type": "WebPage",
+                },
+              },
             ],
           }),
         }}
@@ -50,4 +53,3 @@ export default function Page() {
     </div>
   );
 }
-

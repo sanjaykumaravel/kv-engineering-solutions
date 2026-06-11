@@ -1,94 +1,11 @@
-"use client"; 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Send } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { contactInfo } from "@/data/contactData";
+import { ContactInfoCard } from "@/components/ui/ContactInfoCard";
+import { ContactForm } from "@/components/ui/ContactForm";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-    agreeToPrivacy: false,
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!formData.agreeToPrivacy) {
-      toast({
-        title: "Privacy Policy Required",
-        description: "Please agree to the privacy policy to continue.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    try {
-      const response = await fetch("https://formspree.io/f/xkgzlnvo ", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-        }),
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Quote Request Sent!",
-          description:
-            "Thank you for your interest. We&apos;ll get back to you within 24 hours.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          message: "",
-          agreeToPrivacy: false,
-        });
-      } else {
-        toast({
-          title: "Error",
-          description: "Something went wrong. Please try again later.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Network Error",
-        description:
-          "Unable to send your request. Please check your connection.",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleInputChange = (field: string, value: string | boolean) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: "Admin@ksvengineering.com",
-      subtitle: "We respond within 24 hours",
-    },
-  ];
-
-
   return (
     <section id="contact" className="py-20 bg-background">
-
       <div className="container">
         <div className="text-center mb-16">
           {/* Main page heading for Contact */}
@@ -116,125 +33,16 @@ const Contact = () => {
                 </p>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="text-sm font-medium text-foreground block mb-2">
-                        Your Name *
-                      </label>
-                      <Input
-                        value={formData.name}
-                        onChange={(e) =>
-                          handleInputChange("name", e.target.value)
-                        }
-                        placeholder="John Doe"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground block mb-2">
-                        Email Address *
-                      </label>
-                      <Input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange("email", e.target.value)
-                        }
-                        placeholder="john@company.com"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium text-foreground block mb-2">
-                      Company Name
-                    </label>
-                    <Input
-                      value={formData.company}
-                      onChange={(e) =>
-                        handleInputChange("company", e.target.value)
-                      }
-                      placeholder="Your Company"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium text-foreground block mb-2">
-                      Project Details *
-                    </label>
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) =>
-                        handleInputChange("message", e.target.value)
-                      }
-                      placeholder="Tell us about your project requirements, timeline, and any specific needs..."
-                      rows={5}
-                      required
-                    />
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <Checkbox
-                      id="privacy"
-                      checked={formData.agreeToPrivacy}
-                      onCheckedChange={(checked) =>
-                        handleInputChange("agreeToPrivacy", checked === true)
-                      }
-                    />
-                    <label
-                      htmlFor="privacy"
-                      className="text-sm text-muted-foreground leading-relaxed"
-                    >
-                      Yes, I am OK to receive further communication over my
-                      details shared here. Refer privacy policy for more info.
-                    </label>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full shadow-professional"
-                  >
-                    <Send className="mr-2 h-5 w-5" />
-                    Send Quote Request
-                  </Button>
-                </form>
+                <ContactForm />
               </CardContent>
             </Card>
           </div>
 
           {/* Contact Information */}
           <div className="space-y-6">
-            {contactInfo.map((info, index) => {
-              const IconComponent = info.icon;
-              return (
-                <Card
-                  key={index}
-                  className="shadow-card hover:shadow-professional transition-shadow duration-300"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary/10 rounded-lg">
-                        <IconComponent className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">
-                          {info.title}
-                        </h4>
-                        <p className="text-sm md:text-base text-foreground break-words">
-                          {info.details}
-                        </p>
-                        <p className="text-xs text-muted-foreground break-words">
-                          {info.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {contactInfo.map((info, index) => (
+              <ContactInfoCard key={index} info={info} />
+            ))}
 
             {/* Global Reach */}
             <Card className="shadow-card bg-gradient-to-r from-blue-500 to-teal-500 text-white">

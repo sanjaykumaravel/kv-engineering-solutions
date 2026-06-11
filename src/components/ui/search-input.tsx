@@ -24,9 +24,9 @@ export function SearchInput({ placeholder }: { placeholder?: string }) {
 
   return (
     <div className="relative flex-1 max-w-md w-full">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+      <Search className="absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
       <Input
-        className="pl-10 rounded-full border-gray-200 bg-white shadow-sm focus:border-blue-500 hover:border-gray-300 transition-colors h-11"
+        className="pl-11 rounded-2xl border border-black bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-all h-11 text-base shadow-sm"
         placeholder={placeholder || "Search images..."}
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}

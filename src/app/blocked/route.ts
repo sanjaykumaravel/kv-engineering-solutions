@@ -45,7 +45,7 @@ export async function GET() {
       "Content-Type": "text/html; charset=utf-8",
       // Tell crawlers explicitly not to index
       "X-Robots-Tag": "noindex, nofollow",
-      "Cache-Control": "no-store, no-cache, must-revalidate"
+      "Cache-Control": "no-store, no-cache, must-revalidate",
     },
   });
   return res;

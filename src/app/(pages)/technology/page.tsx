@@ -24,8 +24,24 @@ export default function TechnologyPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: { "@id": "https://www.ksvengineering.com/", "@type": "WebPage" } },
-              { "@type": "ListItem", position: 2, name: "Technology", item: { "@id": "https://www.ksvengineering.com/technology", "@type": "WebPage" } },
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: {
+                  "@id": "https://www.ksvengineering.com/",
+                  "@type": "WebPage",
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Technology",
+                item: {
+                  "@id": "https://www.ksvengineering.com/technology",
+                  "@type": "WebPage",
+                },
+              },
             ],
           }),
         }}

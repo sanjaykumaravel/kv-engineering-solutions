@@ -18,7 +18,8 @@ export const galleryItems: GalleryItem[] = [
     index: 1,
     name: "Cable tray elbow section",
     alt: "High-quality cable tray elbow section designed for efficient directional changes in cable management systems, ensuring seamless routing and protection for industrial power and data cables.",
-    description: "High-quality cable tray elbow section designed for efficient directional changes in cable management systems, ensuring seamless routing and protection for industrial power and data cables.",
+    description:
+      "High-quality cable tray elbow section designed for efficient directional changes in cable management systems, ensuring seamless routing and protection for industrial power and data cables.",
     slug: "cable-tray-elbow-section",
     url: "/diagrams/cable-tray-elbow-section.jpg",
     location: "Global Industrial Projects",
@@ -27,7 +28,7 @@ export const galleryItems: GalleryItem[] = [
       "90-degree horizontal bend",
       "Corrosion-resistant coating for outdoor use",
       "Compatible with heavy-duty ladder trays",
-      "Standard width: 300mm/600mm"
+      "Standard width: 300mm/600mm",
     ],
     detailedContent: `A substation cable tray elbow section is a critical fitting used to route cables around directional changes while maintaining structural integrity and compliance with bend radius requirements.
 
@@ -57,13 +58,14 @@ The elbow section allows cable trays to change direction — horizontally (e.g.,
 ## Reference Standards
 - NEMA VE 1 & VE 2 – Metal cable tray systems and installation practices
 - IEC 61537 – Cable management systems
-- IEEE 525 – Guide for cable tray systems in substations`
+- IEEE 525 – Guide for cable tray systems in substations`,
   },
   {
     index: 2,
     name: "Vertical Cable Tray Installation",
     alt: "Robust vertical cable tray installation demonstrating proper support and securing of heavy-duty power cables in a high-rise industrial environment for maximum safety and organization.",
-    description: "Robust vertical cable tray installation demonstrating proper support and securing of heavy-duty power cables in a high-rise industrial environment for maximum safety and organization.",
+    description:
+      "Robust vertical cable tray installation demonstrating proper support and securing of heavy-duty power cables in a high-rise industrial environment for maximum safety and organization.",
     slug: "vertical-cable-tray-installation",
     url: "/diagrams/vertical-cable-tray-installation.jpg",
     location: "Power Plant Complex",
@@ -72,7 +74,7 @@ The elbow section allows cable trays to change direction — horizontally (e.g.,
       "Secured with high-strength cleats",
       "Optimized for thermal expansion",
       "Supports MV/HV Power Cables",
-      "Vertical spacing: 1.5m intervals"
+      "Vertical spacing: 1.5m intervals",
     ],
     detailedContent: `A vertical cable tray in a substation is used to route cables between different elevation levels, such as from underground trenches to control rooms or from ground level to elevated equipment platforms.
 
@@ -104,13 +106,14 @@ Vertical cable trays provide structured pathways for power, control, and instrum
 ## Reference Standards
 - NEMA VE 1 & VE 2 – Metal cable tray systems and installation practices
 - IEC 61537 – Cable management systems
-- IEEE 525 – Guide for cable tray systems in substations`
+- IEEE 525 – Guide for cable tray systems in substations`,
   },
   {
     index: 3,
     name: "Cable Trench Area",
     alt: "Detailed view of a concrete cable trench area prepared for underground power distribution, featuring structured routing paths for high-voltage and control cables.",
-    description: "Detailed view of a concrete cable trench area prepared for underground power distribution, featuring structured routing paths for high-voltage and control cables.",
+    description:
+      "Detailed view of a concrete cable trench area prepared for underground power distribution, featuring structured routing paths for high-voltage and control cables.",
     slug: "cable-trench-area",
     url: "/diagrams/cable-trench-area.jpg",
     location: "Substation Yard",
@@ -118,7 +121,7 @@ Vertical cable trays provide structured pathways for power, control, and instrum
     specifications: [
       "Integrated drainage system",
       "Heavy-duty load bearing covers",
-      "Separated power and control/instrumentation paths"
+      "Separated power and control/instrumentation paths",
     ],
     detailedContent: `The substation cable trench area is a designated underground or surface-level pathway used to route and protect electrical cables between equipment, control rooms, and external connections. It ensures organized cable management, physical protection, and ease of maintenance.
 
@@ -152,19 +155,20 @@ Cable trenches serve as structured conduits for power, control, instrumentation,
 - IEC 61537 – Cable management systems
 - IEEE 525 – Guide for cable installation in substations
 - NEMA VE 2 – Cable tray installation practices
-- Local utility trench construction standards`
+- Local utility trench construction standards`,
   },
   {
     index: 4,
     name: "Multi layer cable tray",
     alt: "Advanced multi-layer cable tray system designed to separate and organize power, control, and data cables efficiently within a compact industrial footprint.",
-    description: "Advanced multi-layer cable tray system designed to separate and organize power, control, and data cables efficiently within a compact industrial footprint.",
+    description:
+      "Advanced multi-layer cable tray system designed to separate and organize power, control, and data cables efficiently within a compact industrial footprint.",
     slug: "multi-layer-cable-tray",
     url: "/diagrams/multi-layer-cable-tray.jpg",
     specifications: [
-        "Tiered support design",
-        "Magnetic isolation compliant",
-        "Space-saving vertical configuration"
+      "Tiered support design",
+      "Magnetic isolation compliant",
+      "Space-saving vertical configuration",
     ],
     detailedContent: `A multi-layer cable tray system is a vertically stacked arrangement of cable trays used to segregate and support different types of cables—such as power, control, instrumentation, and communication—within the same routing corridor, especially in space-constrained substation environments.
 
@@ -197,20 +201,21 @@ Multi-layer cable trays allow for efficient use of vertical space by stacking tr
 ## Standards & References
 - NEMA VE 1 & VE 2 – Metal cable tray systems and installation
 - IEC 61537 – Cable management systems
-- IEEE 525 – Guide for cable tray systems in substations`
+- IEEE 525 – Guide for cable tray systems in substations`,
   },
   {
     index: 5,
     name: "Cable Tray Support Structure",
     alt: "Heavy-duty steel support structure for cable trays, engineered to withstand significant cable loads and environmental factors in large-scale engineering projects.",
-    description: "Heavy-duty steel support structure for cable trays, engineered to withstand significant cable loads and environmental factors in large-scale engineering projects.",
+    description:
+      "Heavy-duty steel support structure for cable trays, engineered to withstand significant cable loads and environmental factors in large-scale engineering projects.",
     slug: "cable-tray-support-structure",
     url: "/diagrams/cable-tray-support-structure.jpg",
     material: "Structural Steel (I-Beam/Channel)",
     specifications: [
-        "Seismic braced design",
-        "Hot-dip galvanized finish typically 80 microns",
-        "Custom fabrication for site constraints"
+      "Seismic braced design",
+      "Hot-dip galvanized finish typically 80 microns",
+      "Custom fabrication for site constraints",
     ],
     detailedContent: `A cable tray support structure in a substation is a mechanical framework designed to hold and stabilize cable trays, ensuring safe routing, load distribution, and compliance with electrical installation standards.
 
@@ -252,13 +257,14 @@ The support structure provides mechanical stability and alignment for cable tray
 ## Applicable Standards
 - NEMA VE 1 & VE 2 – Metal cable tray systems and installation practices
 - IEC 61537 – Cable management systems
-- IEEE 525 – Guide for cable tray systems in substations`
+- IEEE 525 – Guide for cable tray systems in substations`,
   },
   {
     index: 6,
     name: "Cable Tray Routing System",
     alt: "Complex cable tray routing system layout showing precise alignment and integration with building infrastructure for optimal electrical distribution.",
-    description: "Complex cable tray routing system layout showing precise alignment and integration with building infrastructure for optimal electrical distribution.",
+    description:
+      "Complex cable tray routing system layout showing precise alignment and integration with building infrastructure for optimal electrical distribution.",
     slug: "cable-tray-routing-system",
     url: "/diagrams/cable-tray-routing-system.jpg",
     detailedContent: `A cable tray routing system in a substation is a structured network of cable trays designed to guide, support, and protect electrical cables as they travel between equipment, control rooms, and external interfaces.
@@ -298,13 +304,14 @@ The routing system ensures organized, safe, and efficient cable management acros
 - ABB Cable Tray Technical Guide
 - NEMA VE 1 & VE 2 – Metal cable tray systems and installation
 - IEC 61537 – Cable management systems
-- IEEE 525 – Guide for cable tray systems in substations`
+- IEEE 525 – Guide for cable tray systems in substations`,
   },
   {
     index: 7,
     name: "Overhead Cable Tray Installation",
     alt: "Professional overhead cable tray installation maximizing floor space while providing accessible and secure routing for main power distribution lines.",
-    description: "Professional overhead cable tray installation maximizing floor space while providing accessible and secure routing for main power distribution lines.",
+    description:
+      "Professional overhead cable tray installation maximizing floor space while providing accessible and secure routing for main power distribution lines.",
     slug: "overhead-cable-tray-installation",
     url: "/diagrams/overhead-cable-tray-installation.jpg",
     detailedContent: `Overhead cable tray installation in substations involves mounting cable trays above ground level—typically on ceilings, beams, or structural frames—to route and support electrical cables safely and efficiently.
@@ -346,21 +353,22 @@ Overhead cable trays provide elevated pathways for power, control, and instrumen
 - NEMA VE 1 & VE 2 – Metal cable tray systems and installation practices
 - IEC 61537 – Cable management systems
 - IEEE 525 – Guide for cable tray systems in substations
-- IS 8623 – Indian standard for cable support systems`
+- IS 8623 – Indian standard for cable support systems`,
   },
   {
     index: 8,
     name: "400kv switchyard isolator & Earth switch",
     alt: "Critical 400kV switchyard equipment including high-voltage isolators and earth switches, installed for reliable power transmission and substation safety.",
-    description: "Critical 400kV switchyard equipment including high-voltage isolators and earth switches, installed for reliable power transmission and substation safety.",
+    description:
+      "Critical 400kV switchyard equipment including high-voltage isolators and earth switches, installed for reliable power transmission and substation safety.",
     slug: "400kv-switchyard-isolator-earth-switch",
     url: "/diagrams/400-kv-switchyard-isolator-earth-switch.jpg",
     location: "400kV AIS Substation",
     specifications: [
-        "Rated Voltage: 420kV",
-        "Current Rating: 3150A / 4000A",
-        "Motor operated mechanism",
-        "Includes Double Earth Switch"
+      "Rated Voltage: 420kV",
+      "Current Rating: 3150A / 4000A",
+      "Motor operated mechanism",
+      "Includes Double Earth Switch",
     ],
     detailedContent: `A 400kV switchyard isolator and earth switch are critical components used to safely disconnect and ground high-voltage equipment during maintenance or fault conditions. They ensure operational safety, system reliability, and compliance with international standards.
 
@@ -403,13 +411,14 @@ The earth switch grounds the disconnected section of equipment to ensure zero po
 ### Installation Notes
 - Mounted adjacent to isolators
 - Operated via motorized drives or manual levers
-- Interlocked with isolator to prevent unsafe grounding`
+- Interlocked with isolator to prevent unsafe grounding`,
   },
   {
     index: 9,
     name: "A Row & Trf yard",
     alt: "Strategic layout of 'A' Row and Transformer yard, showcasing the organized arrangement of heavy electrical infrastructure and safety clearance zones.",
-    description: "Strategic layout of 'A' Row and Transformer yard, showcasing the organized arrangement of heavy electrical infrastructure and safety clearance zones.",
+    description:
+      "Strategic layout of 'A' Row and Transformer yard, showcasing the organized arrangement of heavy electrical infrastructure and safety clearance zones.",
     slug: "a-row-trf-yard",
     url: "/diagrams/A Row and Tfr yard.jpg",
     detailedContent: `In a substation, the "A Row" typically refers to a linear arrangement of switchyard equipment, while the "Trf Yard" (Transformer Yard) is the designated area for housing power transformers and associated components. Both are critical zones for high-voltage power flow, isolation, and transformation.
@@ -456,13 +465,14 @@ The Trf Yard houses power transformers that step voltage up or down between tran
 ## Reference Standards
 - IEC 61936 – Power installations exceeding 1 kV AC
 - IEEE 80 – Guide for safety in AC substation grounding
-- IS 10028 – Indian standard for transformer installation`
+- IS 10028 – Indian standard for transformer installation`,
   },
   {
     index: 10,
     name: "A Row",
     alt: "Detailed perspective of the 'A' Row section in the electrical yard, highlighting the precision installation of support structures and busbar systems.",
-    description: "Detailed perspective of the 'A' Row section in the electrical yard, highlighting the precision installation of support structures and busbar systems.",
+    description:
+      "Detailed perspective of the 'A' Row section in the electrical yard, highlighting the precision installation of support structures and busbar systems.",
     slug: "a-row",
     url: "/diagrams/A Row.jpg",
     detailedContent: `The A Row in a substation is a primary equipment arrangement zone containing high-voltage switching and protection equipment aligned in a systematic row configuration for efficient operation and maintenance.
@@ -479,20 +489,21 @@ The Trf Yard houses power transformers that step voltage up or down between tran
 - Layout follows single bus, double bus, or breaker-and-a-half configuration
 - Clearances per IEC 61936 and IS 5613 for phase-to-phase and phase-to-ground distances
 - Each equipment base connected to substation earth grid
-- Adequate spacing for maintenance vehicles and personnel access`
+- Adequate spacing for maintenance vehicles and personnel access`,
   },
   {
     index: 11,
     name: "Battery Rack",
     alt: "Industrial-grade battery rack assembly providing reliable backup power storage solutions, designed for seismic stability and easy maintenance access.",
-    description: "Industrial-grade battery rack assembly providing reliable backup power storage solutions, designed for seismic stability and easy maintenance access.",
+    description:
+      "Industrial-grade battery rack assembly providing reliable backup power storage solutions, designed for seismic stability and easy maintenance access.",
     slug: "battery-rack",
     url: "/diagrams/Battery rack.JPG",
     material: "Epoxy Flow Coated Steel",
     specifications: [
-        "Acid-resistant coating",
-        "Multi-step rack configuration",
-        "Seismic Zone 4 compliant"
+      "Acid-resistant coating",
+      "Multi-step rack configuration",
+      "Seismic Zone 4 compliant",
     ],
     detailedContent: `A substation four-layer battery rack is a vertical storage system designed to hold multiple rows of industrial batteries—typically used in DC power systems for control, protection, and emergency backup. This configuration maximizes space efficiency while maintaining safety and accessibility.
 
@@ -535,13 +546,14 @@ Supports and organizes batteries in four stacked layers, commonly used in substa
 - IEEE 485 – Sizing lead-acid batteries for substations
 - IEEE 1187 – Maintenance of stationary batteries
 - IEC 60896 – Stationary lead-acid batteries
-- IS 1651 / IS 15549 – Indian standards for lead-acid batteries`
+- IS 1651 / IS 15549 – Indian standards for lead-acid batteries`,
   },
   {
     index: 12,
     name: "Battery Room",
     alt: "Secure battery room facility designed with proper ventilation and safety measures to house large-scale DC power backup systems for critical infrastructure.",
-    description: "Secure battery room facility designed with proper ventilation and safety measures to house large-scale DC power backup systems for critical infrastructure.",
+    description:
+      "Secure battery room facility designed with proper ventilation and safety measures to house large-scale DC power backup systems for critical infrastructure.",
     slug: "battery-room",
     url: "/diagrams/Battery room (2).jpg",
     detailedContent: `A substation battery room is a dedicated, controlled environment designed to house DC battery banks that provide uninterrupted power for critical substation operations. These rooms are essential for ensuring system reliability during AC power outages or switching events.
@@ -593,17 +605,18 @@ This ensures that vital operations continue even during grid failures or mainten
 - IEEE 1187 – Maintenance of stationary batteries
 - IEC 60896 – Stationary lead-acid batteries
 - IS 1651 / IS 15549 – Indian standards for battery systems
-- NFPA 70E – Electrical safety in the workplace`
+- NFPA 70E – Electrical safety in the workplace`,
   },
-  // ... (User, please note: I have truncated the middle items for brevity in this response, but in the real file I would include ALL 107 items. 
-  // However, since I cannot reliably 'copy-paste' 1000 lines here without hitting token limits typically, I will write a script to APPEND the rest or I will rely on the fact that the user can copy-paste the rest. 
+  // ... (User, please note: I have truncated the middle items for brevity in this response, but in the real file I would include ALL 107 items.
+  // However, since I cannot reliably 'copy-paste' 1000 lines here without hitting token limits typically, I will write a script to APPEND the rest or I will rely on the fact that the user can copy-paste the rest.
   // WAIT - As an AI agent I must deliver the FULL file or a VALID file.
   // Strategy: I will write the FIRST 12 items (expanded) and then the REST of the items (unmodified) to ensure the file is valid.
   {
     index: 13,
     name: "Battery Bank Room",
     alt: "Comprehensive view of a battery bank room featuring rows of energy storage units connected to ensure uninterrupted power supply for plant operations.",
-    description: "Comprehensive view of a battery bank room featuring rows of energy storage units connected to ensure uninterrupted power supply for plant operations.",
+    description:
+      "Comprehensive view of a battery bank room featuring rows of energy storage units connected to ensure uninterrupted power supply for plant operations.",
     slug: "battery-bank-room",
     url: "/diagrams/Battery room.JPG",
     detailedContent: `A battery bank room in a substation houses multiple battery units connected in series or parallel to provide reliable DC power for critical operations including protection relays, control circuits, and emergency systems.
@@ -619,13 +632,14 @@ This ensures that vital operations continue even during grid failures or mainten
 - Centralized battery management system (BMS)
 - Temperature-controlled environment
 - Acid containment and spill protection
-- Fire detection and suppression systems`
+- Fire detection and suppression systems`,
   },
   {
     index: 14,
     name: "Cabinet",
     alt: "Robust electrical control cabinet with organized wiring and component layout, ensuring protection and accessibility for system monitoring and control.",
-    description: "Robust electrical control cabinet with organized wiring and component layout, ensuring protection and accessibility for system monitoring and control.",
+    description:
+      "Robust electrical control cabinet with organized wiring and component layout, ensuring protection and accessibility for system monitoring and control.",
     slug: "cabinet",
     url: "/diagrams/Cabinet-3.jpg",
     detailedContent: `A substation cabinet is a compact, modular unit used to house electrical components for power distribution and transformation, especially in urban or residential settings.
@@ -645,13 +659,14 @@ This ensures that vital operations continue even during grid failures or mainten
 - **Compact design**: Saves space and simplifies installation
 - **Safety**: Enclosed structure reduces risk of electrical hazards
 - **Modularity**: Easy to upgrade or relocate
-- **Cost-effective**: Reduces civil engineering and labor costs`
+- **Cost-effective**: Reduces civil engineering and labor costs`,
   },
   {
     index: 15,
     name: "Transformer Cable Connection Setup",
     alt: "Precision high-voltage cable connection setup on a power transformer, featuring properly terminated cables and safety barriers.",
-    description: "Precision high-voltage cable connection setup on a power transformer, featuring properly terminated cables and safety barriers.",
+    description:
+      "Precision high-voltage cable connection setup on a power transformer, featuring properly terminated cables and safety barriers.",
     slug: "transformer-cable-connection-setup",
     url: "/diagrams/Cable connect with transformer.jpg",
     detailedContent: `Substation transformer cable connection setup involves safely linking high-voltage and low-voltage cables to the transformer terminals, ensuring proper grounding, insulation, and phase alignment.
@@ -685,13 +700,14 @@ Connect grounding cables to the transformer tank and ground grid to ensure safet
 - Use PPE: Gloves, goggles, and arc-flash protection
 - Follow local electrical codes: Adhere to IEC, IEEE, or national standards
 - Label all connections for maintenance
-- Ensure cable ends and bushings are dry before connection`
+- Ensure cable ends and bushings are dry before connection`,
   },
   {
     index: 16,
     name: "Transformer Bushing Connection",
     alt: "Detailed view of transformer bushing connections and cable earth truck assembly, critical for safe high-voltage power transfer and grounding.",
-    description: "Detailed view of transformer bushing connections and cable earth truck assembly, critical for safe high-voltage power transfer and grounding.",
+    description:
+      "Detailed view of transformer bushing connections and cable earth truck assembly, critical for safe high-voltage power transfer and grounding.",
     slug: "transformer-bushing-connection",
     url: "/diagrams/CABLE EARTH TRUCK.JPG",
     detailedContent: `Substation transformer bushing connections involve linking high-voltage and low-voltage cables to the transformer's bushings, which serve as insulated passageways for electrical conductors. Proper layout and phasing are critical for safe and efficient operation.
@@ -713,13 +729,14 @@ Phasing must be consistent between the transformer and connected equipment to av
 - Route cables to the correct bushing terminals, avoiding sharp bends
 - Terminate cables using appropriate lugs and torque specifications
 - Apply insulation kits (heat shrink or cold shrink) to seal connections
-- Ground the transformer via designated grounding bushings or terminals`
+- Ground the transformer via designated grounding bushings or terminals`,
   },
   {
     index: 17,
     name: "Cable Rack Holder",
     alt: "Sturdy cable rack holder installation designed to support heavy cable loads and maintain organized separation in vertical or horizontal runs.",
-    description: "Sturdy cable rack holder installation designed to support heavy cable loads and maintain organized separation in vertical or horizontal runs.",
+    description:
+      "Sturdy cable rack holder installation designed to support heavy cable loads and maintain organized separation in vertical or horizontal runs.",
     slug: "cable-rack-holder",
     url: "/diagrams/Cable rack holder.jpg",
     detailedContent: `A substation cable rack holder is a structural support system used to organize, secure, and route power and control cables within a substation. It ensures safety, accessibility, and protection of cables from mechanical damage and environmental exposure.
@@ -745,13 +762,14 @@ Phasing must be consistent between the transformer and connected equipment to av
 - Label cable paths clearly for identification and maintenance
 - Maintain bend radius and avoid sharp turns to protect cable integrity
 - Separate voltage classes and signal types to prevent interference
-- Anchor securely to withstand seismic or mechanical stress`
+- Anchor securely to withstand seismic or mechanical stress`,
   },
   {
     index: 18,
     name: "Cable Rack 1",
     alt: "Primary cable rack system implementation showing organized routing of multiple cable bundles in an industrial corridor.",
-    description: "Primary cable rack system implementation showing organized routing of multiple cable bundles in an industrial corridor.",
+    description:
+      "Primary cable rack system implementation showing organized routing of multiple cable bundles in an industrial corridor.",
     slug: "cable-rack-1",
     url: "/diagrams/Cable Rack1.jpg",
     detailedContent: `A substation cable tray raiser is a vertical or inclined structural element used to elevate and route cable trays between different levels or sections of a substation. It ensures safe transitions for cables while maintaining accessibility and mechanical protection.
@@ -774,13 +792,14 @@ A cable tray raiser is a specialized tray section designed to:
 - **Use compatible materials**: Match raiser material with tray (e.g., galvanized steel, aluminum)
 - **Secure with brackets**: Anchor raisers to walls or frames to prevent movement
 - **Label transitions**: Clearly mark cable paths for maintenance and safety
-- **Avoid sharp bends**: Use gradual curves to protect cable insulation`
+- **Avoid sharp bends**: Use gradual curves to protect cable insulation`,
   },
   {
     index: 19,
     name: "Cable Rack 2",
     alt: "Secondary view of the cable rack infrastructure, highlighting the modular design allowing for future expansion and maintenance.",
-    description: "Secondary view of the cable rack infrastructure, highlighting the modular design allowing for future expansion and maintenance.",
+    description:
+      "Secondary view of the cable rack infrastructure, highlighting the modular design allowing for future expansion and maintenance.",
     slug: "cable-rack-2",
     url: "/diagrams/Cable Rack3.jpg",
     detailedContent: `A modular cable rack infrastructure designed for scalability and ease of maintenance in industrial substations.
@@ -795,13 +814,14 @@ A cable tray raiser is a specialized tray section designed to:
 - Support intervals typically every 1.5–2 meters
 - Cable segregation between power and control circuits
 - Bonding jumpers for grounding continuity
-- Fire barriers in critical zones`
+- Fire barriers in critical zones`,
   },
   {
     index: 20,
     name: "Cable Tray Raiser",
     alt: "Vertical cable tray riser section allowing smooth transition of cabling between different elevations in a multi-story facility.",
-    description: "Vertical cable tray riser section allowing smooth transition of cabling between different elevations in a multi-story facility.",
+    description:
+      "Vertical cable tray riser section allowing smooth transition of cabling between different elevations in a multi-story facility.",
     slug: "cable-tray-raiser",
     url: "/diagrams/cable tray riser.jpg",
     detailedContent: `A cable tray raiser is a vertical structural element used to route cables between different elevation levels within a substation or industrial facility.
@@ -821,13 +841,14 @@ A cable tray raiser is a specialized tray section designed to:
 - Maintain minimum bend radius per cable specifications
 - Secure risers at maximum 1.5-meter intervals
 - Provide adequate space for cable pulling and maintenance
-- Bond all metallic components to earth grid`
+- Bond all metallic components to earth grid`,
   },
   {
     index: 21,
     name: "Cable Tray Routing",
     alt: "Strategic cable tray routing overview demonstrating efficient path planning to avoid obstructions and minimize cable lengths.",
-    description: "Strategic cable tray routing overview demonstrating efficient path planning to avoid obstructions and minimize cable lengths.",
+    description:
+      "Strategic cable tray routing overview demonstrating efficient path planning to avoid obstructions and minimize cable lengths.",
     slug: "cable-tray-routing",
     url: "/diagrams/Cable tray routing.jpg",
     detailedContent: `Strategic cable tray routing involves planning optimal paths for cable management systems to ensure efficient, safe, and accessible cable installations.
@@ -848,13 +869,14 @@ A cable tray raiser is a specialized tray section designed to:
 - Document routing with as-built drawings
 - Label cable routes for identification
 - Coordinate with other disciplines (mechanical, structural)
-- Plan for future expansion capacity`
+- Plan for future expansion capacity`,
   },
   {
     index: 22,
     name: "Lightning Arrester",
     alt: "High-performance lightning arrester installation protecting substation equipment from voltage surges and atmospheric discharges.",
-    description: "High-performance lightning arrester installation protecting substation equipment from voltage surges and atmospheric discharges.",
+    description:
+      "High-performance lightning arrester installation protecting substation equipment from voltage surges and atmospheric discharges.",
     slug: "lightning-arrester",
     url: "/diagrams/lightning-arrester.png",
     detailedContent: `A lightning arrester (surge arrester) is a protective device used in substations to limit transient overvoltages caused by lightning strikes or switching operations.
@@ -880,13 +902,14 @@ A cable tray raiser is a specialized tray section designed to:
 - Mount close to protected equipment for effective protection
 - Connect to dedicated ground conductor
 - Ensure adequate clearances per voltage level
-- Regular inspection of housing and connections`
+- Regular inspection of housing and connections`,
   },
   {
     index: 23,
     name: "CCCW Pump with Earthing",
     alt: "Component Cooling Water (CCCW) pump installation featuring comprehensive earthing details for electrical safety and equipment protection.",
-    description: "Component Cooling Water (CCCW) pump installation featuring comprehensive earthing details for electrical safety and equipment protection.",
+    description:
+      "Component Cooling Water (CCCW) pump installation featuring comprehensive earthing details for electrical safety and equipment protection.",
     slug: "cccw-pump-with-earthing",
     url: "/diagrams/CCCW - pump along with earthing details.jpg",
     detailedContent: `Component Cooling Water (CCCW) pump systems in substations require proper earthing to ensure electrical safety and equipment protection.
@@ -912,13 +935,14 @@ The CCCW system provides cooling for electrical equipment:
 - Regular earth resistance testing
 - Visual inspection of earth connections
 - Continuity checks during shutdown periods
-- Corrosion monitoring in outdoor installations`
+- Corrosion monitoring in outdoor installations`,
   },
   {
     index: 24,
     name: "CCCW Structural Arrangement for ACHE",
     alt: "Structural support arrangement for Air Cooled Heat Exchanger (ACHE) within the CCCW system, ensuring mechanical stability.",
-    description: "Structural support arrangement for Air Cooled Heat Exchanger (ACHE) within the CCCW system, ensuring mechanical stability.",
+    description:
+      "Structural support arrangement for Air Cooled Heat Exchanger (ACHE) within the CCCW system, ensuring mechanical stability.",
     slug: "cccw-structural-arrangement-for-ache",
     url: "/diagrams/CCCW - structural arrangement for ACHE.jpg",
     detailedContent: `The structural arrangement for Air Cooled Heat Exchangers (ACHE) in CCCW systems is critical for mechanical stability and operational efficiency.
@@ -944,13 +968,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Applicable Standards
 - ASME B31.1 for piping
 - API 661 for air-cooled heat exchangers
-- AISC for structural steel design`
+- AISC for structural steel design`,
   },
   {
     index: 25,
     name: "Control Panel",
     alt: "Modern electrical control panel interface with indicators and switches for real-time monitoring and operation of plant systems.",
-    description: "Modern electrical control panel interface with indicators and switches for real-time monitoring and operation of plant systems.",
+    description:
+      "Modern electrical control panel interface with indicators and switches for real-time monitoring and operation of plant systems.",
     slug: "control-panel",
     url: "/diagrams/Control panel.jpg",
     detailedContent: `A substation control panel is the centralized interface for monitoring, controlling, and protecting electrical equipment and circuits within the substation.
@@ -978,13 +1003,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Standards Compliance
 - IEC 61439 for low-voltage switchgear assemblies
 - IEEE C37.1 for SCADA and automation
-- IS 8623 for control panels`
+- IS 8623 for control panels`,
   },
   {
     index: 26,
     name: "LV/MV Power Cable Entry Arrangement",
     alt: "Engineered arrangement for Low Voltage (LV) and Medium Voltage (MV) power cable entry, featuring proper sealing and strain relief.",
-    description: "Engineered arrangement for Low Voltage (LV) and Medium Voltage (MV) power cable entry, featuring proper sealing and strain relief.",
+    description:
+      "Engineered arrangement for Low Voltage (LV) and Medium Voltage (MV) power cable entry, featuring proper sealing and strain relief.",
     slug: "lv-mv-power-cable-entry-arrangement",
     url: "/diagrams/lv-mv-power-cable-entry-arrangement.jpg",
     detailedContent: `Substation cable entry arrangements for LV (Low Voltage) and MV (Medium Voltage) power cables ensure safe, organized, and protected transitions from external cable routes into control rooms, panels, or switchgear.
@@ -1011,13 +1037,14 @@ The CCCW system provides cooling for electrical equipment:
 - Use appropriate gland sizes for cable diameters
 - Apply fire-stop compound at wall penetrations
 - Label all cable entries for identification
-- Test cable sealing for water tightness`
+- Test cable sealing for water tightness`,
   },
   {
     index: 27,
     name: "Cable Tray Installation with Power Cables",
     alt: "Loaded cable tray installation verifying capacity and separation compliance for multiple high-amperage power cables.",
-    description: "Loaded cable tray installation verifying capacity and separation compliance for multiple high-amperage power cables.",
+    description:
+      "Loaded cable tray installation verifying capacity and separation compliance for multiple high-amperage power cables.",
     slug: "cable-tray-installation-with-power-cables",
     url: "/diagrams/cable-tray-installation-with-power-cables.jpg",
     detailedContent: `Cable tray installations with power cables require careful attention to load capacity, heat dissipation, and cable separation to ensure safe and efficient operation.
@@ -1042,13 +1069,14 @@ The CCCW system provides cooling for electrical equipment:
 - Calculate cumulative cable weight per meter
 - Verify tray and support capacity
 - Check bend radius at direction changes
-- Ensure proper grounding of cable armor and tray`
+- Ensure proper grounding of cable armor and tray`,
   },
   {
     index: 28,
     name: "Cable Tray Support Structure",
     alt: "Reinforced cable tray support structure implementation, specifically designed to handle dynamic loads and spanning distances.",
-    description: "Reinforced cable tray support structure implementation, specifically designed to handle dynamic loads and spanning distances.",
+    description:
+      "Reinforced cable tray support structure implementation, specifically designed to handle dynamic loads and spanning distances.",
     slug: "cable-tray-support-structure-1",
     url: "/diagrams/cable-tray-support-structure-1.jpg",
     detailedContent: `A reinforced cable tray support structure provides mechanical stability for cable routing systems, designed to handle static and dynamic loads across varying spans.
@@ -1067,13 +1095,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation Standards
 - NEMA VE 1 for cable tray systems
 - IEEE 525 for substation cable systems
-- Local structural codes for seismic zones`
+- Local structural codes for seismic zones`,
   },
   {
     index: 29,
     name: "Earthing Busbar Installation",
     alt: "Copper earthing busbar installation providing a common grounding point for multiple electrical circuits and equipment frames.",
-    description: "Copper earthing busbar installation providing a common grounding point for multiple electrical circuits and equipment frames.",
+    description:
+      "Copper earthing busbar installation providing a common grounding point for multiple electrical circuits and equipment frames.",
     slug: "earthing-busbar-installation",
     url: "/diagrams/earthing-busbar-installation.jpg",
     detailedContent: `An earthing busbar in a substation is a common grounding point that collects and distributes earth connections from multiple circuits and equipment frames.
@@ -1094,13 +1123,14 @@ The CCCW system provides cooling for electrical equipment:
 - Connect to main earth grid via dedicated conductor
 - Use star washer and locknut for secure connections
 - Apply conductive grease to prevent oxidation
-- Label all connections for identification`
+- Label all connections for identification`,
   },
   {
     index: 30,
     name: "Structure Earthing Connection",
     alt: "Secure structural earthing connection detail ensuring electrical continuity between steel framework and the facility grounding grid.",
-    description: "Secure structural earthing connection detail ensuring electrical continuity between steel framework and the facility grounding grid.",
+    description:
+      "Secure structural earthing connection detail ensuring electrical continuity between steel framework and the facility grounding grid.",
     slug: "structure-earthing-connection",
     url: "/diagrams/structure-earthing-connection.jpg",
     detailedContent: `Structural earthing connections bond metallic building elements to the grounding system for electrical safety and lightning protection.
@@ -1124,13 +1154,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Maintenance
 - Annual visual inspection
 - Continuity testing during shutdown
-- Corrosion monitoring and treatment`
+- Corrosion monitoring and treatment`,
   },
   {
     index: 31,
     name: "CCCW Pump House Layout",
     alt: "Overview of the CCCW Pump House layout showing equipment positioning, piping pathways, and maintenance aisle clearances.",
-    description: "Overview of the CCCW Pump House layout showing equipment positioning, piping pathways, and maintenance aisle clearances.",
+    description:
+      "Overview of the CCCW Pump House layout showing equipment positioning, piping pathways, and maintenance aisle clearances.",
     slug: "cccw-pump-house-layout",
     url: "/diagrams/cccw-pump-house-layout.jpg",
     detailedContent: `A CCCW Pump House layout defines the arrangement of pumps, piping, and electrical equipment for Component Cooling Water systems.
@@ -1150,13 +1181,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Equipment Earthing
 - Motor frames connected to earth grid
 - Metallic piping bonded for static discharge
-- Control panels with dedicated earth bus`
+- Control panels with dedicated earth bus`,
   },
   {
     index: 32,
     name: "Outdoor Cable Rack Supporting Structure",
     alt: "Weather-resistant outdoor cable rack supporting structure designed to protect cabling from environmental exposure while maintaining accessibility.",
-    description: "Weather-resistant outdoor cable rack supporting structure designed to protect cabling from environmental exposure while maintaining accessibility.",
+    description:
+      "Weather-resistant outdoor cable rack supporting structure designed to protect cabling from environmental exposure while maintaining accessibility.",
     slug: "outdoor-cable-rack-supporting-structure",
     url: "/diagrams/outdoor-cable-rack-supporting-structure.jpg",
     detailedContent: `Outdoor cable rack supporting structures are engineered to withstand environmental conditions while providing organized cable routing.
@@ -1176,13 +1208,14 @@ The CCCW system provides cooling for electrical equipment:
 - Foundation anchoring to concrete piers
 - Expansion joints for thermal movement
 - Cable entry/exit provisions
-- Grounding connections to earth grid`
+- Grounding connections to earth grid`,
   },
   {
     index: 33,
     name: "Raised Floor Installation Work",
     alt: "Raised floor installation work in progress, creating an underfloor plenum for efficient cable management and air conditioning in control rooms.",
-    description: "Raised floor installation work in progress, creating an underfloor plenum for efficient cable management and air conditioning in control rooms.",
+    description:
+      "Raised floor installation work in progress, creating an underfloor plenum for efficient cable management and air conditioning in control rooms.",
     slug: "raised-floor-installation-work",
     url: "/diagrams/raised-floor-installation-work.jpg",
     detailedContent: `Raised floor installations in substation control rooms provide organized cable routing and HVAC distribution in the underfloor plenum.
@@ -1203,13 +1236,14 @@ The CCCW system provides cooling for electrical equipment:
 - Load rating per CISCA guidelines
 - Fire rating for control room applications
 - Grounding of metallic components
-- Static dissipation for electronic equipment`
+- Static dissipation for electronic equipment`,
   },
   {
     index: 34,
     name: "Outdoor Filtration and Pumping Unit",
     alt: "Integrated outdoor filtration and pumping unit installation for industrial water treatment, complete with piping and electrical connections.",
-    description: "Integrated outdoor filtration and pumping unit installation for industrial water treatment, complete with piping and electrical connections.",
+    description:
+      "Integrated outdoor filtration and pumping unit installation for industrial water treatment, complete with piping and electrical connections.",
     slug: "outdoor-filtration-and-pumping-unit",
     url: "/diagrams/outdoor-filtration-and-pumping-unit.jpg",
     detailedContent: `Outdoor filtration and pumping units provide water treatment for cooling systems and other industrial applications in substations.
@@ -1230,13 +1264,14 @@ The CCCW system provides cooling for electrical equipment:
 - Weatherproof enclosures for controls
 - Corrosion-resistant materials
 - Containment for chemical storage
-- Proper drainage and spill control`
+- Proper drainage and spill control`,
   },
   {
     index: 35,
     name: "Earth Pipe 1",
     alt: "Installation of Earth Pipe 1, a key component of the grounding system designed to dissipate fault currents safely into the ground.",
-    description: "Installation of Earth Pipe 1, a key component of the grounding system designed to dissipate fault currents safely into the ground.",
+    description:
+      "Installation of Earth Pipe 1, a key component of the grounding system designed to dissipate fault currents safely into the ground.",
     slug: "earth-pipe-1",
     url: "/diagrams/Earth Pipe-1.jpg",
     detailedContent: `Earth pipes (grounding electrodes) are critical components of substation earthing systems, providing a low-resistance path for fault currents.
@@ -1257,13 +1292,14 @@ The CCCW system provides cooling for electrical equipment:
 - Initial resistance measurement
 - Periodic testing (annually)
 - Documentation of readings
-- Comparison with design values`
+- Comparison with design values`,
   },
   {
     index: 36,
     name: "Earth Pipe 2",
     alt: "Secondary earth pipe installation adding redundancy and lowering the overall resistance of the earthing system for enhanced safety.",
-    description: "Secondary earth pipe installation adding redundancy and lowering the overall resistance of the earthing system for enhanced safety.",
+    description:
+      "Secondary earth pipe installation adding redundancy and lowering the overall resistance of the earthing system for enhanced safety.",
     slug: "earth-pipe-2",
     url: "/diagrams/Earth Pipe-2.jpg",
     detailedContent: `Secondary earth pipes provide redundancy in grounding systems and reduce overall earth resistance through parallel electrode configuration.
@@ -1283,13 +1319,14 @@ The CCCW system provides cooling for electrical equipment:
 - GI or copper flat conductors
 - Buried connections protected from corrosion
 - Test points at accessible locations
-- Documentation of electrode locations`
+- Documentation of electrode locations`,
   },
   {
     index: 37,
     name: "Earth Pit",
     alt: "Inspection view of an earth pit showing the electrode connection and cover, facilitating easy maintenance and resistance testing.",
-    description: "Inspection view of an earth pit showing the electrode connection and cover, facilitating easy maintenance and resistance testing.",
+    description:
+      "Inspection view of an earth pit showing the electrode connection and cover, facilitating easy maintenance and resistance testing.",
     slug: "earth-pit",
     url: "/diagrams/earth pit.jpg",
     detailedContent: `An earth pit provides accessible inspection and connection points for grounding electrodes, facilitating maintenance and resistance testing.
@@ -1315,13 +1352,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Standards
 - IS 3043 for earthing practice
 - IEEE 81 for earth resistance testing
-- Local utility specifications`
+- Local utility specifications`,
   },
   {
     index: 38,
     name: "Earth Rod",
     alt: "Copper-bonded earth rod installation detail, driven deep into the soil to reach low-resistivity strata for effective grounding.",
-    description: "Copper-bonded earth rod installation detail, driven deep into the soil to reach low-resistivity strata for effective grounding.",
+    description:
+      "Copper-bonded earth rod installation detail, driven deep into the soil to reach low-resistivity strata for effective grounding.",
     slug: "earth-rod",
     url: "/diagrams/earth rod at 220kV (2).jpg",
     detailedContent: `Copper-bonded earth rods are driven into soil to provide low-resistance grounding paths for substation electrical systems.
@@ -1347,13 +1385,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Performance
 - Target resistance: <1 ohm for substations
 - Parallel rods for lower resistance
-- Soil treatment for high-resistivity areas`
+- Soil treatment for high-resistivity areas`,
   },
   {
     index: 39,
     name: "Earth Rod 220KV",
     alt: "Specialized earth rod configuration for a 220kV substation, engineered to handle high fault currents typical of high-voltage transmission.",
-    description: "Specialized earth rod configuration for a 220kV substation, engineered to handle high fault currents typical of high-voltage transmission.",
+    description:
+      "Specialized earth rod configuration for a 220kV substation, engineered to handle high fault currents typical of high-voltage transmission.",
     slug: "earth-rod-220kv",
     url: "/diagrams/earth rod at 220kV.jpg",
     detailedContent: `Earth rod configurations for 220kV substations are designed for high fault current handling and enhanced safety requirements.
@@ -1379,13 +1418,14 @@ The CCCW system provides cooling for electrical equipment:
 - Fall-of-potential method
 - Step and touch voltage measurements
 - Current injection testing
-- Annual resistance verification`
+- Annual resistance verification`,
   },
   {
     index: 40,
     name: "Multi Tier Cable Tray Support System",
     alt: "EPS-0155 designated multi-tier cable tray support system, optimizing support for dense cabling requirements in limited spaces.",
-    description: "EPS-0155 designated multi-tier cable tray support system, optimizing support for dense cabling requirements in limited spaces.",
+    description:
+      "EPS-0155 designated multi-tier cable tray support system, optimizing support for dense cabling requirements in limited spaces.",
     slug: "multi-tier-cable-tray-support-system",
     url: "/diagrams/EPS-0155.jpg",
     detailedContent: `Multi-tier cable tray support systems maximize cable routing capacity in space-constrained environments by stacking trays vertically.
@@ -1411,13 +1451,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Standards
 - NEMA VE 1 for cable tray systems
 - IEEE 525 for substation cables
-- IEC 61537 for cable management`
+- IEC 61537 for cable management`,
   },
   {
     index: 41,
     name: "Equipment Earthing",
     alt: "Direct equipment earthing connection ensuring that non-current-carrying metal parts are safely bonded to ground potential.",
-    description: "Direct equipment earthing connection ensuring that non-current-carrying metal parts are safely bonded to ground potential.",
+    description:
+      "Direct equipment earthing connection ensuring that non-current-carrying metal parts are safely bonded to ground potential.",
     slug: "equipment-earthing",
     url: "/diagrams/Equipment Earthing.jpg",
     detailedContent: `Equipment earthing ensures all non-current-carrying metallic parts of electrical equipment are bonded to the ground system for personnel safety and fault protection.
@@ -1436,13 +1477,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Standards
 - IEEE 80 for substation grounding
 - IEC 60364 for electrical installations
-- IS 3043 for earthing practice`
+- IS 3043 for earthing practice`,
   },
   {
     index: 42,
     name: "FD Fan Body Earth",
     alt: "Body earthing detail for a Forced Draft (FD) fan, critical for preventing static buildup and ensuring personnel safety.",
-    description: "Body earthing detail for a Forced Draft (FD) fan, critical for preventing static buildup and ensuring personnel safety.",
+    description:
+      "Body earthing detail for a Forced Draft (FD) fan, critical for preventing static buildup and ensuring personnel safety.",
     slug: "fd-fan-body-earth",
     url: "/diagrams/FD fan Body earth.jpg",
     detailedContent: `Forced Draft (FD) fan body earthing protects personnel from electrical shock and prevents static discharge that could damage bearings or cause sparks.
@@ -1457,13 +1499,14 @@ The CCCW system provides cooling for electrical equipment:
 - Heavy gauge copper conductor (minimum 16 sq mm)
 - Short, direct path to earth electrode
 - Flexible braids for vibrating equipment
-- Regular inspection of connections`
+- Regular inspection of connections`,
   },
   {
     index: 43,
     name: "FO Treatment Area",
     alt: "Fuel Oil (FO) treatment area infrastructure showing layout of pumps, separators, and associated safety grounding systems.",
-    description: "Fuel Oil (FO) treatment area infrastructure showing layout of pumps, separators, and associated safety grounding systems.",
+    description:
+      "Fuel Oil (FO) treatment area infrastructure showing layout of pumps, separators, and associated safety grounding systems.",
     slug: "fo-treatment-area",
     url: "/diagrams/FO treatment area.jpg",
     detailedContent: `A substation fuel oil treatment area houses equipment for filtering, heating, and purifying insulating oil used in power transformers and related equipment.
@@ -1483,13 +1526,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Design Standards
 - IEEE C57.106 for oil maintenance
 - IEC 60422 for insulating oil supervision
-- Local fire safety regulations`
+- Local fire safety regulations`,
   },
   {
     index: 44,
     name: "Underground Cable Duct Bank",
     alt: "Construction of an underground cable duct bank offering robust protection for cables crossing roadways or high-traffic areas.",
-    description: "Construction of an underground cable duct bank offering robust protection for cables crossing roadways or high-traffic areas.",
+    description:
+      "Construction of an underground cable duct bank offering robust protection for cables crossing roadways or high-traffic areas.",
     slug: "underground-cable-duct-bank",
     url: "/diagrams/underground-cable-duct-bank.jpg",
     detailedContent: `An underground cable duct bank is a structured conduit system used to route and protect electrical cables beneath the ground in substations and utility corridors.
@@ -1509,13 +1553,14 @@ The CCCW system provides cooling for electrical equipment:
 - Protection from physical damage and moisture
 - Extended cable life with reduced maintenance
 - Improved safety and fault containment
-- Eliminates overhead clutter`
+- Eliminates overhead clutter`,
   },
   {
     index: 45,
     name: "Well Glass Luminaire Lamp",
     alt: "Explosion-proof well glass luminaire installation providing reliable illumination in hazardous industrial environments.",
-    description: "Explosion-proof well glass luminaire installation providing reliable illumination in hazardous industrial environments.",
+    description:
+      "Explosion-proof well glass luminaire installation providing reliable illumination in hazardous industrial environments.",
     slug: "well-glass-luminaire-lamp",
     url: "/diagrams/well-glass-luminaire-lamp.jpg",
     detailedContent: `A Well Glass Luminaire Lamp is a rugged, enclosed lighting fixture designed for industrial environments, offering high durability, energy efficiency, and protection against dust, moisture, and impact.
@@ -1535,13 +1580,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Benefits
 - Energy savings up to 50% vs HPSV/MH
 - Long lifespan with minimal maintenance
-- Safety rated for hazardous zones`
+- Safety rated for hazardous zones`,
   },
   {
     index: 46,
     name: "Galvanized Iron (GI) pipe clamp",
     alt: "Durable Galvanized Iron (GI) pipe clamp used for securely fixing conduits or pipes to support structures, preventing vibration and movement.",
-    description: "Durable Galvanized Iron (GI) pipe clamp used for securely fixing conduits or pipes to support structures, preventing vibration and movement.",
+    description:
+      "Durable Galvanized Iron (GI) pipe clamp used for securely fixing conduits or pipes to support structures, preventing vibration and movement.",
     slug: "galvanized-iron-gi-pipe-clamp",
     url: "/diagrams/galvanized-iron-gi-pipe-clamp.jpg",
     detailedContent: `A Galvanized Iron (GI) pipe clamp is a corrosion-resistant metal fastener used to securely hold and support pipes in electrical, plumbing, and industrial installations.
@@ -1561,13 +1607,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Benefits
 - Corrosion resistance in outdoor environments
 - Cost-effective alternative to stainless steel
-- Easy installation with standard tools`
+- Easy installation with standard tools`,
   },
   {
     index: 47,
     name: "GI Pipe Support Clamp",
     alt: "Standard GI pipe support clamp assembly demonstrating a secure fastening method for piping runs along walls or ceilings.",
-    description: "Standard GI pipe support clamp assembly demonstrating a secure fastening method for piping runs along walls or ceilings.",
+    description:
+      "Standard GI pipe support clamp assembly demonstrating a secure fastening method for piping runs along walls or ceilings.",
     slug: "gi-pipe-support-clamp",
     url: "/diagrams/gi-pipe-support-clamp.jpg",
     detailedContent: `GI pipe support clamps provide secure mounting for conduits and pipes along walls, ceilings, or structural elements.
@@ -1585,13 +1632,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation Guidelines
 - Space supports per pipe size and material
 - Use rubber lining for noise reduction
-- Ensure proper alignment and level`
+- Ensure proper alignment and level`,
   },
   {
     index: 48,
     name: "Earth Flat Joint Connection",
     alt: "Welded/bolted earth flat joint connection ensuring a low-resistance path in the strip earthing network.",
-    description: "Welded/bolted earth flat joint connection ensuring a low-resistance path in the strip earthing network.",
+    description:
+      "Welded/bolted earth flat joint connection ensuring a low-resistance path in the strip earthing network.",
     slug: "earth-flat-joint-connection",
     url: "/diagrams/earth-flat-joint-connection.jpg",
     detailedContent: `Substation earth flat joint connections bond earthing conductors to ensure a continuous, low-resistance path to ground.
@@ -1610,13 +1658,14 @@ The CCCW system provides cooling for electrical equipment:
 
 ## Standards
 - IS 3043 for earthing practice
-- IEC 60364 for grounding systems`
+- IEC 60364 for grounding systems`,
   },
   {
     index: 49,
     name: "Cable Tray Support System",
     alt: "Modular cable tray support system offering flexibility in installation height and tray width accommodation.",
-    description: "Modular cable tray support system offering flexibility in installation height and tray width accommodation.",
+    description:
+      "Modular cable tray support system offering flexibility in installation height and tray width accommodation.",
     slug: "cable-tray-support-system",
     url: "/diagrams/cable-tray-support-system.jpg",
     detailedContent: `A cable tray support system is a structural framework used to securely mount and route electrical cables in industrial and commercial facilities.
@@ -1636,13 +1685,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Benefits
 - Improved safety with organized routing
 - Easy maintenance and cable replacement
-- Cost-effective compared to conduit systems`
+- Cost-effective compared to conduit systems`,
   },
   {
     index: 50,
     name: "Transformer Base Earthing Connection",
     alt: "Transformer base earthing detail connecting the main tank and structural base to the substation earth grid.",
-    description: "Transformer base earthing detail connecting the main tank and structural base to the substation earth grid.",
+    description:
+      "Transformer base earthing detail connecting the main tank and structural base to the substation earth grid.",
     slug: "transformer-base-earthing-connection",
     url: "/diagrams/transformer-base-earthing-connection.jpg",
     detailedContent: `Transformer base earthing connection grounds the metallic base and frame of a power transformer to the substation's earth grid for safety and fault protection.
@@ -1662,13 +1712,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Standards
 - IEEE 80 for substation grounding
 - IEC 60076 for transformer specifications
-- IS 2026 for Indian installations`
+- IS 2026 for Indian installations`,
   },
   {
     index: 51,
     name: "Lattice Tower Foundation with Cable Duct",
     alt: "Lattice tower foundation featuring integrated cable ducts for clean entry of transmission line control and sensing cables.",
-    description: "Lattice tower foundation featuring integrated cable ducts for clean entry of transmission line control and sensing cables.",
+    description:
+      "Lattice tower foundation featuring integrated cable ducts for clean entry of transmission line control and sensing cables.",
     slug: "lattice-tower-foundation-with-cable-duct",
     url: "/diagrams/lattice-tower-foundation-with-cable-duct.jpg",
     detailedContent: `A lattice tower foundation with cable duct integrates structural support for transmission towers with embedded pathways for power and control cables.
@@ -1687,13 +1738,14 @@ The CCCW system provides cooling for electrical equipment:
 - Load-bearing for vertical, lateral, and uplift forces
 - Thermal and electromagnetic separation
 - Drainage provisions
-- Manholes for cable inspection`
+- Manholes for cable inspection`,
   },
   {
     index: 52,
     name: "Roof Earth Flat Connection",
     alt: "Roof-mounted earth flat connection part of the lightning protection system, diverting strike energy safely to ground.",
-    description: "Roof-mounted earth flat connection part of the lightning protection system, diverting strike energy safely to ground.",
+    description:
+      "Roof-mounted earth flat connection part of the lightning protection system, diverting strike energy safely to ground.",
     slug: "roof-earth-flat-connection",
     url: "/diagrams/roof-earth-flat-connection.jpg",
     detailedContent: `Substation roof earth flat connections bond metallic roof components to the main earthing grid for lightning protection and equipotential bonding.
@@ -1713,13 +1765,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Testing
 - Continuity and earth resistance checks
 - Regular visual inspections
-- Post-storm verification`
+- Post-storm verification`,
   },
   {
     index: 53,
     name: "Cable and Pipe Rack Support Structure",
     alt: "Combined cable and pipe rack support structure showcasing efficient use of shared infrastructure supports in a process plant.",
-    description: "Combined cable and pipe rack support structure showcasing efficient use of shared infrastructure supports in a process plant.",
+    description:
+      "Combined cable and pipe rack support structure showcasing efficient use of shared infrastructure supports in a process plant.",
     slug: "cable-and-pipe-rack-support-structure",
     url: "/diagrams/cable-and-pipe-rack-support-structure.jpg",
     detailedContent: `A substation cable and pipe rack support structure is a steel framework designed to organize, elevate, and protect power cables and piping systems.
@@ -1739,13 +1792,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Benefits
 - Organized routing prevents clutter
 - Reduced risk of damage and faults
-- Easy modification for future upgrades`
+- Easy modification for future upgrades`,
   },
   {
     index: 54,
     name: "Underground Cable Duct Bank",
     alt: "Secondary view of an underground cable duct bank emphasizing the concrete encasement for mechanical protection of conduits.",
-    description: "Secondary view of an underground cable duct bank emphasizing the concrete encasement for mechanical protection of conduits.",
+    description:
+      "Secondary view of an underground cable duct bank emphasizing the concrete encasement for mechanical protection of conduits.",
     slug: "underground-cable-duct-bank-1",
     url: "/diagrams/underground-cable-duct-bank-1.jpg",
     detailedContent: `Underground cable duct banks provide protected routing for electrical cables beneath the ground, with concrete encasement for durability.
@@ -1764,13 +1818,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - Trenches excavated to required depth
 - Conduits laid on spacers before concrete
-- Proper backfilling and compaction`
+- Proper backfilling and compaction`,
   },
   {
     index: 55,
     name: "Underground Cable Trench Layout",
     alt: "Planned layout of an underground cable trench system with accessible covers for maintenance and cable addition.",
-    description: "Planned layout of an underground cable trench system with accessible covers for maintenance and cable addition.",
+    description:
+      "Planned layout of an underground cable trench system with accessible covers for maintenance and cable addition.",
     slug: "underground-cable-trench-layout",
     url: "/diagrams/underground-cable-trench-layout.jpg",
     detailedContent: `Underground cable trench layouts define the structured routing of cables beneath the ground with accessible covers for maintenance.
@@ -1785,13 +1840,14 @@ The CCCW system provides cooling for electrical equipment:
 - Reinforced concrete with precast covers
 - Drainage provisions with sloped base
 - Fire barriers at building penetrations
-- Clear labeling and documentation`
+- Clear labeling and documentation`,
   },
   {
     index: 56,
     name: "Cable Riser Arrangement",
     alt: "Systematic cable riser arrangement using specialized clamps/cleats to support the vertical weight of heavy cables.",
-    description: "Systematic cable riser arrangement using specialized clamps/cleats to support the vertical weight of heavy cables.",
+    description:
+      "Systematic cable riser arrangement using specialized clamps/cleats to support the vertical weight of heavy cables.",
     slug: "cable-riser-arrangement",
     url: "/diagrams/cable-riser-arrangement.jpg",
     detailedContent: `Cable riser arrangements support vertical cable runs using specialized clamps and cleats to bear the weight of heavy power cables.
@@ -1806,13 +1862,14 @@ The CCCW system provides cooling for electrical equipment:
 - Cable weight per meter
 - Support intervals (typically 1-2m)
 - Thermal expansion allowance
-- Fire stopping at floor penetrations`
+- Fire stopping at floor penetrations`,
   },
   {
     index: 57,
     name: "Indoor Cable Tray",
     alt: "Neat indoor cable tray installation routed above false ceilings or along walls in a commercial or control building.",
-    description: "Neat indoor cable tray installation routed above false ceilings or along walls in a commercial or control building.",
+    description:
+      "Neat indoor cable tray installation routed above false ceilings or along walls in a commercial or control building.",
     slug: "indoor-cable-tray",
     url: "/diagrams/indoor-cable-tray.jpg",
     detailedContent: `Indoor cable trays provide organized routing for power and control cables within buildings, typically above false ceilings or along walls.
@@ -1827,13 +1884,14 @@ The CCCW system provides cooling for electrical equipment:
 - Support at regular intervals
 - Proper cable separation
 - Grounding of all metallic parts
-- Fire barriers at wall penetrations`
+- Fire barriers at wall penetrations`,
   },
   {
     index: 58,
     name: "Indoor Transformer",
     alt: "Compact indoor dry-type transformer installation suitable for placement inside buildings near load centers.",
-    description: "Compact indoor dry-type transformer installation suitable for placement inside buildings near load centers.",
+    description:
+      "Compact indoor dry-type transformer installation suitable for placement inside buildings near load centers.",
     slug: "indoor-transformer",
     url: "/diagrams/indoor-transformer.jpg",
     detailedContent: `Indoor dry-type transformers are designed for installation inside buildings, providing safe voltage transformation close to load centers.
@@ -1853,13 +1911,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Safety Features
 - Enclosures with IP ratings
 - Temperature sensors
-- Forced air cooling options`
+- Forced air cooling options`,
   },
   {
     index: 59,
     name: "Lightning Rod",
     alt: "Standard lightning rod (air terminal) mounted on a high point to capture lightning strikes and protect the structure below.",
-    description: "Standard lightning rod (air terminal) mounted on a high point to capture lightning strikes and protect the structure below.",
+    description:
+      "Standard lightning rod (air terminal) mounted on a high point to capture lightning strikes and protect the structure below.",
     slug: "lightning-rod",
     url: "/diagrams/lightning-rod.jpg",
     detailedContent: `Lightning rods (air terminals) are mounted on high points of structures to capture lightning strikes and safely conduct the energy to ground.
@@ -1878,13 +1937,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Protection Principles
 - Rolling sphere method for coverage
 - Multiple air terminals for large areas
-- Direct bonding of metallic systems`
+- Direct bonding of metallic systems`,
   },
   {
     index: 60,
     name: "Outdoor Power Transformer Yard",
     alt: "Expansive outdoor power transformer yard housing large oil-filled transformers and switchgear for regional power distribution.",
-    description: "Expansive outdoor power transformer yard housing large oil-filled transformers and switchgear for regional power distribution.",
+    description:
+      "Expansive outdoor power transformer yard housing large oil-filled transformers and switchgear for regional power distribution.",
     slug: "outdoor-power-transformer-yard",
     url: "/diagrams/outdoor-power-transformer-yard.jpg",
     detailedContent: `An outdoor power transformer yard is a designated area within a substation that houses large power transformers for voltage transformation and distribution.
@@ -1904,13 +1964,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Design Considerations
 - Adequate spacing between units
 - Access for maintenance vehicles
-- Oil drainage and collection systems`
+- Oil drainage and collection systems`,
   },
   {
     index: 61,
     name: "Main Plant Area Cable Routing",
     alt: "Grid-like main plant area cable routing ensuring orderly distribution of power throughout the facility.",
-    description: "Grid-like main plant area cable routing ensuring orderly distribution of power throughout the facility.",
+    description:
+      "Grid-like main plant area cable routing ensuring orderly distribution of power throughout the facility.",
     slug: "main-plant-area-cable-routing",
     url: "/diagrams/main-plant-area-cable-routing.jpg",
     detailedContent: `Main plant area cable routing provides organized pathways for power distribution throughout industrial facilities.
@@ -1925,13 +1986,14 @@ The CCCW system provides cooling for electrical equipment:
 - Shortest practical routes
 - Separation of voltage classes
 - Access for maintenance
-- Future expansion provisions`
+- Future expansion provisions`,
   },
   {
     index: 62,
     name: "Storage area",
     alt: "Designated material storage area with organized racking for electrical spares and construction materials.",
-    description: "Designated material storage area with organized racking for electrical spares and construction materials.",
+    description:
+      "Designated material storage area with organized racking for electrical spares and construction materials.",
     slug: "storage-area",
     url: "/diagrams/storage-area.jpg",
     detailedContent: `A designated material storage area houses electrical spares, construction materials, and equipment in an organized manner for efficient project execution.
@@ -1946,13 +2008,14 @@ The CCCW system provides cooling for electrical equipment:
 - Cables and accessories
 - Panel components and relays
 - Structural materials
-- Safety equipment`
+- Safety equipment`,
   },
   {
     index: 63,
     name: "Outdoor transformer",
     alt: "Stand-alone outdoor transformer installation on a concrete plinth, complete with oil containment and safety fencing.",
-    description: "Stand-alone outdoor transformer installation on a concrete plinth, complete with oil containment and safety fencing.",
+    description:
+      "Stand-alone outdoor transformer installation on a concrete plinth, complete with oil containment and safety fencing.",
     slug: "outdoor-transformer",
     url: "/diagrams/Indoor transformer.jpg",
     detailedContent: `Outdoor transformers are installed on concrete plinths with comprehensive safety measures including oil containment and fencing.
@@ -1972,13 +2035,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Earthing
 - Tank body earthing
 - Neutral earthing
-- Surge arrester grounding`
+- Surge arrester grounding`,
   },
   {
     index: 64,
     name: "Pane Earthing in Swyd Control Building",
     alt: "Panel earthing detail within a Switchyard (SWYD) control building, showing bonding of control panels to the room earth bar.",
-    description: "Panel earthing detail within a Switchyard (SWYD) control building, showing bonding of control panels to the room earth bar.",
+    description:
+      "Panel earthing detail within a Switchyard (SWYD) control building, showing bonding of control panels to the room earth bar.",
     slug: "pane-earthing-in-swyd-control-building",
     url: "/diagrams/Lightning rod.jpg",
     detailedContent: `Panel earthing in switchyard control buildings ensures all control panels are properly bonded to the room's earth bar for safety and signal integrity.
@@ -1993,13 +2057,14 @@ The CCCW system provides cooling for electrical equipment:
 - Copper earth bar mounted on insulators
 - Individual panel connections via braided copper
 - Star or daisy-chain topology
-- Connection to main earth grid`
+- Connection to main earth grid`,
   },
   {
     index: 65,
     name: "Pane Earthing in SWYD Control Building",
     alt: "Alternative view of panel earthing connections in the SWYD control building, ensuring reference ground stability for sensitive electronics.",
-    description: "Alternative view of panel earthing connections in the SWYD control building, ensuring reference ground stability for sensitive electronics.",
+    description:
+      "Alternative view of panel earthing connections in the SWYD control building, ensuring reference ground stability for sensitive electronics.",
     slug: "pane-earthing-in-swyd-control-building-2",
     url: "/diagrams/LTL SDC13248 (2).JPG",
     detailedContent: `Panel earthing provides stable reference ground for sensitive electronics in control buildings, essential for SCADA and protection systems.
@@ -2013,13 +2078,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Testing
 - Continuity verification
 - Ground resistance measurement
-- Periodic inspection schedule`
+- Periodic inspection schedule`,
   },
   {
     index: 66,
     name: "Emergency Telephone Installation in Industrial Area",
     alt: "Field-mounted emergency telephone installation for rapid communication during safety incidents in remote industrial areas.",
-    description: "Field-mounted emergency telephone installation for rapid communication during safety incidents in remote industrial areas.",
+    description:
+      "Field-mounted emergency telephone installation for rapid communication during safety incidents in remote industrial areas.",
     slug: "emergency-telephone-installation-industrial-area",
     url: "/diagrams/Main Plant area cable routing -5.jpg",
     detailedContent: `Emergency telephone installations provide rapid communication capability in industrial areas for safety incidents and emergencies.
@@ -2034,13 +2100,14 @@ The CCCW system provides cooling for electrical equipment:
 - Remote substation areas
 - Transformer yards
 - High-voltage switchyards
-- Hazardous zones`
+- Hazardous zones`,
   },
   {
     index: 67,
     name: "Emergency Communication and Fire Safety Setup",
     alt: "Combined emergency communication and fire safety station featuring call points and fire extinguishers.",
-    description: "Combined emergency communication and fire safety station featuring call points and fire extinguishers.",
+    description:
+      "Combined emergency communication and fire safety station featuring call points and fire extinguishers.",
     slug: "emergency-communication-fire-safety-setup",
     url: "/diagrams/Oil storage area.jpg",
     detailedContent: `Emergency communication and fire safety stations combine multiple safety features in a centralized location for rapid response.
@@ -2056,13 +2123,14 @@ The CCCW system provides cooling for electrical equipment:
 - Visible and accessible locations
 - Near high-risk areas
 - Along escape routes
-- Per fire safety codes`
+- Per fire safety codes`,
   },
   {
     index: 68,
     name: "Emergency Telephone Point",
     alt: "Clearly marked emergency telephone point with weatherproof housing for reliable operation in outdoor conditions.",
-    description: "Clearly marked emergency telephone point with weatherproof housing for reliable operation in outdoor conditions.",
+    description:
+      "Clearly marked emergency telephone point with weatherproof housing for reliable operation in outdoor conditions.",
     slug: "emergency-telephone-point",
     url: "/diagrams/Outdoor transformer.jpg",
     detailedContent: `Emergency telephone points provide dedicated communication in outdoor and hazardous areas for safety and emergency response.
@@ -2077,13 +2145,14 @@ The CCCW system provides cooling for electrical equipment:
 - Mounted at comfortable height
 - Protected from weather and impact
 - Clear approach path
-- Regular testing schedule`
+- Regular testing schedule`,
   },
   {
     index: 69,
     name: "Cable Tray Raiser Along Boiler Column",
     alt: "Vertical cable tray raiser routed along a boiler structural column, utilizing existing steelwork for support.",
-    description: "Vertical cable tray raiser routed along a boiler structural column, utilizing existing steelwork for support.",
+    description:
+      "Vertical cable tray raiser routed along a boiler structural column, utilizing existing steelwork for support.",
     slug: "cable-tray-raiser-along-boiler-column",
     url: "/diagrams/pane earthing in swyd control building.jpg",
     detailedContent: `Cable tray risers along boiler columns route power and control cables vertically using existing structural steelwork for support.
@@ -2097,13 +2166,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Cable Types
 - Power cables to motors and drives
 - Control cables for instruments
-- Fiber optic for communication`
+- Fiber optic for communication`,
   },
   {
     index: 70,
     name: "LAPT Transformer Bus Duct",
     alt: "Bus duct connection for a Large Auxiliary Power Transformer (LAPT), providing a high-current, low-loss power link.",
-    description: "Bus duct connection for a Large Auxiliary Power Transformer (LAPT), providing a high-current, low-loss power link.",
+    description:
+      "Bus duct connection for a Large Auxiliary Power Transformer (LAPT), providing a high-current, low-loss power link.",
     slug: "lapt-transformer-bus-duct",
     url: "/diagrams/pane earthing in swyd control building1.jpg",
     detailedContent: `Bus duct connections for Large Auxiliary Power Transformers (LAPT) provide high-current, low-loss power links between transformers and switchgear.
@@ -2117,13 +2187,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Ratings
 - Current: Up to 6000A
 - Voltage: 6.6kV, 11kV typical
-- Short circuit withstand per IEEE standards`
+- Short circuit withstand per IEEE standards`,
   },
   {
     index: 71,
     name: "NGR Bus Duct Connection",
     alt: "Neutral Grounding Resistor (NGR) bus duct connection used to limit ground fault currents in electrical systems.",
-    description: "Neutral Grounding Resistor (NGR) bus duct connection used to limit ground fault currents in electrical systems.",
+    description:
+      "Neutral Grounding Resistor (NGR) bus duct connection used to limit ground fault currents in electrical systems.",
     slug: "ngr-bus-duct-connection",
     url: "/diagrams/ngr-bus-duct-connection.jpg",
     detailedContent: `Neutral Grounding Resistor (NGR) bus duct connections limit ground fault currents to safe levels while allowing fault detection.
@@ -2138,13 +2209,14 @@ The CCCW system provides cooling for electrical equipment:
 - Resistance value per system design
 - Current rating for fault duration
 - Stainless steel resistor elements
-- Temperature monitoring and alarms`
+- Temperature monitoring and alarms`,
   },
   {
     index: 72,
     name: "Cable Gallery Below Control Room",
     alt: "Walkable cable gallery located below the control room, allowing easy inspection and modification of control cables.",
-    description: "Walkable cable gallery located below the control room, allowing easy inspection and modification of control cables.",
+    description:
+      "Walkable cable gallery located below the control room, allowing easy inspection and modification of control cables.",
     slug: "cable-gallery-below-control-room",
     url: "/diagrams/cable-gallery-below-control-room.jpg",
     detailedContent: `Cable galleries below control rooms provide accessible spaces for routing, inspecting, and modifying large cable installations.
@@ -2159,13 +2231,14 @@ The CCCW system provides cooling for electrical equipment:
 - Adequate height for standing
 - Fire barriers at intervals
 - Drainage provisions
-- Emergency exits`
+- Emergency exits`,
   },
   {
     index: 73,
     name: "Cable Tray From SWGR Room",
     alt: "Main cable tray headers exiting the Switchgear (SWGR) room, distributing power to various plant loads.",
-    description: "Main cable tray headers exiting the Switchgear (SWGR) room, distributing power to various plant loads.",
+    description:
+      "Main cable tray headers exiting the Switchgear (SWGR) room, distributing power to various plant loads.",
     slug: "cable-tray-from-swgr-room",
     url: "/diagrams/cable-tray-from-swgr-room.jpg",
     detailedContent: `Cable trays exiting switchgear rooms distribute power from main switchboards to various plant loads via organized routing.
@@ -2179,13 +2252,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - Supports at regular intervals
 - Cable ties and markers
-- Grounding continuity maintained`
+- Grounding continuity maintained`,
   },
   {
     index: 74,
     name: "Cable Tray Raiser To SWGR Room",
     alt: "Inbound cable tray raiser carrying feeder cables into the Switchgear room from field transformers.",
-    description: "Inbound cable tray raiser carrying feeder cables into the Switchgear room from field transformers.",
+    description:
+      "Inbound cable tray raiser carrying feeder cables into the Switchgear room from field transformers.",
     slug: "cable-tray-raiser-to-swgr-room",
     url: "/diagrams/cable-tray-raiser-to-swgr-room.jpg",
     detailedContent: `Cable tray risers bring incoming feeder cables from field transformers into the switchgear room for termination.
@@ -2199,13 +2273,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - Adequate bend radius maintained
 - Cable cleats at intervals
-- Grounding of metallic parts`
+- Grounding of metallic parts`,
   },
   {
     index: 75,
     name: "Cable Tray And Cabling To Panel",
     alt: "Final cable drops from overhead trays into individual control panels, showing neat bundling and dressing.",
-    description: "Final cable drops from overhead trays into individual control panels, showing neat bundling and dressing.",
+    description:
+      "Final cable drops from overhead trays into individual control panels, showing neat bundling and dressing.",
     slug: "cable-tray-and-cabling-to-panel",
     url: "/diagrams/cable-tray-and-cabling-to-panel.jpg",
     detailedContent: `Cable drops from overhead trays to control panels require neat bundling and dressing for a professional installation.
@@ -2220,13 +2295,14 @@ The CCCW system provides cooling for electrical equipment:
 - Cables bundled by function
 - Correct bend radius maintained
 - No crossing of cable bundles
-- Strain relief provisions`
+- Strain relief provisions`,
   },
   {
     index: 76,
     name: "Trays Above the Substation Control Panel Room",
     alt: "Dense layering of cable trays installed in the ceiling void above a substation control panel room.",
-    description: "Dense layering of cable trays installed in the ceiling void above a substation control panel room.",
+    description:
+      "Dense layering of cable trays installed in the ceiling void above a substation control panel room.",
     slug: "trays-above-substation-control-panel-room",
     url: "/diagrams/trays-above-the-substation-control-panel-room.jpg",
     detailedContent: `Cable trays above control rooms provide organized routing for the dense cabling required in substation control systems.
@@ -2240,13 +2316,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Design Standards
 - NEC/IEC for cable fill limits
 - Fire rating requirements
-- Proper support intervals`
+- Proper support intervals`,
   },
   {
     index: 77,
     name: "Vertical Cable Trays In Boiler Area",
     alt: "Extensive vertical cable tray runs servicing the multiple levels of a boiler structure.",
-    description: "Extensive vertical cable tray runs servicing the multiple levels of a boiler structure.",
+    description:
+      "Extensive vertical cable tray runs servicing the multiple levels of a boiler structure.",
     slug: "vertical-cable-trays-in-boiler-area",
     url: "/diagrams/vertical-cable-trays-in-boiler-area.jpg",
     detailedContent: `Vertical cable trays in boiler areas service multiple levels with power and control cables for various equipment.
@@ -2260,13 +2337,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Solutions
 - Fire-resistant cable types
 - Anti-vibration mounts
-- Adequate spacing for heat dissipation`
+- Adequate spacing for heat dissipation`,
   },
   {
     index: 78,
     name: "Cable Tray Raiser From ESP Area",
     alt: "Cable tray riser originating from the Electrostatic Precipitator (ESP) area, routing data and power to control rooms.",
-    description: "Cable tray riser originating from the Electrostatic Precipitator (ESP) area, routing data and power to control rooms.",
+    description:
+      "Cable tray riser originating from the Electrostatic Precipitator (ESP) area, routing data and power to control rooms.",
     slug: "cable-tray-raiser-from-esp-area",
     url: "/diagrams/cable-tray-raiser-from-esp-area.jpg",
     detailedContent: `Cable tray risers from ESP areas route power and data cables to control rooms for monitoring and control of precipitator systems.
@@ -2279,13 +2357,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - EMI shielding where required
 - Separation from high-voltage
-- Fire barriers at building entries`
+- Fire barriers at building entries`,
   },
   {
     index: 79,
     name: "Cable Tray Raiser To ESP Area",
     alt: "Supply cable tray riser feeding power to the high-voltage transformers and rafters of the ESP area.",
-    description: "Supply cable tray riser feeding power to the high-voltage transformers and rafters of the ESP area.",
+    description:
+      "Supply cable tray riser feeding power to the high-voltage transformers and rafters of the ESP area.",
     slug: "cable-tray-raiser-to-esp-area",
     url: "/diagrams/cable-tray-raiser-to-esp-area.jpg",
     detailedContent: `Cable tray risers to ESP areas supply power for high-voltage transformers and precipitator systems.
@@ -2298,13 +2377,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - Heavy-gauge cables for high currents
 - Fire-resistant routing near hot areas
-- EMI protection for control cables`
+- EMI protection for control cables`,
   },
   {
     index: 80,
     name: "Field Control Box with Industrial Telephone",
     alt: "Local field control box equipped with an industrial telephone for operator communication at the machinery location.",
-    description: "Local field control box equipped with an industrial telephone for operator communication at the machinery location.",
+    description:
+      "Local field control box equipped with an industrial telephone for operator communication at the machinery location.",
     slug: "field-control-box-with-industrial-telephone",
     url: "/diagrams/field-control-box-with-industrial-telephone.jpg",
     detailedContent: `Field control boxes with industrial telephones provide local control and communication capabilities at remote equipment locations.
@@ -2318,13 +2398,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Applications
 - Remote pump stations
 - Fan control locations
-- Conveyor drive points`
+- Conveyor drive points`,
   },
   {
     index: 81,
     name: "Industrial Tower with CCTV Camera and PA System",
     alt: "Multi-purpose industrial tower mast supporting CCTV cameras for security and a Public Address (PA) system for announcements.",
-    description: "Multi-purpose industrial tower mast supporting CCTV cameras for security and a Public Address (PA) system for announcements.",
+    description:
+      "Multi-purpose industrial tower mast supporting CCTV cameras for security and a Public Address (PA) system for announcements.",
     slug: "industrial-tower-with-cctv-camera-and-pa-system",
     url: "/diagrams/industrial-tower-with-cctv-camera-and-pa-system.jpg",
     detailedContent: `Industrial towers support CCTV cameras and PA systems for security monitoring and emergency announcements in substation areas.
@@ -2338,13 +2419,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Coverage
 - High vantage point for wide area monitoring
 - Audio coverage for emergency announcements
-- Integration with security systems`
+- Integration with security systems`,
   },
   {
     index: 82,
     name: "Overhead Cable Tray and Duct System",
     alt: "Hybrid overhead support system carrying both cable trays and HVAC ducts, coordinately routed to avoid clashes.",
-    description: "Hybrid overhead support system carrying both cable trays and HVAC ducts, coordinately routed to avoid clashes.",
+    description:
+      "Hybrid overhead support system carrying both cable trays and HVAC ducts, coordinately routed to avoid clashes.",
     slug: "overhead-cable-tray-and-duct-system",
     url: "/diagrams/overhead-cable-tray-and-duct-system.jpg",
     detailedContent: `Hybrid overhead systems carry cable trays and HVAC ducts on shared supports, requiring careful coordination.
@@ -2358,13 +2440,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Design Approach
 - 3D modeling for clash detection
 - Phased installation sequence
-- Clear labeling and color coding`
+- Clear labeling and color coding`,
   },
   {
     index: 83,
     name: "Outdoor Pipe Rack",
     alt: "Major outdoor pipe rack artery carrying process piping and cable trays between different plant units.",
-    description: "Major outdoor pipe rack artery carrying process piping and cable trays between different plant units.",
+    description:
+      "Major outdoor pipe rack artery carrying process piping and cable trays between different plant units.",
     slug: "outdoor-pipe-rack",
     url: "/diagrams/outdoor-pipe-rack.jpg",
     detailedContent: `Outdoor pipe racks serve as major arteries carrying process piping and cable trays between plant units.
@@ -2378,13 +2461,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Contents
 - Process and utility piping
 - Power and control cable trays
-- Instrumentation tubing`
+- Instrumentation tubing`,
   },
   {
     index: 84,
     name: "EOT Crane with Control Panel and Wiring",
     alt: "Electric Overhead Traveling (EOT) crane electrical installation showing the control panel and festoon cable wiring.",
-    description: "Electric Overhead Traveling (EOT) crane electrical installation showing the control panel and festoon cable wiring.",
+    description:
+      "Electric Overhead Traveling (EOT) crane electrical installation showing the control panel and festoon cable wiring.",
     slug: "eot-crane-with-control-panel-and-wiring",
     url: "/diagrams/eot-crane-with-control-panel-and-wiring.jpg",
     detailedContent: `EOT crane electrical installations include control panels and festoon cable systems for power and control distribution.
@@ -2397,13 +2481,14 @@ The CCCW system provides cooling for electrical equipment:
 
 ## Wiring
 - Flexible cables for moving parts
-- Proper strain relief and protection`
+- Proper strain relief and protection`,
   },
   {
     index: 85,
     name: "Substation Battery Backup System",
     alt: "Critical substation battery backup system (UPS) ensuring control power availability during grid outages.",
-    description: "Critical substation battery backup system (UPS) ensuring control power availability during grid outages.",
+    description:
+      "Critical substation battery backup system (UPS) ensuring control power availability during grid outages.",
     slug: "substation-battery-backup-system",
     url: "/diagrams/substation-battery-backup-system.jpg",
     detailedContent: `Substation battery backup systems provide uninterrupted DC power for protection, control, and SCADA systems during grid outages.
@@ -2417,13 +2502,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Sizing
 - Autonomy based on outage duration
 - Load calculation for all DC loads
-- IEEE 485 for sizing guidelines`
+- IEEE 485 for sizing guidelines`,
   },
   {
     index: 86,
     name: "Gas Turbine Power Plant Structure",
     alt: "Overview of a Gas Turbine Power Plant structure showing the integration of major mechanical and electrical components.",
-    description: "Overview of a Gas Turbine Power Plant structure showing the integration of major mechanical and electrical components.",
+    description:
+      "Overview of a Gas Turbine Power Plant structure showing the integration of major mechanical and electrical components.",
     slug: "gas-turbine-power-plant-structure",
     url: "/diagrams/gas-turbine-power-plant-structure.jpg",
     detailedContent: `Gas turbine power plant structures integrate mechanical equipment with comprehensive electrical systems for power generation.
@@ -2437,13 +2523,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Cable Routing
 - High-temperature rated cables near turbine
 - Cable trays with fire protection
-- Instrumentation and control cables`
+- Instrumentation and control cables`,
   },
   {
     index: 87,
     name: "Power Substation Yard",
     alt: "Wide-angle view of a power substation yard illustrating the layout of gantries, breakers, and transformers.",
-    description: "Wide-angle view of a power substation yard illustrating the layout of gantries, breakers, and transformers.",
+    description:
+      "Wide-angle view of a power substation yard illustrating the layout of gantries, breakers, and transformers.",
     slug: "power-substation-yard",
     url: "/diagrams/power-substation-yard.jpg",
     detailedContent: `A power substation yard layout integrates gantries, circuit breakers, transformers, and supporting infrastructure for power transmission.
@@ -2457,13 +2544,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Design Standards
 - IEEE 80 for grounding
 - IEC 61936 for clearances
-- IS 5613 for Indian substations`
+- IS 5613 for Indian substations`,
   },
   {
     index: 88,
     name: "Rooftop",
     alt: "Industrial facility rooftop view showing HVAC units, cable tray runs, and lightning protection grid.",
-    description: "Industrial facility rooftop view showing HVAC units, cable tray runs, and lightning protection grid.",
+    description:
+      "Industrial facility rooftop view showing HVAC units, cable tray runs, and lightning protection grid.",
     slug: "rooftop",
     url: "/diagrams/Pipe rack.JPG",
     detailedContent: `Industrial rooftops house HVAC equipment, cable trays, and lightning protection systems in an organized layout.
@@ -2477,13 +2565,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Safety Features
 - Guardrails and safety lines
 - Proper lighting for maintenance
-- Emergency access routes`
+- Emergency access routes`,
   },
   {
     index: 89,
     name: "Electrical Control Panel and Switching System",
     alt: "Integrated electrical control panel and switching system for complex automated process control.",
-    description: "Integrated electrical control panel and switching system for complex automated process control.",
+    description:
+      "Integrated electrical control panel and switching system for complex automated process control.",
     slug: "electrical-control-panel-switching-system",
     url: "/diagrams/QD0012004.JPG",
     detailedContent: `Integrated control panels combine switching equipment with automation systems for complex process control applications.
@@ -2497,13 +2586,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Applications
 - Industrial process control
 - Power plant auxiliaries
-- Water treatment systems`
+- Water treatment systems`,
   },
   {
     index: 90,
     name: "Cable Termination and Jointing",
     alt: "Precision cable termination and jointing work on high-voltage cables, using heat-shrink or cold-shrink kits.",
-    description: "Precision cable termination and jointing work on high-voltage cables, using heat-shrink or cold-shrink kits.",
+    description:
+      "Precision cable termination and jointing work on high-voltage cables, using heat-shrink or cold-shrink kits.",
     slug: "cable-termination-and-jointing",
     url: "/diagrams/QD0012031.JPG",
     detailedContent: `High-voltage cable termination and jointing requires precision workmanship using specialized heat-shrink or cold-shrink technology.
@@ -2516,13 +2606,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Jointing
 - Transition joints between cable types
 - Straight-through joints for cable extension
-- Proper stress control and insulation restoration`
+- Proper stress control and insulation restoration`,
   },
   {
     index: 91,
     name: "Underground Cable Laying",
     alt: "Process of laying underground cables in a prepared trench, ensuring proper spacing and bedding protection.",
-    description: "Process of laying underground cables in a prepared trench, ensuring proper spacing and bedding protection.",
+    description:
+      "Process of laying underground cables in a prepared trench, ensuring proper spacing and bedding protection.",
     slug: "underground-cable-laying",
     url: "/diagrams/underground-cable-laying.jpg",
     detailedContent: `Underground cable laying involves careful preparation and installation to ensure cable protection and longevity.
@@ -2536,13 +2627,14 @@ The CCCW system provides cooling for electrical equipment:
 
 ## Standards
 - IS 1255 for cable installation
-- Minimum depth per voltage level`
+- Minimum depth per voltage level`,
   },
   {
     index: 92,
     name: "Cable Trench Excavation",
     alt: "Excavation phase for a cable trench, showing the depth and width required for the planned cable bank.",
-    description: "Excavation phase for a cable trench, showing the depth and width required for the planned cable bank.",
+    description:
+      "Excavation phase for a cable trench, showing the depth and width required for the planned cable bank.",
     slug: "cable-trench-excavation",
     url: "/diagrams/cable-trench-excavation.jpg",
     detailedContent: `Cable trench excavation prepares the pathway for underground cable installations with proper depth and width.
@@ -2555,13 +2647,14 @@ The CCCW system provides cooling for electrical equipment:
 
 ## Safety
 - Shoring for deep excavations
-- Barrier and signage for open trenches`
+- Barrier and signage for open trenches`,
   },
   {
     index: 93,
     name: "Industrial Rooftop Structure",
     alt: "Heavy-duty industrial rooftop structure supporting various utility equipment and accessible walkways.",
-    description: "Heavy-duty industrial rooftop structure supporting various utility equipment and accessible walkways.",
+    description:
+      "Heavy-duty industrial rooftop structure supporting various utility equipment and accessible walkways.",
     slug: "industrial-rooftop-structure",
     url: "/diagrams/roof top.webp",
     detailedContent: `Industrial rooftop structures provide platforms for utility equipment with safe access for maintenance personnel.
@@ -2575,13 +2668,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Support For
 - HVAC and cooling equipment
 - Antenna and communication systems
-- Solar panel arrays`
+- Solar panel arrays`,
   },
   {
     index: 94,
     name: "Tabouk Spare Cable Tray 001",
     alt: "Inventory view of Tabouk spare cable tray section 001, kept for maintenance replacements or system extensions.",
-    description: "Inventory view of Tabouk spare cable tray section 001, kept for maintenance replacements or system extensions.",
+    description:
+      "Inventory view of Tabouk spare cable tray section 001, kept for maintenance replacements or system extensions.",
     slug: "tabouk-spare-cable-tray-001",
     url: "/diagrams/Tabouk spare cable trays 001.jpg",
     detailedContent: `Spare cable trays stored for maintenance and system extensions ensure quick replacement and project continuity.
@@ -2594,13 +2688,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Specifications
 - Material and coating type
 - Width and rung spacing
-- Load capacity ratings`
+- Load capacity ratings`,
   },
   {
     index: 95,
     name: "Tabouk Spare Cable Tray 002",
     alt: "Tabouk spare cable tray 002, featuring perforated rung design for cable ventilation and securing.",
-    description: "Tabouk spare cable tray 002, featuring perforated rung design for cable ventilation and securing.",
+    description:
+      "Tabouk spare cable tray 002, featuring perforated rung design for cable ventilation and securing.",
     slug: "tabouk-spare-cable-tray-002",
     url: "/diagrams/Tabouk spare cable trays 002.jpg",
     detailedContent: `Perforated rung designs in cable trays offer enhanced features for cable management and installation efficiency.
@@ -2614,13 +2709,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Applications
 - Instrumentation cables
 - Control wiring bundles
-- Moderate load power cables`
+- Moderate load power cables`,
   },
   {
     index: 96,
     name: "Tabouk Spare Cable Tray 003",
     alt: "Tabouk spare cable tray 003, showing the side profile and coupling holes for joining tray sections.",
-    description: "Tabouk spare cable tray 003, showing the side profile and coupling holes for joining tray sections.",
+    description:
+      "Tabouk spare cable tray 003, showing the side profile and coupling holes for joining tray sections.",
     slug: "tabouk-spare-cable-tray-003",
     url: "/diagrams/Tabouk spare cable trays 003.jpg",
     detailedContent: `The side rail profile and coupling holes are critical for the structural integrity and continuity of cable tray systems.
@@ -2633,13 +2729,14 @@ The CCCW system provides cooling for electrical equipment:
 
 ## Structural Role
 - Side rails carry the longitudinal load
-- Flange shape provides bending resistance`
+- Flange shape provides bending resistance`,
   },
   {
     index: 97,
     name: "Tabouk Spare Cable Tray 004",
     alt: "Tabouk spare cable tray 004, heavy-duty ladder type tray capable of carrying high linear loads.",
-    description: "Tabouk spare cable tray 004, heavy-duty ladder type tray capable of carrying high linear loads.",
+    description:
+      "Tabouk spare cable tray 004, heavy-duty ladder type tray capable of carrying high linear loads.",
     slug: "tabouk-spare-cable-tray-004",
     url: "/diagrams/Tabouk spare cable trays 004.jpg",
     detailedContent: `Heavy-duty ladder cable trays are designed to support high linear loads over long spans, typical in industrial plants.
@@ -2653,13 +2750,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Use Cases
 - Main power distribution feeders
 - Long outdoor spans on pipe racks
-- Heavy armored cable runs`
+- Heavy armored cable runs`,
   },
   {
     index: 98,
     name: "Tabouk Spare Cable Tray 005",
     alt: "Tabouk spare cable tray 005, galvanized finish for corrosion resistance in harsh industrial environments.",
-    description: "Tabouk spare cable tray 005, galvanized finish for corrosion resistance in harsh industrial environments.",
+    description:
+      "Tabouk spare cable tray 005, galvanized finish for corrosion resistance in harsh industrial environments.",
     slug: "tabouk-spare-cable-tray-005",
     url: "/diagrams/Tabouk spare cable trays 005.jpg",
     detailedContent: `Hot-dip galvanizing provides essential corrosion protection for steel cable trays in harsh industrial environments.
@@ -2673,13 +2771,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Specifications
 - ASTM A123 / ISO 1461 standards
 - Minimum coating thickness requirements
-- Visual inspection criteria`
+- Visual inspection criteria`,
   },
   {
     index: 99,
     name: "Tabouk Spare Cable Tray 006",
     alt: "Tabouk spare cable tray 006, stacked and ready for deployment in plant expansion projects.",
-    description: "Tabouk spare cable tray 006, stacked and ready for deployment in plant expansion projects.",
+    description:
+      "Tabouk spare cable tray 006, stacked and ready for deployment in plant expansion projects.",
     slug: "tabouk-spare-cable-tray-006",
     url: "/diagrams/Tabouk spare cable trays 006.jpg",
     detailedContent: `Strategic stockpiling of cable trays ensures material availability for rapid deployment during plant expansions or maintenance.
@@ -2693,13 +2792,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Expansion Readiness
 - Matching specifications with existing plant
 - Rapid mobilization for turnaround projects
-- Pre-approved vendor lists`
+- Pre-approved vendor lists`,
   },
   {
     index: 100,
     name: "Tabouk Spare Cable Tray 008",
     alt: "Tabouk spare cable tray 008, showcasing standard width and flange height specifications for the project.",
-    description: "Tabouk spare cable tray 008, showcasing standard width and flange height specifications for the project.",
+    description:
+      "Tabouk spare cable tray 008, showcasing standard width and flange height specifications for the project.",
     slug: "tabouk-spare-cable-tray-008",
     url: "/diagrams/Tabouk spare cable trays 008.jpg",
     detailedContent: `Standardization of cable tray dimensions (width and flange height) is key to efficient plant engineering and inventory control.
@@ -2713,13 +2813,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Benefits
 - Interchangeability of parts
 - Simplified support design
-- Reduced design complexity`
+- Reduced design complexity`,
   },
   {
     index: 101,
     name: "Tabouk Spare Cable Tray 009",
     alt: "Tabouk spare cable tray 009, detailed view of the rung welding and structural integrity.",
-    description: "Tabouk spare cable tray 009, detailed view of the rung welding and structural integrity.",
+    description:
+      "Tabouk spare cable tray 009, detailed view of the rung welding and structural integrity.",
     slug: "tabouk-spare-cable-tray-009",
     url: "/diagrams/Tabouk spare cable trays 009.jpg",
     detailedContent: `The structural integrity of a cable tray depends heavily on the quality of the rung-to-siderail welds.
@@ -2733,13 +2834,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Safety Factors
 - Resistance to twisting and torsion
 - Rung pull-out strength
-- Vibration resistance`
+- Vibration resistance`,
   },
   {
     index: 102,
     name: "Tabouk Spare Cable Tray 010",
     alt: "Tabouk spare cable tray 010, stored with protective spacers to prevent damage during handling.",
-    description: "Tabouk spare cable tray 010, stored with protective spacers to prevent damage during handling.",
+    description:
+      "Tabouk spare cable tray 010, stored with protective spacers to prevent damage during handling.",
     slug: "tabouk-spare-cable-tray-010",
     url: "/diagrams/Tabouk spare cable trays 010.jpg",
     detailedContent: `Proper handling and storage protocols, such as using spacers, prevent damage to the galvanized coating of cable trays.
@@ -2753,13 +2855,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Quality Control
 - Pre-installation visual inspection
 - Repair of minor coating damage with zinc-rich paint
-- Verification of straightness`
+- Verification of straightness`,
   },
   {
     index: 103,
     name: "Tabouk Spare Cable Tray 016",
     alt: "Tabouk spare cable tray 016, wide-span tray designed for main feeder routes requiring high cable capacity.",
-    description: "Tabouk spare cable tray 016, wide-span tray designed for main feeder routes requiring high cable capacity.",
+    description:
+      "Tabouk spare cable tray 016, wide-span tray designed for main feeder routes requiring high cable capacity.",
     slug: "tabouk-spare-cable-tray-016",
     url: "/diagrams/Tabouk spare cable trays 016.jpg",
     detailedContent: `Wide-span cable trays are utilized for main feeder routes where high cable capacity and longer support spans are required.
@@ -2773,13 +2876,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Considerations
 - Increased weight loading on supports
 - Cable fill calculation is critical
-- Side rail height sufficient for cable depth`
+- Side rail height sufficient for cable depth`,
   },
   {
     index: 104,
     name: "Tabouk Spare Cable Tray 020",
     alt: "Tabouk spare cable tray 020, fitting or accessory piece used for custom tray configurations.",
-    description: "Tabouk spare cable tray 020, fitting or accessory piece used for custom tray configurations.",
+    description:
+      "Tabouk spare cable tray 020, fitting or accessory piece used for custom tray configurations.",
     slug: "tabouk-spare-cable-tray-020",
     url: "/diagrams/Tabouk spare cable trays 020.jpg",
     detailedContent: `Fittings and accessories are essential for customizing cable tray configurations to match complex plant layouts.
@@ -2793,13 +2897,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - Bolt-on connection compatibility
 - Maintaining bend radius integrity
-- Support placement near fittings`
+- Support placement near fittings`,
   },
   {
     index: 105,
     name: "Transformer Handling Operation",
     alt: "Complex transformer handling operation involving heavy-lift cranes and specialized transport trailers.",
-    description: "Complex transformer handling operation involving heavy-lift cranes and specialized transport trailers.",
+    description:
+      "Complex transformer handling operation involving heavy-lift cranes and specialized transport trailers.",
     slug: "transformer-handling-operation",
     url: "/diagrams/Transformer handling.jpg",
     detailedContent: `Transformer handling operations require heavy-lift equipment and specialized procedures for safe transport and installation.
@@ -2814,13 +2919,14 @@ The CCCW system provides cooling for electrical equipment:
 - Detailed lift plans
 - Ground bearing capacity verification
 - Weather monitoring during operations
-- Personnel exclusion zones`
+- Personnel exclusion zones`,
   },
   {
     index: 106,
     name: "Transformer Wheel Lock Mechanism",
     alt: "Close-up of the transformer wheel lock mechanism ensuring the unit remains stationary on its foundation rails.",
-    description: "Close-up of the transformer wheel lock mechanism ensuring the unit remains stationary on its foundation rails.",
+    description:
+      "Close-up of the transformer wheel lock mechanism ensuring the unit remains stationary on its foundation rails.",
     slug: "transformer-wheel-lock-mechanism",
     url: "/diagrams/Transformer wheel lock.jpg",
     detailedContent: `Transformer wheel locks secure large transformers on foundation rails, preventing movement during operation and seismic events.
@@ -2834,13 +2940,14 @@ The CCCW system provides cooling for electrical equipment:
 ## Installation
 - Secure to foundation rails
 - Engage after final positioning
-- Regular inspection for function`
+- Regular inspection for function`,
   },
   {
     index: 107,
     name: "Trenches Transformer Yard",
     alt: "Cable trenches in the transformer yard, routed to carry control and protection cables to the relay house.",
-    description: "Cable trenches in the transformer yard, routed to carry control and protection cables to the relay house.",
+    description:
+      "Cable trenches in the transformer yard, routed to carry control and protection cables to the relay house.",
     slug: "trenches-transformer-yard",
     url: "/diagrams/Trenches - Transformer yard-5.jpg",
     detailedContent: `Cable trenches in transformer yards route control, protection, and power cables between transformers and the relay house.
@@ -2854,6 +2961,6 @@ The CCCW system provides cooling for electrical equipment:
 ## Cable Types
 - Protection and control cables
 - SCADA and communication cables
-- Transformer auxiliary power cables`
+- Transformer auxiliary power cables`,
   },
 ];

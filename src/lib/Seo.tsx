@@ -62,11 +62,18 @@ type SeoProps = {
   additionalMetaTags?: Array<{ name: string; content: string }>;
 };
 
-export default function Seo({ title, description, canonical, additionalMetaTags }: SeoProps) {
+export default function Seo({
+  title,
+  description,
+  canonical,
+  additionalMetaTags,
+}: SeoProps) {
   const finalTitle = title || (seoConfig.defaultTitle as string);
   const finalDescription = description || (seoConfig.description as string);
 
-  const globalMeta = Array.isArray(seoConfig.additionalMetaTags) ? seoConfig.additionalMetaTags : [];
+  const globalMeta = Array.isArray(seoConfig.additionalMetaTags)
+    ? seoConfig.additionalMetaTags
+    : [];
   const pageMeta = Array.isArray(additionalMetaTags) ? additionalMetaTags : [];
 
   const mergedMeta: Array<{ name: string; content: string }> = [];

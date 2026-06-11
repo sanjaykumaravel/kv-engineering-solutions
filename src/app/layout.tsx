@@ -2,13 +2,21 @@ import "../index.css";
 import Providers from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { Inter } from "next/font/google";
 
 import type { Metadata } from "next";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.ksvengineering.com'),
+  metadataBase: new URL("https://www.ksvengineering.com"),
   title: {
-    default: "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC Projects",
+    default:
+      "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC Projects",
     template: "%s | KSV Engineering",
   },
   description:
@@ -19,7 +27,8 @@ export const metadata: Metadata = {
     url: "https://www.ksvengineering.com",
     siteName: "KSV Engineering",
     title: "KSV Engineering | Global Detailed Engineering Services",
-    description: "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
+    description:
+      "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
     images: [
       {
         url: "https://www.ksvengineering.com/images/services-preview.jpg",
@@ -34,7 +43,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: "KSV Engineering - Detailed Engineering Services",
         type: "image/png",
-      }
+      },
     ],
   },
   robots: {
@@ -127,9 +136,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -142,8 +155,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               logo: "https://www.ksvengineering.com/images/logo.png",
               description:
                 "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
-              slogan: "Your virtual extended arm for innovative engineering solutions",
-              areaServed: ["United Arab Emirates", "Saudi Arabia", "Qatar", "Kuwait", "Oman", "Bahrain", "India", "Global"],
+              slogan:
+                "Your virtual extended arm for innovative engineering solutions",
+              areaServed: [
+                "United Arab Emirates",
+                "Saudi Arabia",
+                "Qatar",
+                "Kuwait",
+                "Oman",
+                "Bahrain",
+                "India",
+                "Global",
+              ],
               sameAs: [
                 "https://www.linkedin.com/company/ksvengineering",
                 "https://www.youtube.com/@ksvengineering",
@@ -163,7 +186,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>
+      <body className={`${inter.variable} font-sans`}>
         <Providers>
           {/* <Header /> */}
           {children}

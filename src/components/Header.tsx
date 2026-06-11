@@ -2,25 +2,38 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleGetQuote = () => {
+    if (pathname === "/") {
+      document
+        .getElementById("contact")
+        ?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/contact");
+    }
+  };
 
   const navItems = [
     { label: "Home", href: "/" },
-    // { label: "LISP", href: "/lsp" },
+    { label: "LISP", href: "/lisp" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Technology", href: "/technology" },
     { label: "Images", href: "/images" },
-    { label: "Contact", href: "/contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 hover:opacity-90 transition-opacity">
           <div className="w-8 h-8 relative rounded-md overflow-hidden">
             <Image
               src="/lovable-uploads/658c083b-5ef7-40e2-ba6c-ecb609b7c0cb.png"
@@ -32,7 +45,7 @@ const Header = () => {
           <span className="font-bold text-xl text-foreground">
             KSV Engineering
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
@@ -48,11 +61,7 @@ const Header = () => {
           <Button
             variant="default"
             className="shadow-professional"
-            onClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={handleGetQuote}
           >
             Get Quote
           </Button>
@@ -85,9 +94,7 @@ const Header = () => {
                 className="w-full"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  handleGetQuote();
                 }}
               >
                 Get Quote

@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import { supabase } from '../../../../src/lib/supabaseServer';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import { supabase } from "../../../../src/lib/supabaseServer";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
@@ -10,48 +10,59 @@ export async function POST(req: Request) {
     const email = body?.email;
 
     if (!name || !country || !email) {
-      return NextResponse.json({ message: 'Name, country, and email are required' }, { status: 400 });
+      return NextResponse.json(
+        { message: "Name, country, and email are required" },
+        { status: 400 },
+      );
     }
 
     // check email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json({ message: 'Invalid email format' }, { status: 400 });
+      return NextResponse.json(
+        { message: "Invalid email format" },
+        { status: 400 },
+      );
     }
 
     // check duplicates
     const { data: existing, error: selectError } = await supabase
-      .from('register')
-      .select('id')
-      .eq('email', email);
+      .from("register")
+      .select("id")
+      .eq("email", email);
 
     if (selectError) throw selectError;
     if (existing && (existing as any).length > 0) {
-      return NextResponse.json({ message: 'Email already registered' }, { status: 409 });
+      return NextResponse.json(
+        { message: "Email already registered" },
+        { status: 409 },
+      );
     }
 
     // insert registration
     const { data: insertData, error: insertError } = await supabase
-      .from('register')
+      .from("register")
       .insert([{ name, country, email }])
       .select();
 
     if (insertError) throw insertError;
 
     // send confirmation email
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', // replace with your email service
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    try {
+      if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        const transporter = nodemailer.createTransport({
+          service: "gmail", // replace with your email service
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
 
-  await transporter.sendMail({
-  from: `"KSV Engineering" <${process.env.EMAIL_USER}>`,
-  to: email,
-  subject: "✅ Your KSV Engineering Seminar Registration is Confirmed!",
-  text: `
+        await transporter.sendMail({
+          from: `"KSV Engineering" <${process.env.EMAIL_USER}>`,
+          to: email,
+          subject: "✅ Your KSV Engineering Seminar Registration is Confirmed!",
+          text: `
 Hi ${name},
 
 Thank you for registering for the KSV Engineering Seminar.
@@ -68,7 +79,7 @@ We’ll send you seminar materials and updates soon.
 Best regards,
 KSV Engineering Team
   `,
-  html: `
+          html: `
   <div style="font-family: Arial, sans-serif; max-width: 650px; margin: auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0;">
     <div style="background-color: #f5f6fa; padding: 25px; text-align: center;">
       <img src="https://www.ksvengineering.com/_next/image?url=%2Flovable-uploads%2F658c083b-5ef7-40e2-ba6c-ecb609b7c0cb.png&w=3840&q=75"
@@ -113,17 +124,23 @@ KSV Engineering Team
     </div>
   </div>
   `,
-});
-
-
-
+        });
+      } else {
+        console.warn("EMAIL_USER or EMAIL_PASS environment variables are not set. Skipping confirmation email.");
+      }
+    } catch (mailError) {
+      console.error("Failed to send registration confirmation email:", mailError);
+    }
 
     return NextResponse.json(
-      { message: 'You have successfully registered for the seminar!', data: insertData },
-      { status: 201 }
+      {
+        message: "You have successfully registered for the seminar!",
+        data: insertData,
+      },
+      { status: 201 },
     );
   } catch (err: any) {
-    console.error('Server error:', err?.message || err);
-    return NextResponse.json({ message: 'Server error' }, { status: 500 });
+    console.error("Server error:", err?.message || err);
+    return NextResponse.json({ message: "Server error" }, { status: 500 });
   }
 }

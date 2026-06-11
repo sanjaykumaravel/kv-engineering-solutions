@@ -1,32 +1,49 @@
 import fs from 'fs';
 import path from 'path';
+import { createClient } from '@supabase/supabase-js';
+
+// Load .env file manually
+const envPath = path.resolve(process.cwd(), '.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf8');
+  envContent.split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const index = trimmed.indexOf('=');
+      if (index !== -1) {
+        const key = trimmed.substring(0, index).trim();
+        const value = trimmed.substring(index + 1).trim().replace(/^['"]|['"]$/g, '');
+        process.env[key] = value;
+      }
+    }
+  });
+}
 
 const SITE_URL = 'https://www.ksvengineering.com';
-const DATA_FILE = 'src/data/gallery-images.ts';
 const OUTPUT_FILE = 'public/sitemap-images.xml';
 
+const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
 async function generateImageSitemap() {
-  console.log(`Reading gallery data from ${DATA_FILE}...`);
+  console.log(`Fetching gallery data from Supabase...`);
 
   try {
-    const fileContent = fs.readFileSync(DATA_FILE, 'utf8');
-    
-    // 🛡️ Robust Parsing of TypeScript Data File
-    // We strip the "export const galleryItems =" part and eval the array.
-    // This works because the file is a simple object literal without complex TS syntax.
-    const dataContent = fileContent
-      .replace(/export const galleryItems =/, '') // Remove export
-      .replace(/;$/, '') // Remove trailing semicolon
-      .trim();
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Supabase URL or Key not found in environment.');
+    }
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const { data: galleryItems, error } = await supabase
+      .from('gallery_items')
+      .select('*')
+      .order('index', { ascending: true });
 
-    // specific tweak: if there are any TS types (like ': GalleryItem[]'), remove them
-    // But we know the file structure is simple.
-    
-    // Use Function constructor to safely evaluate the array literal
-    const galleryItems = new Function(`return ${dataContent}`)();
+    if (error) {
+      throw error;
+    }
 
     if (!galleryItems || galleryItems.length === 0) {
-      console.warn('No items found in gallery data!');
+      console.warn('No items found in database!');
       return;
     }
 
@@ -39,10 +56,10 @@ async function generateImageSitemap() {
 
     galleryItems.forEach((item) => {
       const pageUrl = `${SITE_URL}/images/${item.slug}`;
-      const imageUrl = `${SITE_URL}${item.url}`;
+      const imageUrl = item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`;
       
       // Escape special characters for XML
-      const escapeXml = (unsafe) => unsafe.replace(/[<>&'"]/g, (c) => {
+      const escapeXml = (unsafe) => (unsafe || '').replace(/[<>&'"]/g, (c) => {
         switch (c) {
           case '<': return '&lt;';
           case '>': return '&gt;';
@@ -54,7 +71,6 @@ async function generateImageSitemap() {
 
       const title = escapeXml(item.name || '');
       const caption = escapeXml(item.description || item.alt || '');
-      const alt = escapeXml(item.alt || '');
 
       xml += `  <url>
     <loc>${pageUrl}</loc>

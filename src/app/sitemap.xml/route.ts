@@ -67,10 +67,10 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
       if (fs.existsSync(pageTsx) || fs.existsSync(pageJsx)) {
         const relPath = path.relative(
           process.cwd(),
-          fs.existsSync(pageTsx) ? pageTsx : pageJsx
+          fs.existsSync(pageTsx) ? pageTsx : pageJsx,
         );
-  const rawLoc = path.join(baseUrl, entry.name).replace(/\\/g, "/");
-  const loc = normalizeLoc(rawLoc);
+        const rawLoc = path.join(baseUrl, entry.name).replace(/\\/g, "/");
+        const loc = normalizeLoc(rawLoc);
         const priority = priorityForPath(entry.name);
         const changefreq = changefreqForPriority(priority);
         results.push({
@@ -80,11 +80,13 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
           filePath: relPath,
         });
       }
-      results.push(...collectPagesFromDir(full, path.join(baseUrl, entry.name)));
+      results.push(
+        ...collectPagesFromDir(full, path.join(baseUrl, entry.name)),
+      );
     } else if (/^page\.(tsx|jsx)$/.test(entry.name)) {
-  const relPath = path.relative(process.cwd(), full);
-  const rawLoc = baseUrl.replace(/\\/g, "/");
-  const loc = normalizeLoc(rawLoc);
+      const relPath = path.relative(process.cwd(), full);
+      const rawLoc = baseUrl.replace(/\\/g, "/");
+      const loc = normalizeLoc(rawLoc);
       const priority = priorityForPath(loc);
       const changefreq = changefreqForPriority(priority);
       results.push({
@@ -98,12 +100,14 @@ function collectPagesFromDir(dir: string, baseUrl = ""): RouteItem[] {
   return results;
 }
 
-
-
 export async function GET() {
   const pages: RouteItem[] = [];
-  pages.push(...collectPagesFromDir(path.join(process.cwd(), "src", "app"), ""));
-  pages.push(...collectPagesFromDir(path.join(process.cwd(), "src", "pages"), ""));
+  pages.push(
+    ...collectPagesFromDir(path.join(process.cwd(), "src", "app"), ""),
+  );
+  pages.push(
+    ...collectPagesFromDir(path.join(process.cwd(), "src", "pages"), ""),
+  );
 
   // Ensure homepage is present with empty loc
   if (!pages.find((p) => p.loc === "")) {
@@ -118,13 +122,15 @@ export async function GET() {
       const loc = normalizeLoc(raw.replace(/^\//, ""));
       if (!map.has(loc)) {
         const priority = priorityForPath(loc);
-        map.set(loc, { loc, priority: priority.toFixed(1), changefreq: changefreqForPriority(priority) });
+        map.set(loc, {
+          loc,
+          priority: priority.toFixed(1),
+          changefreq: changefreqForPriority(priority),
+        });
       }
     }
   }
   for (const p of pages) if (!map.has(p.loc)) map.set(p.loc, p);
-
-
 
   const urlset = Array.from(map.values())
     .filter((r) => r.loc !== "blocked" && r.loc !== "/blocked")
@@ -135,12 +141,16 @@ export async function GET() {
           const full = path.join(process.cwd(), r.filePath);
           const stat = fs.statSync(full);
           lastmod = formatDate(stat.mtime);
-        } catch {}
+        } catch {
+          // Ignore files that cannot be statted
+        }
       }
 
       // Build canonical URL (avoid double slashes)
       const pathPart = r.loc === "" ? "" : `/${r.loc}`;
-      const encodedLoc = encodeURI(`${SITE_URL}${pathPart}`.replace(/\/\\/g, "/"));
+      const encodedLoc = encodeURI(
+        `${SITE_URL}${pathPart}`.replace(/\/\\/g, "/"),
+      );
       return `  <url>
     <loc>${escapeXml(encodedLoc)}</loc>
     ${lastmod ? `<lastmod>${escapeXml(lastmod)}</lastmod>` : ""}
@@ -149,8 +159,6 @@ export async function GET() {
   </url>`;
     })
     .join("\n");
-
-
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset 
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

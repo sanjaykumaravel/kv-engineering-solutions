@@ -5,7 +5,8 @@ export const metadata = {
   description:
     "KSV Engineering offers detailed engineering services, CAD automation, AutoCAD LISP development, plant design, EPC and PMC support, and 3D visualization for clients worldwide.",
   openGraph: {
-    title: "Services — KSV Engineering — Detailed Engineering, CAD Automation & LISP Customization",
+    title:
+      "Services — KSV Engineering — Detailed Engineering, CAD Automation & LISP Customization",
     description:
       "KSV Engineering offers detailed engineering services, CAD automation and AutoCAD LISP development for EPC, OEM and PMC clients. Services include building cable tray & lighting layouts, paper-to-CAD conversion, as-built drawings, estimation and costing, and 3D visualization.",
     url: "https://www.ksvengineering.com/services",
@@ -52,7 +53,11 @@ const servicesLd = {
 export default function ServicesPage() {
   return (
     <>
-      <script key="ld-services" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesLd) }} />
+      <script
+        key="ld-services"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesLd) }}
+      />
 
       <main>
         <Services />
@@ -64,8 +69,24 @@ export default function ServicesPage() {
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: { "@id": "https://www.ksvengineering.com/", "@type": "WebPage" } },
-                { "@type": "ListItem", position: 2, name: "Services", item: { "@id": "https://www.ksvengineering.com/services", "@type": "WebPage" } },
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: {
+                    "@id": "https://www.ksvengineering.com/",
+                    "@type": "WebPage",
+                  },
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Services",
+                  item: {
+                    "@id": "https://www.ksvengineering.com/services",
+                    "@type": "WebPage",
+                  },
+                },
               ],
             }),
           }}
