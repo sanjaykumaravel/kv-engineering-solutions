@@ -4,7 +4,12 @@ import Image from "next/image";
 import { whyChooseUs } from "@/data/aboutData";
 import { AboutCard } from "@/components/ui/AboutCard";
 
-const About = () => {
+interface AboutProps {
+  headingLevel?: "h1" | "h2";
+}
+
+const About = ({ headingLevel = "h2" }: AboutProps) => {
+  const Heading = headingLevel;
   return (
     <section id="about" className="py-24 bg-dot-pattern relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/10">
       {/* Accent glows */}
@@ -13,14 +18,15 @@ const About = () => {
       <div className="container px-6 sm:px-8 lg:px-12">
         {/* About Us */}
         <div className="text-center mb-20 max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+          <Heading className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
             About <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-black">KSV Engineering</span>
-          </h2>
+          </Heading>
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-light">
-            We provide detailed engineering services to EPC, OEM, and PMC as
-            long-term projects. Our services include Project Management,
-            Feasibility Studies, Conceptual & Basic Engineering, Detailed
-            Design, Procurement, Construction Management, Commissioning &
+            We provide detailed engineering services to EPC, OEM, and PMC clients as
+            long-term projects across the Middle East (including Saudi Arabia, UAE,
+            Qatar, Oman, Kuwait, and Bahrain) and globally. Our services include
+            Project Management, Feasibility Studies, Conceptual & Basic Engineering,
+            Detailed Design, Procurement, Construction Management, Commissioning &
             Start-up, and Operations & Maintenance.
           </p>
         </div>

@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     "CAD customization services",
     "Engineering consultancy",
     "Best engineering services for EPC projects",
-    "AutoCAD LISP programming services in India",
+    "AutoCAD LISP programming services in UAE",
     "CAD automation and customization company",
     "Detailed design engineering for OEM projects",
     "PMC engineering support for long-term projects",
@@ -158,14 +158,36 @@ export default function RootLayout({
               slogan:
                 "Your virtual extended arm for innovative engineering solutions",
               areaServed: [
-                "United Arab Emirates",
-                "Saudi Arabia",
-                "Qatar",
-                "Kuwait",
-                "Oman",
-                "Bahrain",
-                "India",
-                "Global",
+                {
+                  "@type": "Country",
+                  name: "United Arab Emirates",
+                  sameAs: "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+                },
+                {
+                  "@type": "Country",
+                  name: "Saudi Arabia",
+                  sameAs: "https://en.wikipedia.org/wiki/Saudi_Arabia",
+                },
+                {
+                  "@type": "Country",
+                  name: "Qatar",
+                  sameAs: "https://en.wikipedia.org/wiki/Qatar",
+                },
+                {
+                  "@type": "Country",
+                  name: "Kuwait",
+                  sameAs: "https://en.wikipedia.org/wiki/Kuwait",
+                },
+                {
+                  "@type": "Country",
+                  name: "Oman",
+                  sameAs: "https://en.wikipedia.org/wiki/Oman",
+                },
+                {
+                  "@type": "Country",
+                  name: "Bahrain",
+                  sameAs: "https://en.wikipedia.org/wiki/Bahrain",
+                },
               ],
               sameAs: [
                 "https://www.linkedin.com/company/ksvengineering",

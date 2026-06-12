@@ -3,15 +3,20 @@ import { contactInfo } from "@/data/contactData";
 import { ContactInfoCard } from "@/components/ui/ContactInfoCard";
 import { ContactForm } from "@/components/ui/ContactForm";
 
-const Contact = () => {
+interface ContactProps {
+  headingLevel?: "h1" | "h2";
+}
+
+const Contact = ({ headingLevel = "h2" }: ContactProps) => {
+  const Heading = headingLevel;
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container">
         <div className="text-center mb-16">
           {/* Main page heading for Contact */}
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <Heading className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Ready to <span className="text-primary">Work With Us?</span>
-          </h1>
+          </Heading>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Tell us more about your project requirements and get a detailed
             quote from our engineering experts.

@@ -15,7 +15,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <Contact />
+      <Contact headingLevel="h1" />
       <script
         key="ld-breadcrumb"
         type="application/ld+json"

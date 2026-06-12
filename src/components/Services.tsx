@@ -36,7 +36,12 @@ import {
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { ExpertiseBadge } from "@/components/ui/ExpertiseBadge";
 
-const Services = () => {
+interface ServicesProps {
+  headingLevel?: "h1" | "h2";
+}
+
+const Services = ({ headingLevel = "h2" }: ServicesProps) => {
+  const Heading = headingLevel;
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
@@ -54,9 +59,9 @@ const Services = () => {
 
         <div className="container px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-20 max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+            <Heading className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
               Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-black">Services</span>
-            </h2>
+            </Heading>
             <p className="text-lg sm:text-xl text-muted-foreground font-light leading-relaxed">
               Comprehensive engineering solutions from concept to commissioning
             </p>

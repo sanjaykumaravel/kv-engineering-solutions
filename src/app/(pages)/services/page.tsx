@@ -60,7 +60,7 @@ export default function ServicesPage() {
       />
 
       <main>
-        <Services />
+        <Services headingLevel="h1" />
         <script
           key="ld-breadcrumb"
           type="application/ld+json"

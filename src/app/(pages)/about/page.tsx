@@ -15,7 +15,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="px-4 py-8 max-w-7xl mx-auto">
-      <About />
+      <About headingLevel="h1" />
       <script
         key="ld-breadcrumb"
         type="application/ld+json"

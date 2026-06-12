@@ -7,13 +7,13 @@ import LspShowcase from "@/components/LspShowcase";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 export const metadata = {
-  title: "KSV Engineering | Detailed Engineering Services",
+  title: "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC",
   description:
-    "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
+    "KSV Engineering is your virtual extended arm for detailed engineering, CAD automation, and AutoCAD LISP customization across Saudi Arabia, UAE, Qatar, and Gulf regions.",
   openGraph: {
-    title: "KSV Engineering | Detailed Engineering Services",
+    title: "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC",
     description:
-      "Your virtual extended arm for innovative engineering solutions. Detailed engineering services to EPC, OEM, and PMC as long-term projects.",
+      "KSV Engineering is your virtual extended arm for detailed engineering, CAD automation, and AutoCAD LISP customization across Saudi Arabia, UAE, Qatar, and Gulf regions.",
     url: "https://www.ksvengineering.com",
   },
 };
