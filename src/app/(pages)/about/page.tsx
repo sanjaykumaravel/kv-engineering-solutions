@@ -4,6 +4,9 @@ export const metadata = {
   title: "About — KSV Engineering",
   description:
     "KSV Engineering provides detailed engineering services for EPC, OEM, and PMC clients worldwide. We act as your virtual extended arm delivering precision-driven engineering and CAD automation.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About — KSV Engineering",
     description:

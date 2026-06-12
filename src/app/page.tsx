@@ -10,6 +10,9 @@ export const metadata = {
   title: "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC",
   description:
     "KSV Engineering is your virtual extended arm for detailed engineering, CAD automation, and AutoCAD LISP customization across Saudi Arabia, UAE, Qatar, and Gulf regions.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "KSV Engineering | Detailed Engineering Services for EPC, OEM & PMC",
     description:

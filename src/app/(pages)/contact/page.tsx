@@ -4,6 +4,9 @@ export const metadata = {
   title: "Contact — KSV Engineering",
   description:
     "Contact KSV Engineering to discuss your EPC, OEM or PMC engineering requirements. We provide long-term project support and precise engineering deliverables.",
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     title: "Contact KSV Engineering — Request a Quote or Consultation",
     description:

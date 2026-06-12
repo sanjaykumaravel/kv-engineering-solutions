@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "AutoLISP Tools & AutoCAD Scripts | KSV Engineering",
   description:
     "Browse and download our complete suite of AutoCAD AutoLISP (LISP) tools, scripts, and utilities to automate your drawing and design workflows.",
+  alternates: {
+    canonical: "/lisp",
+  },
 };
 
 export default function LspPage() {

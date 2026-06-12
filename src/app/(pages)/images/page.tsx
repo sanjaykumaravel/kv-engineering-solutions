@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Site Images & Engineering Diagrams | KV Engineering Solutions",
   description:
     "Browse our extensive gallery of engineering diagrams, site photos, and technical illustrations.",
+  alternates: {
+    canonical: "/images",
+  },
 };
 
 const ITEMS_PER_PAGE = 12;

@@ -195,7 +195,7 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "info@ksvengineering.com",
+                email: "admin@ksvengineering.com",
                 contactType: "Customer Support",
                 availableLanguage: ["English"],
               },

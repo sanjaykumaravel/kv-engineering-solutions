@@ -4,6 +4,9 @@ export const metadata = {
   title: "Services — KSV Engineering",
   description:
     "KSV Engineering offers detailed engineering services, CAD automation, AutoCAD LISP development, plant design, EPC and PMC support, and 3D visualization for clients worldwide.",
+  alternates: {
+    canonical: "/services",
+  },
   openGraph: {
     title:
       "Services — KSV Engineering — Detailed Engineering, CAD Automation & LISP Customization",
@@ -46,7 +49,14 @@ const servicesLd = {
   ],
   description:
     "Detailed engineering services for EPC, OEM, and PMC clients including CAD automation, LISP customization, mechanical and electrical design, plant engineering, building layout drawings, paper-to-CAD conversion, and 3D visualization.",
-  areaServed: "GLOBAL",
+  areaServed: [
+    { "@type": "Country", "name": "United Arab Emirates", "sameAs": "https://en.wikipedia.org/wiki/United_Arab_Emirates" },
+    { "@type": "Country", "name": "Saudi Arabia", "sameAs": "https://en.wikipedia.org/wiki/Saudi_Arabia" },
+    { "@type": "Country", "name": "Qatar", "sameAs": "https://en.wikipedia.org/wiki/Qatar" },
+    { "@type": "Country", "name": "Kuwait", "sameAs": "https://en.wikipedia.org/wiki/Kuwait" },
+    { "@type": "Country", "name": "Oman", "sameAs": "https://en.wikipedia.org/wiki/Oman" },
+    { "@type": "Country", "name": "Bahrain", "sameAs": "https://en.wikipedia.org/wiki/Bahrain" }
+  ],
   audience: { "@type": "BusinessAudience", industry: "EPC, OEM, PMC" },
 };
 
